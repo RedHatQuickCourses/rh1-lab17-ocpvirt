@@ -1,7 +1,17 @@
-* xref:module-01.adoc[1. RPM Native Container]
-** xref:module-01.adoc#repositories[Repositories]
-** xref:module-01.adoc#software[Software]
+* xref:lab-environment.adoc[Lab Environment]
 
-* xref:module-02.adoc[2. GitHub Sourced Container]
-** xref:module-02.adoc#prerequisites[Install Prerequisites]
-** xref:module-02.adoc#container[Enable Container]
+* xref:exercise1-break.adoc[1. Virtual Machine is not starting]
+** xref:exercise1-break.adoc#break[Break the exercise]
+** xref:exercise1-check.adoc#check[Check your work]
+
+* xref:exercise2-break.adoc[2. Virtual Machine Pending]
+** xref:exercise2-break.adoc#break[Break the exercise]
+** xref:exercise2-check.adoc#check[Check your work]
+
+* xref:exercise3-break.adoc[3. Application is not being accessed externally]
+** xref:exercise3-break.adoc#break[Break the exercise]
+** xref:exercise3-check.adoc#check[Check your work]
+
+* xref:exercise4-break.adoc[4. Virtual Machine with performance degraded]
+** xref:exercise4-fix.adoc#break[Break the exercise]
+** xref:exercise4-check.adoc#check[Check your work]

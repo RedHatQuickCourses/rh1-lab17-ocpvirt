@@ -1,0 +1,4 @@
+[#fix]
+= Virtual Machine with performance degraded
+
+== Scenario

@@ -1,0 +1,8 @@
+[#check]
+= Check your work on exercise2
+
+To check you work exercute the `grade` lab.
+
+```
+lab grade exercise2
+```

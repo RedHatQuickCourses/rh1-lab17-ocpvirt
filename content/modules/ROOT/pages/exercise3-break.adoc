@@ -1,0 +1,4 @@
+[#scenario]
+= Application is not being accessed externally
+
+== Scenario

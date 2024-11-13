@@ -1,0 +1,4 @@
+[#fix]
+= Fix Application is not being accessed externally
+
+== Scenario

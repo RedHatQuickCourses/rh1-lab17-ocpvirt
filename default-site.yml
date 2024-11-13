@@ -1,7 +1,7 @@
 ---
 site:
-  title: Showroom Template Demo
-  url: https://redhat-scholars.github.io/course-template
+  title: Troubleshooting OpenShift Virtualization Lab
+  url: https://github.com/opentraining-labs-customizations/rh1-lab17-ocpvirt
   start_page: modules::index.adoc
 
 content:
