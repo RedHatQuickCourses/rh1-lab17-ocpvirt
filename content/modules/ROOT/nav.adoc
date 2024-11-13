@@ -15,3 +15,9 @@
 * xref:exercise4-break.adoc[4. Virtual Machine with performance degraded]
 ** xref:exercise4-fix.adoc#break[Break the exercise]
 ** xref:exercise4-check.adoc#check[Check your work]
+
+* xref:guidedsolution.adoc[Guided Solution]
+** xref:exercise1-guided.adoc[Exercise 1]
+** xref:exercise2-guided.adoc[Exercise 2]
+** xref:exercise3-guided.adoc[Exercise 3]
+** xref:exercise4-guided.adoc[Exercise 4]

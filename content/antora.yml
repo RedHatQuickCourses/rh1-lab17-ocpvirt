@@ -1,5 +1,5 @@
 name: modules
-title: Default Title
+title: OpenShift Virtualization Throubleshooting
 version: master
 nav:
   - modules/ROOT/nav.adoc
