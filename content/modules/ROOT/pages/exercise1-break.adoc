@@ -10,6 +10,7 @@ Your task is to identify the root cause and resolve the issue.
 
 In this exercise setup, you first need to access the bastion trough `bastion_url` to gain entry into the lab environment. From the terminal, access SSH the node `bastion_url` using `userX` (where X is the number of your user) 
 
+[source,sh,role=execute]
 ```
 ssh userX@bastion_url
 ```
