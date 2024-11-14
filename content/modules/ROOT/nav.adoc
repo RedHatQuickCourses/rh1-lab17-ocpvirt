@@ -1,20 +1,20 @@
 * xref:lab-environment.adoc[Lab Environment]
 
 * xref:exercise1-break.adoc[1. Virtual Machine is not scheduling - part 1]
-** xref:exercise1-break.adoc#break[Break the exercise]
-** xref:exercise1-check.adoc#check[Check your work]
+** xref:exercise1-break.adoc#break[1.1. Break the exercise]
+** xref:exercise1-check.adoc#check[1.2. Check your work]
 
 * xref:exercise2-break.adoc[2. Virtual Machine is not scheduling - part 2]
-** xref:exercise2-break.adoc#break[Break the exercise]
-** xref:exercise2-check.adoc#check[Check your work]
+** xref:exercise2-break.adoc#break[2.1. Break the exercise]
+** xref:exercise2-check.adoc#check[2.2. Check your work]
 
-* xref:exercise3-break.adoc[3. Application is not being accessed externally]
-** xref:exercise3-break.adoc#break[Break the exercise]
-** xref:exercise3-check.adoc#check[Check your work]
+* xref:exercise3-break.adoc[3. The application is not accessible externally]
+** xref:exercise3-break.adoc#break[3.1. Break the exercise]
+** xref:exercise3-check.adoc#check[3.2. Check your work]
 
 * xref:exercise4-break.adoc[4. Virtual Machine with performance degraded]
-** xref:exercise4-fix.adoc#break[Break the exercise]
-** xref:exercise4-check.adoc#check[Check your work]
+** xref:exercise4-fix.adoc#break[4.1. Break the exercise]
+** xref:exercise4-check.adoc#check[4.2 Check your work]
 
 * xref:guidedsolution.adoc[Guided Solution]
 ** xref:exercise1-guided.adoc[Exercise 1]

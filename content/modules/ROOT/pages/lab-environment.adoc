@@ -46,14 +46,21 @@ grade <exercise>
 clean <exercise>
 ```
 
-- Purpose: The clean command removes any changes you’ve made to the exercise, resetting it to its original state. 
+- Purpose: The clean command removes any changes you’ve made to the exercise, removing the resources created and resetting it to its original state. 
                     This is useful if you want to start the exercise from scratch or prepare it for another attempt It's recommended to run after finishing each exercise..
 - Example: `lab clean exercise1`
 
-Example Workflow:
+=== Example Workflow:
 
 - Start with `lab break <exercise>` to start the exercise.
 - Try to resolve the problem manually.
 - Run `lab grade <exercise>` to check your solution.
 - If needed, use `lab fix <exercise>` to restore functionality or `lab clean <exercise>` to start over.
 - At the end of each exercise you have to clean the lab
+
+=== Guided solutions
+
+The exercises resolution will be approached in two ways: through the OpenShift Web Console and the `oc` client. 
+The GUI allows users to interact with resources and perform tasks using a more visual, intuitive approach, ideal for those who prefer point and click actions. 
+The oc client provides a command line interface, giving users more flexibility, control to execute commands and automate tasks efficiently. 
+Both methods will ensure that the problem has been solved.

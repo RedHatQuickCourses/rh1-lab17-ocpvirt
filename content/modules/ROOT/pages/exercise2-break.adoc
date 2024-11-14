@@ -15,7 +15,7 @@ In this exercise setup, you first need to access the bastion trough `{bastion_pu
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 ```
 
-Once connected to the bastion host run the command lab to break the lab.
+Once connected to the bastion host run the command to break the lab.
 
 [source,sh,role=execute]
 ```

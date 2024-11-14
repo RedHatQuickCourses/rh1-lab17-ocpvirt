@@ -22,7 +22,7 @@ Once connected to the bastion host log in OCP cluster
 {login_command}
 ```
 
-run the command lab to break the lab
+run the command to break the lab
 
 [source,sh,role=execute]
 ```

@@ -1,8 +1,15 @@
 [#check]
-= Check your work on exercise3
+= Check your work on exercise 3
 
-To check you work exercute the `grade` lab.
+To check you work execute the `grade` lab.
 
 ```
 lab grade exercise3
+```
+
+If you encounter an issue with this exercise and would like assistance, simply run the `lab fix` command to resolve it.
+
+[source,sh,role=execute]
+```
+lab fix exercise3
 ```
