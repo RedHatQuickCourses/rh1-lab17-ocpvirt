@@ -2,3 +2,54 @@
 
 [#lab]
 == Lab description
+
+This lab is designed to simulate real problems in OpenShift Virtualization, providing hands-on experience with troubleshooting and resolving common issues.
+
+== lab script
+
+The `lab` script is the tool used in this lab with four main possible options: `break`, `fix`, `grade`, and `clean`, each acting on a specific `<exercise>`.
+
+=== Usage: 
+
+```
+lab <option> <exercise>
+```
+
+=== Options: 
+
+```
+break <exercise>
+```
+
+- Purpose: The break command introduces a problem or error into the specified exercise. This will prepare you exercise with a problem that you have to solve.
+- Example: `lab break exercise1`
+
+```
+fix <exercise>
+```
+
+- Purpose: The fix command resolves the problem introduced by break, essentially "restoring" the exercise to it's working state. This is handy if you’re stuck or want to check your solution against a working example.
+- Example: `lab fix exercise1`
+
+```
+grade <exercise>
+```
+
+- Purpose: The grade command verify your solution to the exercise. It checks for correctness based on exercise problem.
+- Example: `lab grade exercise1`
+
+```
+clean <exercise>
+```
+
+- Purpose: Purpose: The clean command removes any changes you’ve made to the exercise, resetting it to its original state. 
+                    This is useful if you want to start the exercise from scratch or prepare it for another attempt It's recommended to run after finishing each exercise..
+- Example: `lab clean exercise1`
+
+Example Workflow:
+
+- Start with lab break <exercise> to start the exercise.
+- Try to resolve the problem manually.
+- Run lab grade <exercise> to check your solution.
+- If needed, use lab fix <exercise> to restore functionality or lab clean <exercise> to start over.
+- At the end of each exercise you have to clean the lab
