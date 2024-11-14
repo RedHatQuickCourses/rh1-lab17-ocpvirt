@@ -5,9 +5,13 @@
 
 This lab is designed to simulate real problems in OpenShift Virtualization, providing hands-on experience with troubleshooting and resolving common issues.
 
+== Bastion
+
+All scripts and commands in this lab environment must be executed exclusively via SSH through the bastion host. Check if you are connected on bastion before executing any `lab` script.
+
 == lab script
 
-The `lab` script is the tool used in this lab with four main possible options: `break`, `fix`, `grade`, and `clean`, each acting on a specific `<exercise>`.
+The `lab` script is the tool used in this lab with four possible options: `break`, `fix`, `grade`, and `clean`, each acting on a specific `<exercise>`.
 
 === Usage: 
 

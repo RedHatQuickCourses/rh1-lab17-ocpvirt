@@ -1,5 +1,5 @@
 [#scenario]
-= Virtual Machine is with status status
+=  Virtual Machine is not scheduling - part 1
 
 == Scenario
 
@@ -8,15 +8,23 @@ Your task is to identify the root cause and resolve the issue.
 
 == Executing the lab script
 
-In this exercise setup, you first need to access the bastion trough `bastion_url` to gain entry into the lab environment. From the terminal, access SSH the node `bastion_url` using `userX` (where X is the number of your user) 
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal on right side, access SSH the node bastion.
 
 [source,sh,role=execute]
 ```
-ssh userX@bastion_url
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 ```
 
-Once connected to the bastion host run the command lab to break the lab.
+Once connected to the bastion host log in OCP cluster
 
+[source,sh,role=execute]
+```
+{login_command}
+```
+
+run the command lab to break the lab
+
+[source,sh,role=execute]
 ```
 lab break exercise1
 ```

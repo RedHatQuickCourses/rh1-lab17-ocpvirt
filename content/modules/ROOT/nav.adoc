@@ -1,10 +1,10 @@
 * xref:lab-environment.adoc[Lab Environment]
 
-* xref:exercise1-break.adoc[1. Virtual Machine is with status ErrorUnschedulable]
+* xref:exercise1-break.adoc[1. Virtual Machine is not scheduling - part 1]
 ** xref:exercise1-break.adoc#break[Break the exercise]
 ** xref:exercise1-check.adoc#check[Check your work]
 
-* xref:exercise2-break.adoc[2. Virtual Machine is with status Pending]
+* xref:exercise2-break.adoc[2. Virtual Machine is not scheduling - part 2]
 ** xref:exercise2-break.adoc#break[Break the exercise]
 ** xref:exercise2-check.adoc#check[Check your work]
 

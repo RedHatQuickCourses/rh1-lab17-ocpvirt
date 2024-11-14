@@ -17,3 +17,4 @@ asciidoc:
     page-links:
     - url: https://redhat.com
       text: Red Hat
+    login_command: "oc login --insecure-skip-tls-verify=false -u user2 -p 4GK0Iuskmp0ezjdX https://api.cluster-z5hvw.dynamic.redhatworkshops.io:6443"
