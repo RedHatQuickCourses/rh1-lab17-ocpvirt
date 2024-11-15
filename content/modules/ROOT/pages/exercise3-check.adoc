@@ -1,7 +1,7 @@
 [#check]
 = Check your work on exercise 3
 
-To check you work execute the `grade` lab.
+To check you work execute the `lab grade`.
 
 ```
 lab grade exercise3
@@ -12,4 +12,10 @@ If you encounter an issue with this exercise and would like assistance, simply r
 [source,sh,role=execute]
 ```
 lab fix exercise3
+```
+
+Please run the `lab clean script` before proceeding to the next exercise.
+[source,sh,role=execute]
+```
+lab clean exercise3
 ```

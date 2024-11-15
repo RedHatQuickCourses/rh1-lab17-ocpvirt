@@ -4,13 +4,11 @@
 == Scenario
 
 The application is running on a virtual machine `exercise3` and is intended to be accessible externally through https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io, but it’s currently facing connectivity issues. 
-The objective of this exercise is to identify the root cause of the problem checking the OpenShift network components used to access an application on the OpenShift cluster.
-
-In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal on right side, access SSH the node bastion.
+The objective of this exercise is to identify the root cause of the issue by examining the OpenShift network components involved in accessing an application within the OpenShift cluster.
 
 == Executing the lab script
 
-In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access SSH the node bastion if you are not connected.
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access SSH the node bastion if you are not connected yet.
 
 [source,sh,role=execute]
 ```
@@ -22,3 +20,4 @@ Once connected to the bastion host run the command to break the lab.
 [source,sh,role=execute]
 ```
 lab break exercise3
+```

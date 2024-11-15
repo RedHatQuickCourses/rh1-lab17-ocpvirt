@@ -52,15 +52,15 @@ clean <exercise>
 
 === Example Workflow:
 
-- Start with `lab break <exercise>` to start the exercise.
-- Try to resolve the problem manually.
-- Run `lab grade <exercise>` to check your solution.
-- If needed, use `lab fix <exercise>` to restore functionality or `lab clean <exercise>` to start over.
-- At the end of each exercise you have to clean the lab
+. Start with `lab break <exercise>` to start the exercise.
+. Try to resolve the problem manually.
+. Run `lab grade <exercise>` to check your solution.
+. If needed, use `lab fix <exercise>` to restore functionality or `lab clean <exercise>` to start over on step 1
+. At the end of each exercise you have to clean the lab
 
 === Guided solutions
 
 The exercises resolution will be approached in two ways: through the OpenShift Web Console and the `oc` client. 
-The GUI allows users to interact with resources and perform tasks using a more visual, intuitive approach, ideal for those who prefer point and click actions. 
-The oc client provides a command line interface, giving users more flexibility, control to execute commands and automate tasks efficiently. 
+The GUI allows users to interact with resources and perform tasks using a more visual and ideal for those who prefer point and click actions. 
+The oc client provides a command line interface, giving users more flexibility, control to execute commands and automate tasks. 
 Both methods will ensure that the problem has been solved.
