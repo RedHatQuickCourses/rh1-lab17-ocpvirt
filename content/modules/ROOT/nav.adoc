@@ -1,9 +1,9 @@
 * xref:lab-environment.adoc[Lab Environment]
 
-* xref:exercise1-break.adoc#break[1. Virtual Machine is not scheduling - part 1]
+* xref:exercise1-break.adoc#break[1. Virtual Machine is not starting - part 1]
 ** xref:exercise1-check.adoc#check[1.1. Check your work]
 
-* xref:exercise2-break.adoc#break[2. Virtual Machine is not scheduling - part 2]
+* xref:exercise2-break.adoc#break[2. Virtual Machine is not starting - part 2]
 ** xref:exercise2-check.adoc#check[2.1. Check your work]
 
 * xref:exercise3-break.adoc#break[3. The application is not accessible externally]

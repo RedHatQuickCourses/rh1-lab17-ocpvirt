@@ -1,5 +1,5 @@
 [#scenario]
-= Virtual Machine is not scheduling - part 2
+= Virtual Machine is not starting - part 2
 
 == Scenario
 
