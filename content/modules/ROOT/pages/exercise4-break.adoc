@@ -5,6 +5,7 @@
 
 The development team has reported a performance issue with an application running inside the virtual machine `exercise4` and you need to investigate the problem. 
 The initial analysis will involve examining virtual machine resource usage, such as CPU, memory, and disk I/O. Changing compute resources are available in this lab but `no reboot` is mandatory.
+
 The goal is to identify any bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
 
 == Executing the lab script

@@ -3,8 +3,9 @@
 
 == Scenario
 
-The application is running on a virtual machine `exercise3` and is intended to be accessible externally through https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io, but it’s currently facing connectivity issues. 
-The objective of this exercise is to identify the root cause of the issue by examining the OpenShift network components involved in accessing an application within the OpenShift cluster.
+The application is running on a virtual machine `exercise3` and is intended to be accessible externally through https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io, but it’s currently facing connectivity issues.
+
+The primary goal in this scenario is to investigate the cause of the issue by examining the OpenShift network components involved in accessing the application within the OpenShift cluster.
 
 == Executing the lab script
 
