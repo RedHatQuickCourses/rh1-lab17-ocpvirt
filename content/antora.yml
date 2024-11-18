@@ -11,9 +11,10 @@ asciidoc:
     page-pagination: true
     my_var: "foo"
     guid: my-guid
-    ssh_user: devops
-    ssh_password: devops
-    ssh_command: ssh someone@example.com
+    bastion_ssh_password: teste
+    bastion_ssh_port: 31000
+    bastion_public_hostname: ssh.demo.redhat.com
+    ssh_command: ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
     page-links:
     - url: https://redhat.com
       text: Red Hat
