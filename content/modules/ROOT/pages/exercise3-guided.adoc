@@ -2,3 +2,39 @@
 = Fix Application is not being accessed externally
 
 == Scenario
+
+The application is running on a virtual machine `exercise3` and is intended to be accessible externally through https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io, but it’s currently facing connectivity issues.
+
+The primary goal in this scenario is to investigate the cause of the issue by examining the OpenShift network components involved in accessing the application within the OpenShift cluster.
+
+Your task is to identify the root cause and resolve the issue.
+
+The steps to fix exercise3 are:
+
+.Console
+----
+1. Login to Openshift console using the assigned user account
+2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
+3. Go to Networking - look for the name exercise3 and location - click the location (https route)
+4. In the new browser tab - check the error status (The application is currently not serving requests at this endpoint. It may not have been started or is still starting.)
+5. Go to Network - Services - Check exercise3 services - Look for target port (80) and IP
+6. Go to Workloads - Pod - Select curlimage pod - Terminal
+7. Try to do curl from the pod to service IP and port (80)
+8. The service should be accessible with message: Hello from exercise3, you are doing a great job!
+9. Go to Network - Routes - Check exercise3 routes - Look for target port (8080)
+10. Edit route for exercise3 in yaml and update the target port into 80 - Save
+11. Access the route URL and application should be accessible
+----
+
+.CLI
+----
+1. Login to Openshift server api using the assigned user account with oc command
+2. Go to assigned namespace-{{ user }}
+3. Check the service details of exercise3 and get details for IP and Port (80) - oc describe svc exercise3
+4. Go to the curlimage pod (oc rsh pod curlimage)
+5. Curl the IP and port from service in the curlimage pod - The curl should be working (Hello from exercise3, you are doing a great job!) 
+6. Check the route target port (oc describe route exercise3) - Wrong target port (8080)
+7. Edit the route exercise3 target port to 80 (oc edit route exercise3 and change target port to 80)
+8. Curl the route location for exercise3 (Hello from exercise3, you are doing a great job!)
+----
+

@@ -2,3 +2,33 @@
 = Fix Virtual Machine is not starting
 
 == Scenario
+
+The user is trying to deploy and running virtual machine in specific workload and running an issue.
+
+The primary goal in this scenario is to investigate the cause of the failure and take corrective action to bring `exercise2` virtual machine online again.
+
+Your task is to identify the root cause and resolve the issue.
+
+The steps to fix exercise2 are:
+
+.Console
+----
+1. Login to Openshift console using the assigned user account
+2. Go to virtualization - virtual machine - look for VM status
+3. Check the error status
+4. Go to tab yaml and look for NodeSelector and Tolerations
+5. Remove the NodeSelector and Tolerations
+6. Restart the virtual machine
+7. Wait and make sure the vm is in running state
+----
+
+.CLI
+----
+1. Login to Openshift server api using the assigned user account
+2. Go to assigned namespace (oc project namespace-[user])
+3. Check vm status (oc get pod,vm)
+4. Check the vm error status (oc describe vm name)
+5. Edit the vm yaml
+6. Restart the virtual machine
+7. Wait and make sure the vm is in running state (oc get vm,pod)
+----

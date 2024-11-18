@@ -18,5 +18,5 @@ lab fix exercise2
 Please run the `lab clean script` before proceeding to the next exercise.
 [source,sh,role=execute]
 ```
-lab clean exercise3
+lab clean exercise2
 ```
