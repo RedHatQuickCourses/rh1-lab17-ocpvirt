@@ -3,6 +3,7 @@
 
 To check you work execute the `lab grade`.
 
+[source,sh,role=execute]
 ```
 lab grade exercise3
 ```
