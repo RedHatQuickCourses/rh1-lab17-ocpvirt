@@ -15,7 +15,7 @@ In this exercise setup, you first need to access the bastion trough `{bastion_pu
 
 [source,sh,role=execute,subs="attributes"]
 ----
-{ssh_command}
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 ----
 
 Once connected to the bastion host log in OCP cluster
