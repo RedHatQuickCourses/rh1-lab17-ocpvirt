@@ -15,36 +15,36 @@ The `lab` script is the tool used in this lab with four possible options: `break
 
 === Usage: 
 
-```
+----
 lab <option> <exercise>
-```
+----
 
 === Options: 
 
-```
+----
 break <exercise>
-```
+----
 
 - Purpose: The break command introduces a problem into the specified exercise. This will prepare your exercise with a problem that you have to solve.
 - Example: `lab break exercise1`
 
-```
+----
 fix <exercise>
-```
+----
 
 - Purpose: The fix command resolves the problem introduced by break, essentially "restoring" the exercise to it's working state. This is helpful if you’re stuck or want to check your solution against a working example.
 - Example: `lab fix exercise1`
 
-```
+----
 grade <exercise>
-```
+----
 
 - Purpose: The grade command verify your solution to the exercise. It checks for correctness based on exercise problem.
 - Example: `lab grade exercise1`
 
-```
+----
 clean <exercise>
-```
+----
 
 - Purpose: The clean command removes any changes you’ve made to the exercise, removing the resources created and resetting it to its original state. 
                     This is useful if you want to start the exercise from scratch or prepare it for another attempt It's recommended to run after finishing each exercise..

@@ -13,14 +13,14 @@ Your task is to identify the root cause and resolve the issue.
 
 In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access SSH the node bastion if you are not connected yet.
 
-[source,sh,role=execute]
-```
+[source,sh,role=execute,subs="attributes"]
+----
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
-```
+----
 
 Once connected to the bastion host run the command to break the lab.
 
-[source,sh,role=execute]
-```
+[source,sh,role=execute,subs="attributes"]
+----
 lab break exercise2
-```
+----

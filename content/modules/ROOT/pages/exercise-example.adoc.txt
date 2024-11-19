@@ -18,7 +18,7 @@ Using the "buildah from" command will download and meld the container image. Thi
 image from Red Hat's registry.
 
 +
-[source,sh,role=execute]
+[source,sh,role=execute,subs="attributes"]
 ----
 buildah from registry.access.redhat.com/ubi9/ubi
 ----
