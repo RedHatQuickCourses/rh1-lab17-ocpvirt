@@ -29,11 +29,13 @@ image::exercise6/03-step4.png[]
 
 [start=5]
 5. Examine the logs of the `virt-launcher-exercise6` pod to identify the root cause. 
-5.1 Go to the project for the assigned user account and then look for the failed pod.
 
+** Go to the project for the assigned user account and then look for the failed pod.
++
 image::exercise6/04-step5-1.png[]
++
 
-5.2 Check the pod logs. The issue occurs because the virtual machine disks are configured as read-only, preventing migration. 
+** Check the pod logs. The issue occurs because the virtual machine disks are configured as read-only, preventing migration. 
 
 [source]
 ----
@@ -43,54 +45,172 @@ image::exercise6/04-step5-1.png[]
 [start=6]
 6. Stop the virtual machine to edit its configuration.
 
+[start=7]
+7. Edit the virtual machine and remove the fields `readonly: true` from the VM disks. Go to the `YAML` section and change the field `spec.template.spec.domain.devices.disks.readonly` to false.
+
+[source, yaml]
+----
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+                readonly: false
+              name: rootdisk
+            - disk:
+                bus: virtio
+                readonly: false
+              name: cloudinitdisk
+          interfaces:
+----
+
+[start=8]
+8. Start again the virtual machine. Check the node where the virtual machine is placed.
+
+image::exercise6/05-step8.png[]
+
+[start=9]
+9. Migrate virtual machine.
+
+[start=10]
+10. The virtual machine should be migrated to another node successfully.
+
+image::exercise6/06-step10.png[]
+
+
+=== CLI
+
+1. Login to OpenShift server api using the assigned user account with `oc` command.
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+[start=2]
+2. Go to the assigned namespace-{{ user }}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. Check there is a virtual machine running in this namespace. The output should be similar to the following one: 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi
+----
+
+----
+NAME        AGE   PHASE     IP            NODENAME                 READY
+exercise6   11m   Running   10.132.2.46   worker-cluster-1   True
+----
+
+[start=4]
+4. Migrate the virtual machine using the `virtctl` command.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl migrate exercise6
+----
+
+[start=5]
+5. Check the migration status by retreiving the `VirtualMachineInstanceMigration` object. The output should indicate that the migration is in the `Failed` phase.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get VirtualMachineInstanceMigration 
+----
+
+----
+NAME                        PHASE    VMI
+kubevirt-migrate-vm   Failed   exercise6
+----
+
+[start=6]
+6. Stop the virtual machine.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl stop exercise6
+----
 
 [start=7]
-7. Edit the virtual machine and remove the fields `readonly: true` from the VM disks.
+7. Edit the virtual machine and remove the fields `readonly: true` from the VM disks. Change the field `spec.template.spec.domain.devices.disks.readonly` to false.
 
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit vm exercise6
+----
+
+
+[source, yaml]
+----
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+                readonly: false
+              name: rootdisk
+            - disk:
+                bus: virtio
+                readonly: false
+              name: cloudinitdisk
+          interfaces:
+----
 
 [start=8]
 8. Start again the virtual machine.
-9. Migrate virtual machine.
-10. The virtual machine should be migrated to another node successfully.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl start exercise6
 ----
 
-=== CLI
-----
-1. Login to Openshift server api using the assigned user account with oc command
-2. Go to assigned namespace-{{ user }}
-3. Check there is a virtual machine running in this namespace
-4. Create a `VirtualMachineInstanceMigration` resource for the VM that you want to migrate:
+[start=9]
+9. Check the node where the virtual machine is placed.
 
+[source,sh,role=execute,subs="attributes"]
 ----
-    apiVersion: kubevirt.io/v1
-    kind: VirtualMachineInstanceMigration
-    metadata:
-      name: exercise6-migration
-    spec:
-      vmiName: exercise6
+oc get vmi
 ----
 
-5. Create the object by running the following command:
-
 ----
-    oc create -f <migration_name>.yaml
-----
-
-6. Check the `VirtualMachineInstanceMigratio` status.
-7. Stop the virtual machine
-8. Edit the virtual machine and remove the fields `readonly: true` from the VM disks
-9. Start again the virtual machine.
-10. Create a new `VirtualMachineInstanceMigration` resource
-
-----
-    apiVersion: kubevirt.io/v1
-    kind: VirtualMachineInstanceMigration
-    metadata:
-    name: exercise6-success-migration
-    spec:
-    vmiName: exercise6
+NAME        AGE   PHASE     IP            NODENAME                 READY
+exercise6   98s   Running   10.132.2.48   worker-cluster-vmnjk-1   True
 ----
 
-11. The virtual machine should be migrated to another node successfully.
+[start=10]
+10. Migrate the virtual machine. 
 
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl migrate exercise6
+----
+
+[start=11]
+11. Check the migration status by retreiving the `VirtualMachineInstanceMigration` object. Now, the output should indicate that the migration is in the `Succeeded` phase.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get VirtualMachineInstanceMigration 
+----
+
+----
+NAME                        PHASE         VMI
+kubevirt-migrate-vm     Succeeded   exercise6
+----
+
+[start=12]
+12. Check the node where the vortual machine is now placed
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi
+----
+
+----
+NAME        AGE     PHASE     IP             NODENAME                 READY
+exercise6   3m50s   Running   10.135.1.196   worker-cluster-vmnjk-3   True
 ----
