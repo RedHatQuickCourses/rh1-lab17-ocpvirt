@@ -3,10 +3,9 @@
 
 == Scenario
 
-The user is trying to migrate the virtual machine from one node to another using live migration.
+The user is attempting to migrate a virtual machine from one node to another using live migration.
 
-The primary goal in this scenario is to investigate the cause of the live mmigration failure and take corrective action to have `exercise6` virtual machine migrated to another node.
-Your task is to identify the root cause and resolve the issue.
+The primary goal is to investigate the cause of the live migration failure and take corrective action to successfully migrate the `exercise6` virtual machine to another node. Your task is to identify the root cause and resolve the issue.
 
 == Executing the lab script
 
