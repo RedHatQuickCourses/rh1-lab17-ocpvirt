@@ -12,8 +12,12 @@
 * xref:exercise4-break.adoc#break[4. Virtual Machine with performance degraded]
 ** xref:exercise4-check.adoc#check[4.1. Check your work]
 
+* xref:exercise6-break.adoc#break[6. Virtual Machine cannot be live migrated]
+** xref:exercise6-check.adoc#check[6.1. Check your work]
+
 * xref:guidedsolution.adoc[Guided Solution]
 ** xref:exercise1-guided.adoc[Exercise 1]
 ** xref:exercise2-guided.adoc[Exercise 2]
 ** xref:exercise3-guided.adoc[Exercise 3]
 ** xref:exercise4-guided.adoc[Exercise 4]
+** xref:exercise6-guided.adoc[Exercise 6]

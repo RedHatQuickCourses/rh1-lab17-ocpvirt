@@ -1,0 +1,75 @@
+[#fix]
+= Live Migration failed
+
+== Scenario
+
+The user is trying to migrate the virtual machine from one node to another using live migration.
+
+The primary goal in this scenario is to investigate the cause of the live mmigration failure and take corrective action to have `exercise6` virtual machine migrated to another node.
+Your task is to identify the root cause and resolve the issue.
+
+The steps to fix exercise6 are:
+
+.Console
+
+1. Login to Openshift console using the assigned user account
+
+2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called exercise6
+
+image::exercise6/01-step2.png[]
+
+3. Open the Virtual Machine exercise 6 to get its details
+
+image::exercise6/02-step3.png[]
+
+4. Try to migrate the virtual machine using Live Migration. Migration is going to fail.
+
+
+5. Look fo the root cause in the `virt-launcher-exercise6` pod logs.
+7. Stop the virtual machine to edit its configuration.
+8. Edit the virtual machine yaml and remove the fields `readonly: true` from the VM disks
+9. Start again the virtual machine.
+10. Migrate virtual machine.
+11. The virtual machine should be migrated to another node successfully.
+----
+
+.CLI
+----
+1. Login to Openshift server api using the assigned user account with oc command
+2. Go to assigned namespace-{{ user }}
+3. Check there is a virtual machine running in this namespace
+4. Create a `VirtualMachineInstanceMigration` resource for the VM that you want to migrate:
+
+----
+    apiVersion: kubevirt.io/v1
+    kind: VirtualMachineInstanceMigration
+    metadata:
+    name: exercise6-migration
+    spec:
+    vmiName: exercise6
+----
+
+5. Create the object by running the following command:
+
+----
+    oc create -f <migration_name>.yaml
+----
+
+6. Check the `VirtualMachineInstanceMigratio` status.
+7. Stop the virtual machine
+8. Edit the virtual machine and remove the fields `readonly: true` from the VM disks
+9. Start again the virtual machine.
+10. Create a new `VirtualMachineInstanceMigration` resource
+
+----
+    apiVersion: kubevirt.io/v1
+    kind: VirtualMachineInstanceMigration
+    metadata:
+    name: exercise6-success-migration
+    spec:
+    vmiName: exercise6
+----
+
+11. The virtual machine should be migrated to another node successfully.
+
+----

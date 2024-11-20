@@ -1,0 +1,22 @@
+[#check]
+= Check your work on exercise 6
+
+To check you work execute the `lab grade`.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab grade exercise6
+----
+
+If you encounter an issue with this exercise and would like assistance, simply run the `lab fix` command to resolve it.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab fix exercise6
+----
+
+Please run the `lab clean script` before proceeding to the next exercise.
+[source,sh,role=execute,subs="attributes"]
+----
+lab clean exercise6
+----
