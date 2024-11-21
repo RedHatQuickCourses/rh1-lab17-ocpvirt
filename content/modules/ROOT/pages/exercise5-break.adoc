@@ -1,0 +1,24 @@
+[#scenario]
+= Additional disk unaccessible in Virtual Machine
+
+== Scenario
+
+User is reporting the additional disk in exercise5 virtual machine not showing in the lists when running fdisk or lsblk command.
+
+Users would like to create a disk with the name exercise5-vol-data1 and mount it to the virtual machine.
+
+NOTE: Your task is to troubleshoot and resolve the issue so that the exercise5-vol-data1 disk is showing when the user runs the lsblk or fdisk command.
+
+== Executing the lab script
+
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access SSH the node bastion if you are not connected yet.
+
+[source,sh,role=execute]
+```
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+```
+Once connected to the bastion host run the command to break the lab.
+
+[source,sh,role=execute]
+```
+lab break exercise4

@@ -3,7 +3,8 @@
 
 == Scenario
 
-In this scenario, a Virtual Machine named `exercise4` is currently `Running`. The development team has reported a performance issue with an application hosted inside this VM. 
+In this scenario, a Virtual Machine named `exercise4` is currently `Running`. The development team has reported a performance issue with an application hosted inside this VM.
+
 Your task is to investigate the problem, starting with an analysis of the VM's resource usage, including CPU, memory, disk I/O and so on. 
 Adjusting Virtual Machine compute resources is allowed in this lab; however, `no reboot` is mandatory.
 

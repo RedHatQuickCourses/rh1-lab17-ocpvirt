@@ -1,0 +1,46 @@
+[#fix]
+= Virtual Machine with performance degraded
+
+== Scenario
+
+User is reporting the additional disk in exercise5 virtual machine not showing in the lists when running fdisk or lsblk command.
+
+Users would like to create a disk with the name exercise5-vol-data1 and mount it to the virtual machine.
+
+NOTE: Your task is to troubleshoot and resolve the issue so that the exercise5-vol-data1 disk is showing when the user runs the lsblk or fdisk command.
+
+NOTE: Virtual machine credentials - lab-user/redhat1
+
+TIP: Steps to fix the issue in exercise5
+
+.Console
+----
+1. Login to Openshift console using the assigned user account
+2. Go to Virtualization - VirtualMachines - select project for the assigned user account - look for VM exercise5 status (Running)
+3. From the VM menu connect to console of exercise5 and login with lab-user credential
+4. From the RHEL 9 run command fdsisk -l or lbslk. The assigned additional disk not exist.
+5. From the Openshift Menu - Storage - PersistentVolumeClaims (PVC) - Check the additional disk PVC (exercise5-vol-data1) status is Pending - Not bound
+6. Go to Virtualization - VirtualMachines - VirtualMachine details - Click Configuration - Select Storage - Look for additional disk (exercise5-vol-data1)
+7. From the additional disk (exercise5-vol-data1) - Select the source - Look in the yaml - Search for storageClassName (pending status from the disk should be ocs-external-storagecluster-cephfs)
+8. Back to VirtualMachine details - Click Configuration - Select Storage - Detach exercise5-vol-data1 disk from the three dots menu
+9 Recreate exercise5-vol-data1 disk by clicking Add disk - Put the name exercise5-vol-data1 - Make sure the StorageClass is ocs-external-storagecluster-ceph-rbd and let default for other value - Save
+10. From the Openshift Menu - Storage - PersistentVolumeClaims (PVC) - Check the additional disk PVC (exercise5-vol-data1) status is Bound
+11. From the VM menu connect to console of exercise5 and login with lab-user credential.
+12. From the RHEL 9 run command fdsisk -l or lbslk. The assigned additional 30GiB disk should be there now and readu to format and mount as filesystem by the user.
+----
+
+.CLI
+----
+1. Login to Openshift server api using the assigned user account with oc command
+2. Go to assigned namespace-{{ user }} for respective user (ex: namespace-user3)
+3. oc get vm for checking the virtual machine status and make sure its running
+4. oc get datavolume and oc get pvc for checking the additional data disk (exercise5-vol-data1) status is Pending - Not bound)
+5. Check the configuration of exercise5-vol-data1 disk by doing oc edit pvc exercise5-vol-data1
+6. From the yaml editor check for the storageClassName and it should be ocs-external-storagecluster-cephfs
+7. Delete the DataVolume and PersistentVolumeClaims of exercise5-vol-data1 by doing virtctl removevolume exercise5 --volume-name=exercise5-vol-data1 --persist and oc delete pvc exercise5-vol-data1
+8. Create again the pvc by using the storageClassName of ocs-external-storagecluster-ceph-rbd with the name exercise5-vol-data1 and using 30GiB size.
+9. Create DataVolume of exercise5-vol-data1 by using command virtctl addvolume exercise5 --volume-name=exercise5-vol-data1 --persist
+10. Check the status of exercise5-vol-data1 by using oc get pvc and look for the additional disk
+11. Go to virtual machine console of exercise5 by doing virtctl console exercise5 and login using lab-user credential
+12. Check the disk availability using lsblk or fdisk -l command. The new additional disk from exercise5-vol-data1 should be there and ready to be format and mount by the user.
+----
