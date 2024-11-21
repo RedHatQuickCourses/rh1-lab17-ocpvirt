@@ -10,7 +10,7 @@ Your task is to identify the root cause and resolve the issue.
 
 == Executing the lab script
 
-In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal on right side, access SSH the node bastion.
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal on right side, access the bastion node using SSH.
 
 
 [source,sh,role=execute,subs="attributes"]

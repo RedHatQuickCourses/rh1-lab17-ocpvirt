@@ -85,4 +85,3 @@ oc edit route exercise3
 - Test the application
 
 The application is available on https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
-
