@@ -1,0 +1,6 @@
+[#guidedsolution]
+=  Guided Solutions
+
+This section is designed to provide a comprehensive, step-by-step walkthrough of the solutions to the exercises in this lab.
+
+The exercises resolution will be approached in two ways: through the OpenShift Web Console and the oc client. The GUI allows users to interact with resources and perform tasks using a more visual and ideal for those who prefer point and click actions. The oc client provides a command line interface, giving users more flexibility, control to execute commands and automate tasks. Both methods will ensure that the problem has been solved.

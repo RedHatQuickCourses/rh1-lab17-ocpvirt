@@ -1,0 +1,216 @@
+[#fix]
+= Live Migration failed
+
+== Scenario
+
+The user is attempting to migrate a virtual machine from one node to another using live migration.
+
+The primary goal is to investigate the cause of the live migration failure and take corrective action to successfully migrate the `exercise6` virtual machine to another node. Your task is to identify the root cause and resolve the issue.
+
+The steps to fix exercise6 are:
+
+=== Console
+
+1. Login to OpenShift console using the assigned user account.
+
+2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise6`.
+
+image::exercise6/01-step2.png[]
+
+[start=3]
+3. Open the Virtual Machine `exercise6` to get its details.
+
+image::exercise6/02-step3.png[]
+
+[start=4]
+4. Try to migrate the virtual machine using Live Migration. Migration is going to fail.
+
+image::exercise6/03-step4.png[]
+
+[start=5]
+5. Examine the logs of the `virt-launcher-exercise6` pod to identify the root cause. 
+
+** Go to the project for the assigned user account and then look for the failed pod.
++
+image::exercise6/04-step5-1.png[]
++
+
+** Check the pod logs. The issue occurs because the virtual machine disks are configured as read-only, preventing migration. 
+
+[source]
+----
+{"component":"virt-launcher","level":"error","msg":"Operation not supported: Cannot migrate empty or read-only disk vdb","pos":"qemuMigrationDstStartNBDServer:628","subcomponent":"libvirt","thread":"33","timestamp":"2024-11-20T11:44:26.459000Z"}
+----
+
+[start=6]
+6. Stop the virtual machine to edit its configuration.
+
+[start=7]
+7. Edit the virtual machine and remove the fields `readonly: true` from the VM disks. Go to the `YAML` section and change the field `spec.template.spec.domain.devices.disks.readonly` to false.
+
+[source, yaml]
+----
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+                readonly: false
+              name: rootdisk
+            - disk:
+                bus: virtio
+                readonly: false
+              name: cloudinitdisk
+          interfaces:
+----
+
+[start=8]
+8. Start again the virtual machine. Check the node where the virtual machine is placed.
+
+image::exercise6/05-step8.png[]
+
+[start=9]
+9. Migrate virtual machine.
+
+[start=10]
+10. The virtual machine should be migrated to another node successfully.
+
+image::exercise6/06-step10.png[]
+
+
+=== CLI
+
+1. Login to OpenShift server api using the assigned user account with `oc` command.
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+[start=2]
+2. Go to the assigned namespace-{{ user }}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. Check there is a virtual machine running in this namespace. The output should be similar to the following one: 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi
+----
+
+----
+NAME        AGE   PHASE     IP            NODENAME                 READY
+exercise6   11m   Running   10.132.2.46   worker-cluster-1   True
+----
+
+[start=4]
+4. Migrate the virtual machine using the `virtctl` command.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl migrate exercise6
+----
+
+[start=5]
+5. Check the migration status by retreiving the `VirtualMachineInstanceMigration` object. The output should indicate that the migration is in the `Failed` phase.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get VirtualMachineInstanceMigration 
+----
+
+----
+NAME                        PHASE    VMI
+kubevirt-migrate-vm   Failed   exercise6
+----
+
+[start=6]
+6. Stop the virtual machine.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl stop exercise6
+----
+
+[start=7]
+7. Edit the virtual machine and remove the fields `readonly: true` from the VM disks. Change the field `spec.template.spec.domain.devices.disks.readonly` to false.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit vm exercise6
+----
+
+
+[source, yaml]
+----
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+                readonly: false
+              name: rootdisk
+            - disk:
+                bus: virtio
+                readonly: false
+              name: cloudinitdisk
+          interfaces:
+----
+
+[start=8]
+8. Start again the virtual machine.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl start exercise6
+----
+
+[start=9]
+9. Check the node where the virtual machine is placed.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi
+----
+
+----
+NAME        AGE   PHASE     IP            NODENAME                 READY
+exercise6   98s   Running   10.132.2.48   worker-cluster-vmnjk-1   True
+----
+
+[start=10]
+10. Migrate the virtual machine. 
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl migrate exercise6
+----
+
+[start=11]
+11. Check the migration status by retreiving the `VirtualMachineInstanceMigration` object. Now, the output should indicate that the migration is in the `Succeeded` phase.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get VirtualMachineInstanceMigration 
+----
+
+----
+NAME                        PHASE         VMI
+kubevirt-migrate-vm     Succeeded   exercise6
+----
+
+[start=12]
+12. Check the node where the vortual machine is now placed
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi
+----
+
+----
+NAME        AGE     PHASE     IP             NODENAME                 READY
+exercise6   3m50s   Running   10.135.1.196   worker-cluster-vmnjk-3   True
+----

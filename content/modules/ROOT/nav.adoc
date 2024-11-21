@@ -15,9 +15,13 @@
 * xref:exercise5-break.adoc#break[5. Additional disk unaccessible in Virtual Machine]
 ** xref:exercise5-check.adoc#check[5.1. Check your work]
 
+* xref:exercise6-break.adoc#break[6. Virtual Machine cannot be live migrated]
+** xref:exercise6-check.adoc#check[6.1. Check your work]
+
 * xref:guidedsolution.adoc[Guided Solution]
 ** xref:exercise1-guided.adoc[Exercise 1]
 ** xref:exercise2-guided.adoc[Exercise 2]
 ** xref:exercise3-guided.adoc[Exercise 3]
 ** xref:exercise4-guided.adoc[Exercise 4]
 ** xref:exercise5-guided.adoc[Exercise 5]
+** xref:exercise6-guided.adoc[Exercise 6]
