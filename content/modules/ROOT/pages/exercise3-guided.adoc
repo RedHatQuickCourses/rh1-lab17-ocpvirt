@@ -11,7 +11,7 @@ Your task is to identify the root cause and resolve the issue.
 
 The steps to fix exercise3 are:
 
-.Console
+== Console
 ----
 1. Login to Openshift console using the assigned user account
 2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
@@ -26,15 +26,63 @@ The steps to fix exercise3 are:
 11. Access the route URL and application should be accessible
 ----
 
-.CLI
+== Command line (CLI)
+- Login to Openshift server API using the assigned user account with `oc` command
+
+[source,sh,role=execute,subs="attributes"]
 ----
-1. Login to Openshift server api using the assigned user account with oc command
-2. Go to assigned namespace-{{ user }}
-3. Check the service details of exercise3 and get details for IP and Port (80) - oc describe svc exercise3
-4. Go to the curlimage pod (oc rsh pod curlimage)
-5. Curl the IP and port from service in the curlimage pod - The curl should be working (Hello from exercise3, you are doing a great job!) 
-6. Check the route target port (oc describe route exercise3) - Wrong target port (8080)
-7. Edit the route exercise3 target port to 80 (oc edit route exercise3 and change target port to 80)
-8. Curl the route location for exercise3 (Hello from exercise3, you are doing a great job!)
+{login_command}
 ----
+
+- Go to assigned namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+- Check the service details of exercise3 and get details for IP and Port (80)
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc describe svc exercise3
+----
+
+- Go to the curlimage pod
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc rsh pod curlimage
+----
+
+- Curl the IP and port from service in the curlimage pod
+
+[source,sh,role=execute,subs="attributes"]
+----
+curl on svc
+----
+
+The curl should be working 
+
+====
+Hello from exercise3, you are doing a great job!
+====
+
+- Check the route target port - Wrong target port (8080)
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc describe route exercise3
+----
+
+- Edit the route exercise3 and change target port to 80)
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit route exercise3
+----
+
+- Test the application
+
+The application is available on https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 

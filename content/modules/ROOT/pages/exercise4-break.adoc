@@ -8,7 +8,7 @@ In this scenario, a Virtual Machine named `exercise4` is currently `Running`. Th
 Your task is to investigate the problem, starting with an analysis of the VM's resource usage, including CPU, memory, disk I/O and so on. 
 Adjusting Virtual Machine compute resources is allowed in this lab; however, `no reboot` is mandatory.
 
-The goal is to identify any bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
+NOTE: The goal is to identify any bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
 
 == Executing the lab script
 
