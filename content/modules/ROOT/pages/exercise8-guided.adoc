@@ -67,18 +67,20 @@ virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub --user lab-user 
 - Get the pod name
 
 [source,sh,role=execute,subs="attributes"]
-PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 -o NAME -n namespace-{user}})
+PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 -o NAME -n namespace-{user})
 
-- Check the logs and wait for the message on virtual machine pod
+- Check the logs 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc logs $PODNAME -n namespace-{user} -f --tail 10
+----
+
+- and wait for the message on virtual machine pod
 
 [source]
 ----
 {"component":"virt-launcher","kind":"","level":"info","msg":"Reloading access credentials because secret changed","name":"exercise8","namespace":"namespace-user5","pos":"access_credentials.go:448","timestamp":"2024-11-25T18:47:52.185346Z","uid":"728e56da-dff5-400d-8967-fe406e4ca72f"}
-----
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc logs $POD_NAME -n namespace-{user}
 ----
 
 - Test the SSH access
