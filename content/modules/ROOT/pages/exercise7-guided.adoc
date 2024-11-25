@@ -1,5 +1,5 @@
 [#fix]
-= Fix Virtual Machine Snapshot Restore Buttons are Grayed Out
+= Fix Virtual Machine snapshot restore buttons are grayed out
 
 == Scenario
 

@@ -1,5 +1,5 @@
 [#scenario]
-= Virtual Machine Snapshot Restore Buttons are Grayed Out
+= Virtual Machine snapshot restore buttons are grayed out
 
 == Scenario
 

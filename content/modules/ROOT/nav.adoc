@@ -18,7 +18,7 @@
 * xref:exercise6-break.adoc#break[6. Virtual Machine cannot be live migrated]
 ** xref:exercise6-check.adoc#check[6.1. Check your work]
 
-* xref:exercise7-break.adoc#break[7. Virtual Machine Snapshot Restore Buttons are Grayed Out]
+* xref:exercise7-break.adoc#break[7. Virtual Machine snapshot restore buttons are grayed out]
 ** xref:exercise7-check.adoc#check[7.1. Check your work]
 
 * xref:guidedsolution.adoc[Guided Solution]
