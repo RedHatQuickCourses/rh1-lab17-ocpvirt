@@ -40,7 +40,7 @@ Stop the virtual machine `exercise7`
 virtctl stop exercise7
 ----
 
-Restore the virtual machinesnapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
+Restore the virtual machine snapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
 
 [source,sh,role=execute,subs="attributes"]
 ----
