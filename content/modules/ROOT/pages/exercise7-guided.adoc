@@ -19,7 +19,7 @@ TODO
 ----
 
 == Command line (CLI)
-- Login to Openshift server API using the assigned user account with `oc` command
+- Login to Openshift server API using the assigned user account with `oc` command if not logged in
 
 [source,sh,role=execute,subs="attributes"]
 ----

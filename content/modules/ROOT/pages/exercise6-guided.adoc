@@ -79,7 +79,7 @@ image::exercise6/06-step10.png[]
 
 === CLI
 
-1. Login to OpenShift server api using the assigned user account with `oc` command.
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
 [source,sh,role=execute,subs="attributes"]
 ----
