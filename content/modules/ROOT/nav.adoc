@@ -21,7 +21,7 @@
 * xref:exercise7-break.adoc#break[7. Virtual Machine snapshot restore buttons are grayed out]
 ** xref:exercise7-check.adoc#check[7.1. Check your work]
 
-* xref:exercise8-break.adoc#break[8. Add a New SSH Key to a Virtual Machine (VM)]
+* xref:exercise8-break.adoc#break[8. Add a new SSH key to a virtual machine]
 ** xref:exercise8-check.adoc#check[8.1. Check your work]
 
 * xref:guidedsolution.adoc[Guided Solution]
