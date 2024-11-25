@@ -12,7 +12,7 @@ In this scenario, a RHEL 9-based Virtual Machine (VM) named `exercise8` is curre
 === Task
 Perform the necessary steps to add the specified SSH key to the `exercise8` VM to restore remote access.  
 
-NOTE: User can get access to the `exercise8` virtual machine restored.
+NOTE: The primary goal is to get access to the `exercise8` via SSH virtual machine restored.
 
 TIP: Use `virtctl ssh lab-user@exercise8` command.
 
