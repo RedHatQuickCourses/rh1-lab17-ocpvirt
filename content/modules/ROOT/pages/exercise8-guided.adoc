@@ -35,13 +35,17 @@ oc project namespace-{user}
 
 - Check that ssh is not working
 
+[source,sh,role=execute,subs="attributes"]
+----
 virtctl ssh lab-user@exercise8
 ----
 
+- Expected output
+
 [source]
 ----
-Warning: Permanently added 'vmi/exercise8.namespace-user5' (ED25519) to the list of known hosts.
-lab-user@vmi/exercise8.namespace-user5: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Warning: Permanently added 'vmi/exercise8.namespace-{user}' (ED25519) to the list of known hosts.
+lab-user@vmi/exercise8.namespace-{user}: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
 exit status 255
 ----
 
