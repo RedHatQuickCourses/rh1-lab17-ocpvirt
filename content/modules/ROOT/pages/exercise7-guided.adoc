@@ -44,7 +44,7 @@ virtctl stop exercise7
 [source]
 ----
 VM exercise7 was scheduled to stop
----
+----
 
 Restore the virtual machine snapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
 
@@ -65,7 +65,7 @@ oc apply -f /home/{user}/exercise7-restoresnapshot.yaml
 [source]
 ----
 virtualmachinerestore.snapshot.kubevirt.io/restore-exercise7-snapshot created
----
+----
 
 Check that VirtualMachineRestore has been created
 
@@ -80,5 +80,5 @@ oc get VirtualMachineRestore restore-exercise7-snapshot -n namespace-{user}
 ----
 NAME                         TARGETKIND       TARGETNAME   COMPLETE   RESTORETIME   ERROR
 restore-exercise7-snapshot   VirtualMachine   exercise7    true       38s
----
+----
 
