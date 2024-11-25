@@ -3,11 +3,11 @@
 
 == Scenario
 
-In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot that the user wants to restore. However, the user has noticed that the buttons to restore the snapshot are grayed out, making it impossible to proceed with the restoration.
+In this scenario, a Virtual Machine named `exercise8` is currently in the `Running` state and has an existing snapshot that the user wants to restore. However, the user has noticed that the buttons to restore the snapshot are grayed out, making it impossible to proceed with the restoration.
 
 Your task is to investigate the steps taken by the user to restore the snapshot and resolve the issue.
 
-The steps to fix exercise7 are:
+The steps to fix exercise8 are:
 
 == Console
 ----
@@ -33,30 +33,40 @@ The steps to fix exercise7 are:
 oc project namespace-{user}
 ----
 
-Stop the virtual machine `exercise7`
+- Add the user SSH key to `exercise8` virtual machine using `virtctl`
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl stop exercise7
+virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_usa.pub --user lab-user --force exercise8
 ----
 
-Restore the virtual machine snapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
+- the output will be.
+
+[source]
+----
+ Successfully added the key to secret "idrsa"
+----
+
+- Get the pod name
+
+[source,sh,role=execute,subs="attributes"]
+PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 -o NAME -n namespace-{user}})
+
+- Check the logs and wait for the message on virtual machine pod
+
+[source]
+----
+{"component":"virt-launcher","kind":"","level":"info","msg":"Reloading access credentials because secret changed","name":"exercise8","namespace":"namespace-user5","pos":"access_credentials.go:448","timestamp":"2024-11-25T18:47:52.185346Z","uid":"728e56da-dff5-400d-8967-fe406e4ca72f"}
+----
 
 [source,sh,role=execute,subs="attributes"]
 ----
-cat /home/{user}/exercise7-restoresnapshot.yaml
+oc logs $POD_NAME -n namespace-{user}
 ----
 
-Apply it 
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc apply -f /home/{user}/exercise7-restoresnapshot.yaml
-----
-
-Check that VirtualMachineRestore has been created
+- Test the SSH access
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get VirtualMachineRestore restore-exercise7-snapshot -n namespace-{user}
+virtctl ssh lab-user@exercise8
 ----
