@@ -14,7 +14,7 @@ Perform the necessary steps to add the specified SSH key to the `exercise8` VM t
 
 NOTE: The primary goal is to get access to the `exercise8` via SSH virtual machine restored.
 
-TIP: Use `virtctl ssh lab-user@exercise8` command.
+TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 
 == Executing the lab script
 
