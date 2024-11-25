@@ -14,7 +14,7 @@ The steps to fix exercise7 are:
 1. Login to Openshift console using the assigned user account
 2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
 
-TODO
+#TODO
 
 ----
 
