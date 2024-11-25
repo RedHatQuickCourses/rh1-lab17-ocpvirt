@@ -1,0 +1,26 @@
+[#scenario]
+= Virtual Machine Snapshot Restore Buttons are Grayed Out
+
+== Scenario
+
+In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot that the user wants to restore. However, the user has noticed that the buttons to restore the snapshot are grayed out, making it impossible to proceed with the restoration.
+
+Your task is to investigate the steps taken by the user to restore the snapshot and resolve the issue.
+
+NOTE: The objective is to successfully restore the snapshot of the Virtual Machine `exercise7`.
+
+== Executing the lab script
+
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access the bastion node using SSH if you are not connected yet.
+
+[source,sh,role=execute,subs="attributes"]
+----
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+----
+
+Once connected to the bastion host run the command to break the lab.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab break exercise7
+----

@@ -1,0 +1,55 @@
+[#fix]
+= Fix Snapshot Restore Buttons are Grayed Out
+
+== Scenario
+
+In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot that the user wants to restore. However, the user has noticed that the buttons to restore the snapshot are grayed out, making it impossible to proceed with the restoration.
+
+Your task is to investigate the steps taken by the user to restore the snapshot and resolve the issue.
+
+The steps to fix exercise7 are:
+
+== Console
+----
+1. Login to Openshift console using the assigned user account
+2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
+
+TODO
+
+----
+
+== Command line (CLI)
+- Login to Openshift server API using the assigned user account with `oc` command
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+- Go to assigned namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+Stop the virtual machine `exercise7`
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl stop exercise7
+----
+
+Restore the virtual machinesnapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
+
+[source,sh,role=execute,subs="attributes"]
+----
+cat /home/{user}/exercise7-restoresnapshot.yaml
+----
+
+Apply it 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc apply -f /home/{user}/exercise7-restoresnapshot.yaml
+----
