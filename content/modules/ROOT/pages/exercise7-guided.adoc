@@ -53,3 +53,10 @@ Apply it
 ----
 oc apply -f /home/{user}/exercise7-restoresnapshot.yaml
 ----
+
+Check that VirtualMachineRestore has been created
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get VirtualMachineRestore restore-exercise7-snapshot -n namespace-{user}
+----
