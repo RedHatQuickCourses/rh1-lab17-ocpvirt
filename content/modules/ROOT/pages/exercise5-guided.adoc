@@ -114,11 +114,11 @@ EOF
 virtctl addvolume exercise5 --volume-name=exercise5-vol-data1 --persist
 ----
 
-- Check the status of exercise5-vol-data1 and look for the additional disk
+- Check the status of exercise5-vol-data1 and wait for the additional disk to pre provisioned
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get pvc
+watch oc get pvc
 ----
 
 - Go to virtual machine console of exercise5 and login using lab-user credential
