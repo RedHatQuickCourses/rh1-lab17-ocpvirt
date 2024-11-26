@@ -9,24 +9,178 @@ Your task is to identify the root cause and resolve the issue.
 
 The steps to fix the exercise1 are:
 
-.Console
+=== Console
+
+1. Login to OpenShift console using the assigned user account.
+
+2. Go to Virtualization - Virtual Machines and check the VM status.
+
+image::exercise1/01-step2.png[]
+
+[start=3]
+3. Check the Virtual Machine is failing with error `ErrorUnschedulable`.
+
+image::exercise1/02-step3.png[]
+
+[start=4]
+4. Go to tab `YAML` and check the status of the Virtual Machine. It is failing with error message: 
+
+[source]
 ----
-1. Login to Openshift console using the assigned user account
-2. Go to virtualization - virtual machine - look for VM status
-3. Check the error status
-4. Go to tab yaml and look for spec.domain.memory.guest
-5. Replace the memory below 128Gi, example for 8Gi
-6. Restart the virtual machine
-7. Wait and make sure the vm is in running state
+message: '0/6 nodes are available: 3 Insufficient memory, 3 node(s) had untolerated taint {node-role.kubernetes.io/master: }. preemption: 0/6 nodes are available: 3 No preemption victims found for incoming pod, 3 Preemption is not helpful for scheduling.'
 ----
 
-.CLI
+[start=5]
+5. Check the memory assigned for the Virtual Machine in the field `spec.domain.memory.guest`.
+
+
+[source, yaml]
 ----
-1. Login to Openshift server api using the assigned user account
-2. Go to assigned namespace (oc project namespace-{{ user }})
-3. Check vm status (oc get pod,vm)
-4. Check the vm error status (oc describe vm name)
-5. Edit the vm yaml (oc edit {{ vm name }})
-6. Restart the virtual machine
-7. Wait and make sure the vm is in running state (oc get vm,pod)
+        memory:
+          guest: 128Gi
 ----
+
+[start=6]
+6.  Edit the `yaml` file to change the assigned value to one lower than 128Gi.
+
+[source, yaml]
+----
+        memory:
+          guest: 8Gi
+----
+
+[start=7]
+7. Save the updated configuration file and restart the virtual machine.
+
+image::exercise1/03-step7.png[]
+
+
+[start=8]
+8. Wait for the virtual machine to start and check that now the virtual machine is in `Running` state. 
+
+image::exercise1/04-step8.png[]
+
+
+=== CLI
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+[start=2]
+2. Go to the assigned namespace-{{ user }}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. Check there is a virtual machine running in this namespace and its status. The output should be similar to the following one: 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get pod,vm
+----
+
+----
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/virt-launcher-exercise1         0/1     Pending   0          2m16s
+
+NAME                                   AGE   STATUS               READY
+virtualmachine.kubevirt.io/exercise1   85m   ErrorUnschedulable   False
+----
+
+[start=4]
+4. Check which the the Virtual Machine status to get more details about the error:
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc describe vm exercise1
+----
+
+----
+status:
+  Conditions:
+    Last Probe Time:       2024-11-26T16:08:54Z
+    Last Transition Time:  2024-11-26T16:08:54Z
+    Message:               Guest VM is not reported as running
+    Reason:                GuestNotRunning
+    Status:                False
+    Type:                  Ready
+    Last Probe Time:       <nil>
+    Last Transition Time:  <nil>
+    Message:               All of the VMI's DVs are bound and not running
+    Reason:                AllDVsReady
+    Status:                True
+    Type:                  DataVolumesReady
+    Last Probe Time:       <nil>
+    Last Transition Time:  2024-11-26T16:08:54Z
+    Message:               0/6 nodes are available: 3 Insufficient memory, 3 node(s) had untolerated taint {node-role.kubernetes.io/master: }. preemption: 0/6 nodes are available: 3 No preemption victims found for incoming pod, 3 Preemption is not helpful for scheduling.
+    Reason:                Unschedulable
+    Status:                False
+    Type:                  PodScheduled
+  Created:                 true
+  Desired Generation:      3
+  Observed Generation:     3
+  Printable Status:        ErrorUnschedulable
+  Run Strategy:            Always
+----
+
+
+[start=5]
+5. Inspect the virtual machine and check the memory assigned to it in the field `spec.domain.memory.guest`.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm exercise1 -oyaml
+----
+
+[source, yaml]
+----
+        memory:
+          guest: 128Gi
+----
+
+
+[start=6]
+6. Edit the virtual machine to assign a value lower than 128Gi.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit vm exercise1
+----
+
+[source, yaml]
+----
+        memory:
+          guest: 8Gi
+----
+
+[start=7]
+7. Restart the virtual machine
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl restart exercise1
+----
+
+[start=8]
+8. Wait until the virtual machine is started and make sure it is in running state
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get pod,vm
+----
+
+----
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/virt-launcher-exercise1         1/1     Running   0          55s
+
+NAME                                   AGE   STATUS    READY
+virtualmachine.kubevirt.io/exercise1   96m   Running   True
+----
+

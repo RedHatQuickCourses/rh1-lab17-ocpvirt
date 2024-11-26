@@ -11,24 +11,168 @@ Your task is to identify the root cause and resolve the issue.
 
 The steps to fix exercise2 are:
 
-.Console
-----
+=== Console
+
 1. Login to Openshift console using the assigned user account
-2. Go to virtualization - virtual machine - look for VM status
-3. Check the error status
-4. Go to tab yaml and look for NodeSelector and Tolerations
-5. Remove the NodeSelector and Tolerations
-6. Restart the virtual machine
-7. Wait and make sure the vm is in running state
+
+2. Go to Virtualization - Virtual Machines and check the VM status.
+
+image::exercise2/01-step2.png[]
+
+[start=3]
+3. Check the Virtual Machine is failing with error `ErrorUnschedulable`.
+
+image::exercise2/02-step3.png[]
+
+[start=4]
+4. Go to tab `YAML` and check the status of the Virtual Machine. It is failing with error message: 
+
+[source]
+----
+message: '0/6 nodes are available: 3 node(s) didn''t match Pod''s node affinity/selector, 3 node(s) had untolerated taint {node-role.kubernetes.io/master: }. preemption: 0/6 nodes are available: 6 Preemption is not helpful for scheduling.'
 ----
 
-.CLI
+[start=5]
+5. Check the `NodeSelector` and `Tolerations` assigned to this virtual machine. 
+
+[source, yaml]
 ----
-1. Login to Openshift server api using the assigned user account
-2. Go to assigned namespace (oc project namespace-[user])
-3. Check vm status (oc get pod,vm)
-4. Check the vm error status (oc describe vm name)
-5. Edit the vm yaml
-6. Restart the virtual machine
-7. Wait and make sure the vm is in running state (oc get vm,pod)
+    nodeSelector:
+      node-role.kubernetes.io/baremetal: ''
+    tolerations:
+      - effect: NoSchedule
+        key: bare_metal
+        value: 'true'
+----
+
+[start=6]
+6. These `NodeSelectors` and `Tolerations` refer to nodes that do not match those in the cluster. Remove them.
+
+[start=7]
+7. Restart the virtual machine to apply the changes. 
+
+
+[start=8]
+8. Wait for the virtual machine to start and check that now the virtual machine is in `Running` state. 
+
+image::exercise2/03-step8.png[]
+
+
+=== Console
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+[start=2]
+2. Go to the assigned namespace-{{ user }}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. Check there is a virtual machine running in this namespace and its status. The output should be similar to the following one: 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get pod,vm
+----
+
+----
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/virt-launcher-exercise2         0/1     Pending   0          19s
+
+NAME                                   AGE   STATUS               READY
+virtualmachine.kubevirt.io/exercise2   20s   ErrorUnschedulable   False
+----
+
+[start=4]
+4. Check which the the Virtual Machine status to get more details about the error:
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc describe vm exercise2
+----
+
+----
+Status:
+  Conditions:
+    Last Probe Time:       2024-11-26T16:38:19Z
+    Last Transition Time:  2024-11-26T16:38:19Z
+    Message:               Guest VM is not reported as running
+    Reason:                GuestNotRunning
+    Status:                False
+    Type:                  Ready
+    Last Probe Time:       <nil>
+    Last Transition Time:  <nil>
+    Message:               Not all of the VMI's DVs are ready
+    Reason:                NotAllDVsReady
+    Status:                False
+    Type:                  DataVolumesReady
+    Last Probe Time:       <nil>
+    Last Transition Time:  2024-11-26T16:38:19Z
+    Message:               0/6 nodes are available: 3 node(s) didn't match Pod's node affinity/selector, 3 node(s) had untolerated taint {node-role.kubernetes.io/master: }. preemption: 0/6 nodes are available: 6 Preemption is not helpful for scheduling.
+    Reason:                Unschedulable
+    Status:                False
+    Type:                  PodScheduled
+  Created:                 true
+  Desired Generation:      1
+  Observed Generation:     1
+  Printable Status:        ErrorUnschedulable
+  Run Strategy:            Always
+----
+
+[start=5]
+5. Inspect the virtual machine and check the `NodeSelector` and `Tolerations` assigned to this virtual machine. 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm exercise1 -oyaml
+----
+
+[source, yaml]
+----
+    nodeSelector:
+      node-role.kubernetes.io/baremetal: ''
+    tolerations:
+      - effect: NoSchedule
+        key: bare_metal
+        value: 'true'
+----
+
+[start=6]
+6. These `NodeSelectors` and `Tolerations` refer to nodes that do not match those in the cluster. Edit the virtual machine configuration file and remove them.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit vm exercise1 
+----
+
+[start=7]
+7. Restart the virtual machine
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl restart exercise1
+----
+
+[start=8]
+8. Wait until the virtual machine is started and make sure it is in running state
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get pod,vm
+----
+
+----
+NAME                                READY   STATUS    RESTARTS   AGE
+pod/virt-launcher-exercise2         1/1     Running   0          40s
+
+NAME                                   AGE    STATUS    READY
+virtualmachine.kubevirt.io/exercise2   5m9s   Running   True
 ----
