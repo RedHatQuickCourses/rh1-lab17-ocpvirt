@@ -58,21 +58,13 @@ oc get vm
 oc get datavolume,pvc
 ----
 
-- Check the configuration of exercise5-vol-data1 disk
+- Check the configuration of exercise5-vol-data1 disk. 
+- From the yaml editor check for the storageClassName and it should be `ocs-external-storagecluster-cephrbd`
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc edit pvc exercise5-vol-data1
+oc get pvc exercise5-vol-data1 -n namespace-{user} -o yaml
 ----
-
-- From the yaml editor check for the storageClassName and it should be ocs-external-storagecluster-cephfs
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc get sc
-----
-
-#TODO expected output
 
 - Delete the DataVolume and PersistentVolumeClaims of exercise5-vol-data1
 
@@ -86,6 +78,8 @@ virtctl removevolume exercise5 --volume-name=exercise5-vol-data1 --persist
 ----
 Successfully submitted remove volume request to VM exercise5 for volume exercise5-vol-data1
 ----
+
+- Delete the the pvc
 
 [source,sh,role=execute,subs="attributes"]
 ----
