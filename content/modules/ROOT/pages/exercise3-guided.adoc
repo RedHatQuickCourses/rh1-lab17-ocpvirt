@@ -48,13 +48,6 @@ oc project namespace-{user}
 PODIP=$(oc get pods -l kubevirt.io/domain=exercise3 -o jsonpath="{.items[*].status.podIP}" -n namespace-user5)
 ----
 
-- Check that the service on Virtual Machine is working as expected
-
-[source,sh,role=execute,subs="attributes"]
-----
-curl $PODIP
-----
-
 - Use the curlimage pod to test the Virtual Machine and verify that it's working as expected
 
 [source,sh,role=execute,subs="attributes"]
@@ -73,7 +66,7 @@ Hello from exercise3, you are doing a great job!
 
 [source,sh,role=execute,subs="attributes"]
 ----
-SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" -n namespace-user5
+SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" -n namespace-user5)
 ----
 
 - Curl the IP and port from service in the curlimage pod
@@ -97,20 +90,34 @@ Hello from exercise3, you are doing a great job!
 oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 ----
 
-- Check the route target port - Wrong target port (8080)
+- Check the route and verify that Wrong `Endpoint Port` (8080)
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc describe route exercise3
 ----
 
-- Edit the route exercise3 and change target port from 8080 to 80
+- Edit the route exercise3 and change `targetPort` from 8080 to 80
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc edit route exercise3
 ----
 
+or just use this patch
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc patch route exercise3 -p '{"spec":{"port":{"targetPort":80}}}'
+---
+
 - Test the application
 
 The application is available on https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+
+or 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+----
