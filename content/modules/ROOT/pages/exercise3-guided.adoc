@@ -53,7 +53,7 @@ PODIP=$(oc get pods -l kubevirt.io/domain=exercise3 -o jsonpath="{.items[*].stat
 [source,sh,role=execute,subs="attributes"]
 ----
 curl $PODIP
----
+----
 
 - Use the curlimage pod to test the Virtual Machine and verify that it's working as expected
 
