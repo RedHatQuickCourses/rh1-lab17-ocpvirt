@@ -83,7 +83,7 @@ Successfully submitted remove volume request to VM exercise5 for volume exercise
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc delete pvc exercise5-vol-data1
+oc delete datavolume exercise5-vol-data1
 ----
 
 - Create again the pvc by using the storageClassName of ocs-external-storagecluster-ceph-rbd with the name exercise5-vol-data1 and using 30GiB size.
