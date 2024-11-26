@@ -41,32 +41,61 @@ The steps to fix exercise3 are:
 oc project namespace-{user}
 ----
 
-- Check the service details of exercise3 and get details for IP and Port (80)
+-  Get the Virtual Machine pod IP address
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc describe svc exercise3
+PODIP=$(oc get pods -l kubevirt.io/domain=exercise3 -o jsonpath="{.items[*].status.podIP}" -n namespace-user5)
 ----
 
-- Go to the curlimage pod
+- Check that the service on Virtual Machine is working as expected
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc rsh pod curlimage
+curl $PODIP
+---
+
+- Use the curlimage pod to test the Virtual Machine and verify that it's working as expected
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc exec curlimage -- curl -s $PODIP
+----
+
+- Expected output
+
+[source]
+----
+Hello from exercise3, you are doing a great job!
+----
+
+- Check the service details of exercise3 and get details for IP and Port
+
+[source,sh,role=execute,subs="attributes"]
+----
+SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" -n namespace-user5
 ----
 
 - Curl the IP and port from service in the curlimage pod
 
 [source,sh,role=execute,subs="attributes"]
 ----
-curl on svc
+oc exec curlimage -- curl -s $SVCIP
 ----
 
-The curl should be working 
+- Expected output
 
-====
+[source]
+----
 Hello from exercise3, you are doing a great job!
-====
+----
+
+- Try to access the route and verify that it's not working
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+----
 
 - Check the route target port - Wrong target port (8080)
 
@@ -75,7 +104,7 @@ Hello from exercise3, you are doing a great job!
 oc describe route exercise3
 ----
 
-- Edit the route exercise3 and change target port to 80)
+- Edit the route exercise3 and change target port from 8080 to 80
 
 [source,sh,role=execute,subs="attributes"]
 ----
