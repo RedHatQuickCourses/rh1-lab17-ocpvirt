@@ -109,7 +109,7 @@ or just use this patch
 [source,sh,role=execute,subs="attributes"]
 ----
 oc patch route exercise3 -p '{"spec":{"port":{"targetPort":80}}}'
----
+----
 
 - Test the application
 
