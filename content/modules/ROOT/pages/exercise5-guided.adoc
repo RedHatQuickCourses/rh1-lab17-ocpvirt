@@ -91,17 +91,20 @@ oc delete pvc exercise5-vol-data1
 [source,sh,role=execute]
 ----
 oc create -f - <<EOF
-apiVersion: v1
-kind: PersistentVolumeClaim
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
 metadata:
   name: exercise5-vol-data1
+  namespace: namespace-{user}
 spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 30Gi
-  storageClassName: ocs-external-storagecluster-ceph-rbd
+  preallocation: false
+  source:
+    blank: {}
+  storage:
+    resources:
+      requests:
+        storage: 30Gi
+    storageClassName: ocs-external-storagecluster-ceph-rbd
 EOF
 ----
 
