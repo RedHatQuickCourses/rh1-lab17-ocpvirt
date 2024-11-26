@@ -29,7 +29,7 @@ The steps to fix exercise4 are:
 .CLI
 ----
 1. Login to Openshift server api using the assigned user account with oc command
-2. Go to assigned namespace-{{ user }}
+2. Go to assigned namespace-{user}
 3. Check the service details of exercise3 and get details for IP and Port (80) - oc describe svc exercise3
 4. Go to the curlimage pod (oc rsh pod curlimage)
 5. Curl the IP and port from service in the curlimage pod - The curl should be working (Hello from exercise3, you are doing a great job!) 

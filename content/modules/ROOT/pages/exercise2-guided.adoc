@@ -68,7 +68,7 @@ image::exercise2/03-step8.png[]
 ----
 
 [start=2]
-2. Go to the assigned namespace-{{ user }}
+2. Go to the assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
