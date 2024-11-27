@@ -19,13 +19,8 @@ TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 The steps to fix exercise8 are:
 
 == Console
-----
-1. Login to Openshift console using the assigned user account
-2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
 
-#TODO
-
-----
+NOTE: To solve this exercise you must use Command Line (CLI)
 
 == Command Line (CLI)
 
