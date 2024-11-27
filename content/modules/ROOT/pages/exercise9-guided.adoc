@@ -27,30 +27,29 @@ The steps to fix exercise8 are:
 
 ----
 
-== Command Line (CLI)
-
-1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
+== Command line (CLI)
+- Login to Openshift server API using the assigned user account with `oc` command if not logged in
 
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}
 ----
 
-[start=2]
-2. Go to the assigned namespace-{user}
+- Go to assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc project namespace-{user}
 ----
 
-[start=3]
-3. Check that ssh is not working
+- Check that ssh is not working
 
 [source,sh,role=execute,subs="attributes"]
 ----
 virtctl ssh lab-user@exercise8
 ----
+
+- Expected output
 
 [source,subs="attributes"]
 ----
@@ -59,46 +58,41 @@ lab-user@vmi/exercise8.namespace-{user}: Permission denied (publickey,gssapi-key
 exit status 255
 ----
 
-[start=4]
-4. Add the user SSH key to `exercise8` virtual machine using `virtctl`
+
+- Add the user SSH key to `exercise8` virtual machine using `virtctl`
 
 [source,sh,role=execute,subs="attributes"]
 ----
 virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub --user lab-user --force exercise8
 ----
 
-[start=5]
-5. the output will be.
+- the output will be.
 
 [source]
 ----
  Successfully added the key to secret "idrsa"
 ----
 
-[start=6]
-6. Get the pod name
+- Get the pod name
 
 [source,sh,role=execute,subs="attributes"]
 PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 -o NAME -n namespace-{user})
 
-[start=7]
-7. Check the logs 
+- Check the logs 
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc logs $PODNAME -n namespace-{user} -f --tail 10
 ----
 
-[start=8]
-8. and wait for the message on virtual machine pod
+- and wait for the message on virtual machine pod
 
 [source]
 ----
 {"component":"virt-launcher","kind":"","level":"info","msg":"Reloading access credentials because secret changed","name":"exercise8","namespace":"namespace-user5","pos":"access_credentials.go:448","timestamp":"2024-11-25T18:47:52.185346Z","uid":"728e56da-dff5-400d-8967-fe406e4ca72f"}
 ----
 
-[start=9]
-9. Test the SSH access
+- Test the SSH access
 
 [source,sh,role=execute,subs="attributes"]
 ----

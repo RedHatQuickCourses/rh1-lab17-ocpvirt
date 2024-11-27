@@ -26,84 +26,90 @@ The steps to fix exercise3 are:
 11. Access the route URL and application should be accessible
 ----
 
-== Command line (CLI)
-- Login to Openshift server API using the assigned user account with `oc` command if not logged in
+== Command Line (CLI)
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}
 ----
 
-- Go to assigned namespace-{user}
+[start=2]
+2. Go to the assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc project namespace-{user}
 ----
 
--  Get the Virtual Machine pod IP address
+[start=3]
+3.  Get the Virtual Machine pod IP address
 
 [source,sh,role=execute,subs="attributes"]
 ----
 PODIP=$(oc get pods -l kubevirt.io/domain=exercise3 -o jsonpath="{.items[*].status.podIP}" -n namespace-user5)
 ----
 
-- Use the curlimage pod to test the Virtual Machine and verify that it's working as expected
+[start=4]
+4. Use the curlimage pod to test the Virtual Machine and verify that it's working as expected
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc exec curlimage -- curl -s $PODIP
 ----
 
-- Expected output
-
 [source]
 ----
 Hello from exercise3, you are doing a great job!
 ----
 
-- Check the service details of exercise3 and get details for IP and Port
+[start=5]
+5. Check the service details of exercise3 and get details for IP and Port
 
 [source,sh,role=execute,subs="attributes"]
 ----
 SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" -n namespace-user5)
 ----
 
-- Curl the IP and port from service in the curlimage pod
+[start=6]
+6. Curl the IP and port from service in the curlimage pod
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc exec curlimage -- curl -s $SVCIP
 ----
 
-- Expected output
-
 [source]
 ----
 Hello from exercise3, you are doing a great job!
 ----
 
-- Try to access the route and verify that it's not working
+[start=7]
+7. Try to access the route and verify that it's not working
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 ----
 
-- Check the route and verify that Wrong `Endpoint Port` (8080)
+[start=8]
+8. Check the route and verify that Wrong `Endpoint Port` (8080)
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc describe route exercise3
 ----
 
-- Edit the route exercise3 and change `targetPort` from 8080 to 80
+[start=9]
+9. Edit the route exercise3 and change `targetPort` from 8080 to 80
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc edit route exercise3
 ----
 
+[start=10]10. 
 or just use this patch
 
 [source,sh,role=execute,subs="attributes"]
@@ -111,9 +117,10 @@ or just use this patch
 oc patch route exercise3 -p '{"spec":{"port":{"targetPort":80}}}'
 ----
 
-- Test the application
+[start=11]
+11. Test the application
 
-The application is available on https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+NOTE: The application is available on https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 
 or 
 

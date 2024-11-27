@@ -18,63 +18,64 @@ The steps to fix exercise7 are:
 
 ----
 
-== Command line (CLI)
-- Login to Openshift server API using the assigned user account with `oc` command if not logged in
+== Command Line (CLI)
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}
 ----
 
-- Go to assigned namespace-{user}
+[start=2]
+2. Go to the assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc project namespace-{user}
 ----
 
-Stop the virtual machine `exercise7`
+[start=3]
+3. Stop the virtual machine `exercise7`
 
 [source,sh,role=execute,subs="attributes"]
 ----
 virtctl stop exercise7
 ----
 
-- expected output
 [source]
 ----
 VM exercise7 was scheduled to stop
 ----
 
-Restore the virtual machine snapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
+[start=4]
+4. Restore the virtual machine snapshot. In the {user} home directory there's `exercise7-restoresnapshot.yaml` file. Check it.
 
 [source,sh,role=execute,subs="attributes"]
 ----
 cat /home/{user}/exercise7-restoresnapshot.yaml
 ----
 
-Apply it 
+[start=5]
+5. Apply it 
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc apply -f /home/{user}/exercise7-restoresnapshot.yaml
 ----
 
-- expected output
-
 [source]
 ----
 virtualmachinerestore.snapshot.kubevirt.io/restore-exercise7-snapshot created
 ----
 
-Check that VirtualMachineRestore has been created
+[start=6]
+6. Check that VirtualMachineRestore has been created
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc get VirtualMachineRestore restore-exercise7-snapshot -n namespace-{user}
 ----
-
-- expected output
 
 [source]
 ----

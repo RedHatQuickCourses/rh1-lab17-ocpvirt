@@ -1,0 +1,33 @@
+[#scenario]
+= Add a new SSH key to a virtual machine
+
+== Scenario
+
+In this scenario, a RHEL 9-based Virtual Machine (VM) named `exercise8` is currently in the `Running` state. The team has identified that the SSH key originally used to create this VM has been lost. To regain SSH access, a new SSH key must be added to the VM.  
+
+=== Constraints
+- Access to the VM via the console is not possible because the user `lab-user` does not have password defined.
+- The new SSH key to be added is located at `/home/{user}/.ssh/id_rsa.pub`.
+
+=== Task
+Perform the necessary steps to add the specified SSH key to the `exercise8` VM to restore remote access.  
+
+NOTE: The primary goal is to get access to the `exercise8` via SSH virtual machine restored.
+
+TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
+
+== Executing the lab script
+
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access the bastion node using SSH if you are not connected yet.
+
+[source,sh,role=execute,subs="attributes"]
+----
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+----
+
+Once connected to the bastion host run the command to break the lab.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab break exercise8
+----
