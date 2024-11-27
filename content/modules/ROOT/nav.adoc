@@ -24,6 +24,9 @@
 * xref:exercise8-break.adoc#break[8. Add a new SSH key to a virtual machine]
 ** xref:exercise8-check.adoc#check[8.1. Check your work]
 
+* xref:exercise9-break.adoc#break[9. The VM doesn't stop when shutdown is run inside the guest OS]
+** xref:exercise9-check.adoc#check[9.1. Check your work]
+
 * xref:guidedsolution.adoc[Guided Solution]
 ** xref:exercise1-guided.adoc[Exercise 1]
 ** xref:exercise2-guided.adoc[Exercise 2]
@@ -33,3 +36,4 @@
 ** xref:exercise6-guided.adoc[Exercise 6]
 ** xref:exercise7-guided.adoc[Exercise 7]
 ** xref:exercise8-guided.adoc[Exercise 8]
+** xref:exercise9-guided.adoc[Exercise 9]

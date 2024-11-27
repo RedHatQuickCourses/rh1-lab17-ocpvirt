@@ -1,20 +1,11 @@
 [#scenario]
-= Add a new SSH key to a virtual machine
+= The VM doesn't stop when shutdown is run inside the guest OS
 
 == Scenario
 
-In this scenario, a RHEL 9-based Virtual Machine (VM) named `exercise8` is currently in the `Running` state. The team has identified that the SSH key originally used to create this VM has been lost. To regain SSH access, a new SSH key must be added to the VM.  
+The virtual machine does not stay powered off after the user executes a `shutdown -h now` command within the guest OS. A few seconds after the shutdown process completes, the virtual machine automatically powers back on.
 
-=== Constraints
-- Access to the VM via the console is not possible because the user `lab-user` does not have password defined.
-- The new SSH key to be added is located at `/home/{user}/.ssh/id_rsa.pub`.
-
-=== Task
-Perform the necessary steps to add the specified SSH key to the `exercise8` VM to restore remote access.  
-
-NOTE: The primary goal is to get access to the `exercise8` via SSH virtual machine restored.
-
-TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
+NOTE: You need to modify the Virtual Machine configuration to ensure it remains in a stopped state after shutdown using guest OS.
 
 == Executing the lab script
 
@@ -29,5 +20,5 @@ Once connected to the bastion host run the command to break the lab.
 
 [source,sh,role=execute,subs="attributes"]
 ----
-lab break exercise8
+lab break exercise9
 ----

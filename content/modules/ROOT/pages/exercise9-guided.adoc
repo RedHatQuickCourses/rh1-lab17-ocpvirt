@@ -1,22 +1,13 @@
 [#fix]
-= Add a new SSH key to a virtual machine
+= The VM doesn't stop when shutdown is run inside the guest OS
 
 == Scenario
 
-In this scenario, a RHEL 9-based Virtual Machine (VM) named `exercise8` is currently in the `Running` state. The team has identified that the SSH key originally used to create this VM has been lost. To regain SSH access, a new SSH key must be added to the VM.  
+The virtual machine does not stay powered off after the user executes a `shutdown -h now` command within the guest OS. A few seconds after the shutdown process completes, the virtual machine automatically powers back on.
 
-=== Constraints
-- Access to the VM via the console is not possible because the user `lab-user` does not have password defined.
-- The new SSH key to be added is located at `/home/{user}/.ssh/id_rsa.pub`.
+NOTE: You need to modify the Virtual Machine configuration to ensure it remains in a stopped state after shutdown using guest OS.
 
-=== Task
-Perform the necessary steps to add the specified SSH key to the `exercise8` VM to restore remote access.  
-
-NOTE: The primary goal is to get access to the `exercise8` via SSH virtual machine restored.
-
-TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
-
-The steps to fix exercise8 are:
+The steps to fix exercise9 are:
 
 == Console
 ----
@@ -27,74 +18,21 @@ The steps to fix exercise8 are:
 
 ----
 
-== Command line (CLI)
-- Login to Openshift server API using the assigned user account with `oc` command if not logged in
+== Command Line (CLI)
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}
 ----
 
-- Go to assigned namespace-{user}
+[start=2]
+2. Go to the assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc project namespace-{user}
 ----
 
-- Check that ssh is not working
-
-[source,sh,role=execute,subs="attributes"]
-----
-virtctl ssh lab-user@exercise8
-----
-
-- Expected output
-
-[source,subs="attributes"]
-----
-Warning: Permanently added 'vmi/exercise8.namespace-{user}' (ED25519) to the list of known hosts.
-lab-user@vmi/exercise8.namespace-{user}: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
-exit status 255
-----
-
-
-- Add the user SSH key to `exercise8` virtual machine using `virtctl`
-
-[source,sh,role=execute,subs="attributes"]
-----
-virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub --user lab-user --force exercise8
-----
-
-- the output will be.
-
-[source]
-----
- Successfully added the key to secret "idrsa"
-----
-
-- Get the pod name
-
-[source,sh,role=execute,subs="attributes"]
-PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 -o NAME -n namespace-{user})
-
-- Check the logs 
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc logs $PODNAME -n namespace-{user} -f --tail 10
-----
-
-- and wait for the message on virtual machine pod
-
-[source]
-----
-{"component":"virt-launcher","kind":"","level":"info","msg":"Reloading access credentials because secret changed","name":"exercise8","namespace":"namespace-user5","pos":"access_credentials.go:448","timestamp":"2024-11-25T18:47:52.185346Z","uid":"728e56da-dff5-400d-8967-fe406e4ca72f"}
-----
-
-- Test the SSH access
-
-[source,sh,role=execute,subs="attributes"]
-----
-virtctl ssh lab-user@exercise8
-----
+#TODO
