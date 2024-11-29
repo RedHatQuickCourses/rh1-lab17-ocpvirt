@@ -18,14 +18,19 @@ TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 
 == Executing the lab script
 
-In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access the bastion node using SSH if you are not connected yet.
+In this exercise setup, ensure you are logged in to the bastion and OCP cluster as {user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 ----
 
-Once connected to the bastion host run the command to break the lab.
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+Once connected to the bastion host and OCP cluster run the command to break the lab.
 
 [source,sh,role=execute,subs="attributes"]
 ----

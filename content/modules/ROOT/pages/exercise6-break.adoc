@@ -9,12 +9,16 @@ NOTE: The primary goal is to investigate the cause of the live migration failure
 
 == Executing the lab script
 
-In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal on right side, access the bastion node using SSH.
-
+In this exercise setup, ensure you are logged in to the bastion and OCP cluster as {user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
 ----
 
 Once connected to the bastion host log in OCP cluster
