@@ -19,7 +19,7 @@ image::exercise7/01-restore-button.png[]
 - The snapshot button
 
 ++++
-<a href="_images/exercise7/01-restore-button.png" target="_blank" class="popup">
+<a href="_images/exercise7/02-restore-button.png" target="_blank" class="popup">
 ++++
 image::exercise7/02-restore-button.png[]
 ++++
