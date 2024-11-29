@@ -1,12 +1,11 @@
 [#scenario]
-=  Virtual Machine is not starting - part 1
+= Virtual Machine is not starting - part 1
 
 == Scenario
 
 The user is trying to deploy and starting the VM but failed to run.
 
 image::exercise1/01-step2.png[]
-
 
 NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to bring `exercise1` virtual machine `Running` state again.
 Your task is to identify the root cause and resolve the issue.
