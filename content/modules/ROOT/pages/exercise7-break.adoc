@@ -8,8 +8,14 @@ In this scenario, a Virtual Machine named `exercise7` is currently in the `Runni
 
 - The button on Virtual Machine
 
-
+++++
+<a href="_images/exercise7/01-restore-button.png" target="_blank" class="popup">
+++++
 image::exercise7/01-restore-button.png[]
+++++
+</a>
+++++
+
 
 - The snapshot button
 

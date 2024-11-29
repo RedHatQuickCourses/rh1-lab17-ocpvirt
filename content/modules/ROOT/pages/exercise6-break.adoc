@@ -5,7 +5,13 @@
 
 The user is attempting to migrate a virtual machine from one node to another using live migration.
 
+++++
+<a href="_images/exercise6/04-step5-1.png" target="_blank" class="popup">
+++++
 image::exercise6/04-step5-1.png[]
+++++
+</a>
+++++
 
 NOTE: The primary goal is to investigate the cause of the live migration failure and take corrective action to successfully migrate the `exercise6` virtual machine to another node. Your task is to identify the root cause and resolve the issue.
 
