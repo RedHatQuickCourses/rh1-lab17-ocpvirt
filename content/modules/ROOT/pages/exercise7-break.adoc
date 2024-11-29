@@ -16,10 +16,15 @@ image::exercise7/01-restore-button.png[]
 </a>
 ++++
 
-
 - The snapshot button
 
+++++
+<a href="_images/exercise7/01-restore-button.png" target="_blank" class="popup">
+++++
 image::exercise7/02-restore-button.png[]
+++++
+</a>
+++++
 
 Your task is to investigate the steps taken by the user to restore the snapshot and resolve the issue.
 
