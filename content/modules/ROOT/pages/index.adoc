@@ -4,13 +4,11 @@ This hands-on troubleshooting lab addresses common challenges encountered when r
 
 Through practical exercises, you will learn how to identify and resolve VM deployment failures, storage provisioning errors, and networking issues.
 
-.Key skills covered:
-****
-Include:
-    - Identifying common OpenShift Virtualization issues, such as VM startup failures, storage provisioning challenges, and network configuration problems.
-    - Using oc commands and the OpenShift web console for effective troubleshooting.
-    - Analyzing logs from OpenShift virtualization components to diagnose and resolve issues.
-    - Troubleshooting connectivity and performance issues affecting virtual machine networking.
-****
+.Key skills covered
+* Includes:
+  - Identifying common OpenShift Virtualization issues, such as VM startup failures, storage provisioning challenges, and network configuration problems.
+  - Using oc commands and the OpenShift web console for effective troubleshooting.
+  - Analyzing logs from OpenShift virtualization components to diagnose and resolve issues.
+  - Troubleshooting connectivity and performance issues affecting virtual machine networking.
 
 This lab provides real-world scenarios to equip you with essential diagnostic techniques and configuration strategies for managing virtual machines in OpenShift.
