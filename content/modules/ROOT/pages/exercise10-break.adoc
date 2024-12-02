@@ -1,0 +1,42 @@
+[#scenario]
+= The VM is running but no IP assigned inside the guest OS
+
+== Scenario
+
+The virtual machine is up and running but there is no IP address assigned in to the VM.
+
+++++
+<a href="_images/exercise1/10-break1.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break1.png[]
+++++
+</a>
+++++
+
+++++
+<a href="_images/exercise1/10-break2.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break2.png[]
+++++
+</a>
+++++
+
+Your task is to troubleshoot why is the VM did not assigned the IP automatically when VM running and resolve it.
+
+NOTE: The VM only need to use 1 network interface and from the requirement no need to assign static IP address. 
+
+== Executing the lab script
+
+In this exercise setup, you first need to access the bastion trough `{bastion_public_hostname}` to gain entry into the lab environment. From the terminal, access the bastion node using SSH if you are not connected yet.
+
+[source,sh,role=execute,subs="attributes"]
+----
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+----
+
+Once connected to the bastion host run the command to break the lab.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab break exercise 10
+----

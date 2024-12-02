@@ -1,0 +1,182 @@
+[#fix]
+= The VM is running but no IP assigned inside the guest OS
+
+== Scenario
+
+The exercise 10 virtual machine is up and running but there is no IP address assigned in to the VM.
+
+++++
+<a href="_images/exercise1/10-break1.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break1.png[]
+++++
+</a>
+++++
+
+++++
+<a href="_images/exercise1/10-break2.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break2.png[]
+++++
+</a>
+++++
+
+Your task is to troubleshoot the cause of VM did not get IP address automatically and resolve it.
+
+NOTE: The VM only need to use 1 network interface and from the requirement no need to assign static IP address.
+
+The steps to fix exercise10 are:
+
+=== Console
+1. Login to Openshift console using the assigned user account
+
+2. Go to Virtualization - VirtualMachines and check the VM status - Running
+
+image::exercise10/10-step2.png[]
+
+[start=3]
+3. Go to Virtualization - VirtualMachines and check the network window - No IP address
+
+image::exercise10/10-step3.png[]
+
+[start=4]
+4. Go to Networking - NetworkAttachmentDefinitions - exercise10-nad
+
+image::exercise10/10-step4.png[]
+
+[start=5]
+5. Click actions from exercise10-nad and delete it
+
+image::exercise10/10-step5.png[]
+
+[start=6]
+6. Go to Virtualization - VirtualMachines - VirtualMachine details - Configuration - Network - Edit the default network interfaces - Update network to Pod Networking (Binding) - Save
+
+image::exercise10/10-step6.png[]
+
+[start=7]
+7. Go to Virtualization - VirtualMachines - VirtualMachine details - YAML - Add masquerade: {} under spec.template.spec.interfaces
+
+image::exercise10/10-step7.png[]
+
+[start=8]
+8. Restart the VM - Go to Virtualization - VirtualMachines - Actions - Restart and Wait till the VM status is running and IP address get assign
+
+image::exercise10/10-step8.png[]
+
+=== Command Line (CLI)
+1. Login to Openshift server API using the assigned user account with `oc` command
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc login -u "assigned user" -p "assigned password" "server api"
+----
+
+[start=2]
+2. Go to the assigned namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. Check the VM status
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm,vmi
+----
+
+----
+NAME                                    AGE     STATUS    READY
+virtualmachine.kubevirt.io/exercise10   7m14s   Running   True
+
+NAME                                            AGE     PHASE     IP    NODENAME                 READY
+virtualmachineinstance.kubevirt.io/exercise10   7m14s   Running         worker-cluster-fphfn-2   True
+----
+
+[start=4]
+4. Check the VM IP
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc describe vmi exercise10 | grep -i "Ip Address"
+----
+
+----
+    Ip Address:      fe80::63:7ff:fe00:4
+    Ip Addresses:
+----
+
+[start=5]
+5. Check the NetworkAttachmentDefinitions
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get network-attachment-definitions.k8s.cni.cncf.io
+----
+
+----
+NAME             AGE
+exercise10-nad   3m39s
+----
+
+[start=6]
+6. Delete the NetworkAttachmentDefinitions
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc delete network-attachment-definitions.k8s.cni.cncf.io exercise10-nad
+----
+
+----
+oc delete network-attachment-definitions.k8s.cni.cncf.io exercise10-nad
+----
+
+[start=7]
+7. Edit the VM
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit vm exercise10
+----
+
+----
+Remove bridge: {} in spec.template.spec.interfaces
+Add masquerade: {} in spec.template.spec.interfaces
+----
+
+----
+Remove multus and networkName: exercise10-mad in spec.template.spec.networks
+Add pod: {} under name: default in spec.template.spec.networks
+----
+
+[start=8]
+8. Restart the VM and wait till the VM running
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl restart exercise10
+----
+
+----
+NAME                                    AGE   STATUS    READY
+virtualmachine.kubevirt.io/exercise10   14m   Running   True
+
+NAME                                            AGE   PHASE     IP            NODENAME                 READY
+virtualmachineinstance.kubevirt.io/exercise10   52s   Running   10.134.0.22   worker-cluster-fphfn-2   True
+----
+
+[start=9]
+8. Check the VM IP Address
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc describe vmi exercise10 | grep -i "Ip Address"
+----
+
+----
+    Ip Address:      10.134.0.22
+    Ip Addresses:
+----
