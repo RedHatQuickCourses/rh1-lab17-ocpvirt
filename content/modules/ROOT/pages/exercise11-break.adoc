@@ -37,7 +37,7 @@ image::exercise11/11-break3.png[]
 
 [NOTE]
 ====
-* Your task is to troubleshoot why is the VM are not communicating and resolve it. 
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
 * You can recreate the virtual machine if needed
 * Do not edit nothing inside the guest OS
 ====
