@@ -38,5 +38,4 @@ Once connected to the bastion host run the command to break the lab.
 
 [source,sh,role=execute,subs="attributes"]
 ----
-lab break exercise 10
-----
+lab break exercise10
