@@ -6,7 +6,7 @@
 The virtual machine is up and running but there is no IP address assigned in to the VM.
 
 ++++
-<a href="_images/exercise1/10-break1.png" target="_blank" class="popup">
+<a href="_images/exercise10/10-break1.png" target="_blank" class="popup">
 ++++
 image::exercise10/10-break1.png[]
 ++++
@@ -14,7 +14,7 @@ image::exercise10/10-break1.png[]
 ++++
 
 ++++
-<a href="_images/exercise1/10-break2.png" target="_blank" class="popup">
+<a href="_images/exercise10/10-break2.png" target="_blank" class="popup">
 ++++
 image::exercise10/10-break2.png[]
 ++++
