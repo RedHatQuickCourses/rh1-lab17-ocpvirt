@@ -1,0 +1,10 @@
+[#fix]
+= Two virtual machines need to be able to communicate with each other.
+
+== Scenario
+
+The virtual machines `exercise11-a` and `exercise11-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
+
+NOTE: Your task is to troubleshoot why is the VM are not communicating and resolve it.
+
+TODO

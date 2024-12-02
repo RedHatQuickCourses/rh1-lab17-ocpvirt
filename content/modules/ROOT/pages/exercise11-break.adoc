@@ -1,0 +1,29 @@
+[#scenario]
+= Two virtual machines need to be able to communicate with each other.
+
+== Scenario
+
+The virtual machines `exercise11-a` and `exercise11-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
+
+NOTE: Your task is to troubleshoot why is the VM are not communicating and resolve it.
+
+== Executing the lab script
+
+In this exercise setup, ensure you are logged in to the bastion and OCP cluster as {user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+Once connected to the bastion host and OCP cluster run the command to break the lab.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab break exercise11
+----
