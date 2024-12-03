@@ -25,29 +25,28 @@ lab <option> <exercise>
 break <exercise>
 ----
 
-- Purpose: The break command introduces a problem into the specified exercise. This will prepare your exercise with a problem that you have to solve.
+- Purpose: The `break` command introduces a problem to the specified exercise. This will prepare your exercise with a problem that you have to solve.
 - Example: `lab break exercise1`
 
 ----
 fix <exercise>
 ----
 
-- Purpose: The fix command resolves the problem introduced by break, essentially "restoring" the exercise to it's working state. This is helpful if you’re stuck or want to check your solution against a working example.
+- Purpose: The `fix` command resolves the problem introduced by the `break`, essentially "restoring" the exercise to its working state. This is helpful if you’re stuck or want to check your solution against a working example.
 - Example: `lab fix exercise1`
 
 ----
 grade <exercise>
 ----
 
-- Purpose: The grade command verify your solution to the exercise. It checks for correctness based on exercise problem.
+- Purpose: The `grade` command verifies your solution to the exercise. It checks for correctness based on the exercise problem.
 - Example: `lab grade exercise1`
 
 ----
 clean <exercise>
 ----
 
-- Purpose: The clean command removes any changes you’ve made to the exercise, removing the resources created and resetting it to its original state. 
-                    This is useful if you want to start the exercise from scratch or prepare it for another attempt It's recommended to run after finishing each exercise..
+- Purpose: The `clean` command removes any changes you’ve made to the exercise, removes the resources created, and resets it to its original state. This is useful if you want to start the exercise from scratch or prepare it for another attempt. It's recommended that you run after finishing each exercise.
 - Example: `lab clean exercise1`
 
 === Example Workflow:
@@ -60,7 +59,7 @@ clean <exercise>
 
 === Guided solutions
 
-The exercises resolution will be approached in two ways: through the OpenShift Web Console and the `oc` client. 
-The GUI allows users to interact with resources and perform tasks using a more visual and ideal for those who prefer point and click actions. 
-The oc client provides a command line interface, giving users more flexibility, control to execute commands and automate tasks. 
-Both methods will ensure that the problem has been solved.
+- The exercise resolution will be approached through the OpenShift Web Console and the `oc` client. 
+- The GUI allows users to interact with resources and perform tasks more visually and is ideal for those who prefer point-and-click actions. 
+- The oc client provides a command line interface, giving users more flexibility and control to execute commands and automate tasks. 
+- Both methods will ensure that the problem has been solved.
