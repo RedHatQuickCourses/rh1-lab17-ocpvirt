@@ -24,12 +24,24 @@ The steps to fix exercise2 are:
 
 2. Go to Virtualization - Virtual Machines and check the VM status.
 
+++++
+<a href="_images/exercise2/01-step2.png" target="_blank" class="popup">
+++++
 image::exercise2/01-step2.png[]
+++++
+</a>
+++++
 
 [start=3]
 3. Check the Virtual Machine is failing with error `ErrorUnschedulable`.
 
+++++
+<a href="_images/exercise2/02-step3.png" target="_blank" class="popup">
+++++
 image::exercise2/02-step3.png[]
+++++
+</a>
+++++
 
 [start=4]
 4. Go to tab `YAML` and check the status of the Virtual Machine. It is failing with error message: 
@@ -62,8 +74,13 @@ message: '0/6 nodes are available: 3 node(s) didn''t match Pod''s node affinity/
 [start=8]
 8. Wait for the virtual machine to start and check that now the virtual machine is in `Running` state. 
 
+++++
+<a href="_images/exercise2/03-step8.png" target="_blank" class="popup">
+++++
 image::exercise2/03-step8.png[]
-
+++++
+</a>
+++++
 
 == Command Line (CLI)
 
