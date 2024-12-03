@@ -5,6 +5,51 @@
 
 The virtual machines `exercise11-a` and `exercise11-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
 
-NOTE: Your task is to troubleshoot why is the VM are not communicating and resolve it.
+- Virtual Machine `exercise11-a` IP's addresses
 
+++++
+<a href="_images/exercise11/11-break1.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break1.png[]
+++++
+</a>
+++++
+
+- Virtual Machine `exercise11-b` IP's addresses
+
+++++
+<a href="_images/exercise11/11-break2.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break2.png[]
+++++
+</a>
+++++
+
+- ping from `exercise11-a` to `exercise11-b` is not working.
+
+++++
+<a href="_images/exercise11/11-break3.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break3.png[]
+++++
+</a>
+++++
+
+[NOTE]
+====
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
+* You can recreate any virtual machine if needed
+* Do not edit nothing inside the guest OS
+====
+
+The steps to fix exercise11 are:
+
+.Console
+----
 TODO
+----
+
+.CLI
+----
+TODO
+----

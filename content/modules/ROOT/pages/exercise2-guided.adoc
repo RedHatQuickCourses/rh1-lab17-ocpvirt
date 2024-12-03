@@ -3,11 +3,18 @@
 
 == Scenario
 
-The user is trying to deploy and running virtual machine in specific workload and running an issue.
+The user tried to deploy and run a virtual machine in a specific workload and is facing an issue.
 
-The primary goal in this scenario is to investigate the cause of the failure and take corrective action to bring `exercise2` virtual machine online again.
+++++
+<a href="_images/exercise2/01-step2.png" target="_blank" class="popup">
+++++
+image::exercise2/01-step2.png[]
+++++
+</a>
+++++
 
-Your task is to identify the root cause and resolve the issue.
+
+NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to get `exercise2` virtual machine back into the `Running` state.
 
 The steps to fix exercise2 are:
 

@@ -3,9 +3,32 @@
 
 == Scenario
 
-In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot that the user wants to restore. However, the user has noticed that the buttons to restore the snapshot are grayed out, making it impossible to proceed with the restoration.
+In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot the user wants to restore. However, the user has noticed that the snapshot's buttons are grayed out, making it impossible to proceed with the restoration.
+
+- The button on Virtual Machine
+
+++++
+<a href="_images/exercise7/01-restore-button.png" target="_blank" class="popup">
+++++
+image::exercise7/01-restore-button.png[]
+++++
+</a>
+++++
+
+- The snapshot button
+
+++++
+<a href="_images/exercise7/02-restore-button.png" target="_blank" class="popup">
+++++
+image::exercise7/02-restore-button.png[]
+++++
+</a>
+++++
 
 Your task is to investigate the steps taken by the user to restore the snapshot and resolve the issue.
+
+NOTE: The objective is to successfully restore the snapshot of the Virtual Machine `exercise7`.
+
 
 The steps to fix exercise7 are:
 

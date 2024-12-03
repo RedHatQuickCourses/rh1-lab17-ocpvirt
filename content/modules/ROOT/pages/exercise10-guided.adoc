@@ -3,10 +3,10 @@
 
 == Scenario
 
-The exercise 10 virtual machine is up and running but there is no IP address assigned in to the VM.
+The virtual machine `exercise10` is up and running, but no IP address is assigned to the VM.
 
 ++++
-<a href="_images/exercise1/10-break1.png" target="_blank" class="popup">
+<a href="_images/exercise10/10-break1.png" target="_blank" class="popup">
 ++++
 image::exercise10/10-break1.png[]
 ++++
@@ -14,16 +14,16 @@ image::exercise10/10-break1.png[]
 ++++
 
 ++++
-<a href="_images/exercise1/10-break2.png" target="_blank" class="popup">
+<a href="_images/exercise10/10-break2.png" target="_blank" class="popup">
 ++++
 image::exercise10/10-break2.png[]
 ++++
 </a>
 ++++
 
-Your task is to troubleshoot the cause of VM did not get IP address automatically and resolve it.
+Your task is to troubleshoot why is the VM did not assigned the IP automatically when VM running and resolve it.
 
-NOTE: The VM only need to use 1 network interface and from the requirement no need to assign static IP address.
+NOTE: The VM only need to use 1 network interface and from the requirement no need to assign static IP address. 
 
 The steps to fix exercise10 are:
 

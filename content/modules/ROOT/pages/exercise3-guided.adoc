@@ -3,11 +3,17 @@
 
 == Scenario
 
-The application is running on a virtual machine `exercise3` and is intended to be accessible externally through link:https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io[https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io^], but it’s currently facing connectivity issues.
+The application runs on a virtual machine `exercise3` and is intended to be accessible externally through link:https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io[https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io^], but it’s currently facing connectivity issues.
 
-The primary goal in this scenario is to investigate the cause of the issue by examining the OpenShift network components involved in accessing the application within the OpenShift cluster.
+++++
+<a href="_images/exercise3/03-step2.png" target="_blank" class="popup">
+++++
+image::exercise3/03-step2.png[]
+++++
+</a>
+++++
 
-Your task is to identify the root cause and resolve the issue.
+NOTE: The primary goal in this scenario is to investigate the cause of the issue by examining the OpenShift network components involved in accessing the application within the OpenShift cluster.
 
 The steps to fix exercise3 are:
 
