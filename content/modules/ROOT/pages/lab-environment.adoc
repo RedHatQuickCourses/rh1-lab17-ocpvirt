@@ -7,7 +7,7 @@ This lab is designed to simulate real problems in OpenShift Virtualization, prov
 
 == Bastion
 
-All scripts and commands in this lab environment must be executed exclusively via SSH through the bastion host. Check if you are connected on bastion before executing any `lab` script.
+All scripts and commands in this lab environment must be executed exclusively via SSH through the bastion host. Check if you are connected to the bastion before executing any `lab` script.
 
 == lab script
 
