@@ -83,7 +83,7 @@ oc project namespace-{user}
 ----
 
 [start=3]
-3. Check there is a virtual machine running in this namespace and its status. The output should be similar to the following one: 
+3. Check there is a virtual machine running in this namespace and it's status. The output should be similar to the following one: 
 
 [source,sh,role=execute,subs="attributes"]
 ----

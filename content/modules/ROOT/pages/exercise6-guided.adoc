@@ -26,7 +26,7 @@ The steps to fix exercise6 are:
 image::exercise6/01-step2.png[]
 
 [start=3]
-3. Open the Virtual Machine `exercise6` to get its details.
+3. Open the Virtual Machine `exercise6` to get it's details.
 
 image::exercise6/02-step3.png[]
 
@@ -51,7 +51,7 @@ image::exercise6/04-step5-1.png[]
 ----
 
 [start=6]
-6. Stop the virtual machine to edit its configuration.
+6. Stop the virtual machine to edit it's configuration.
 
 [start=7]
 7. Edit the virtual machine and remove the fields `readonly: true` from the VM disks. Go to the `YAML` section and change the field `spec.template.spec.domain.devices.disks.readonly` to false.

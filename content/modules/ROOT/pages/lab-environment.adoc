@@ -32,7 +32,7 @@ break <exercise>
 fix <exercise>
 ----
 
-- Purpose: The `fix` command resolves the problem introduced by the `break`, essentially "restoring" the exercise to its working state. This is helpful if you’re stuck or want to check your solution against a working example.
+- Purpose: The `fix` command resolves the problem introduced by the `break`, essentially "restoring" the exercise to it's working state. This is helpful if you’re stuck or want to check your solution against a working example.
 - Example: `lab fix exercise1`
 
 ----
@@ -46,7 +46,7 @@ grade <exercise>
 clean <exercise>
 ----
 
-- Purpose: The `clean` command removes any changes you’ve made to the exercise, removes the resources created, and resets it to its original state. This is useful if you want to start the exercise from scratch or prepare it for another attempt. It's recommended that you run after finishing each exercise.
+- Purpose: The `clean` command removes any changes you’ve made to the exercise, removes the resources created, and resets it to it's original state. This is useful if you want to start the exercise from scratch or prepare it for another attempt. It's recommended that you run after finishing each exercise.
 - Example: `lab clean exercise1`
 
 === Example Workflow:

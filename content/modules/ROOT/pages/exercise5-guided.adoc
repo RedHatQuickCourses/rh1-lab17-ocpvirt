@@ -42,7 +42,7 @@ TIP: Steps to fix the issue in exercise5
 oc project namespace-{user}
 ----
 
-- Check the virtual machine status and make sure its running
+- Check the virtual machine status and make sure it's running
 
 [source,sh,role=execute,subs="attributes"]
 ----
