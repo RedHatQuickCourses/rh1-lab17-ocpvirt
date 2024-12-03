@@ -23,12 +23,24 @@ The steps to fix exercise6 are:
 
 2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise6`.
 
+++++
+<a href="_images/exercise6/01-step2.png" target="_blank" class="popup">
+++++
 image::exercise6/01-step2.png[]
+++++
+</a>
+++++
 
 [start=3]
 3. Open the Virtual Machine `exercise6` to get it's details.
 
+++++
+<a href="_images/exercise6/02-step3.png" target="_blank" class="popup">
+++++
 image::exercise6/02-step3.png[]
+++++
+</a>
+++++
 
 [start=4]
 4. Try to migrate the virtual machine using Live Migration. Migration is going to fail.
@@ -39,8 +51,17 @@ image::exercise6/03-step4.png[]
 5. Examine the logs of the `virt-launcher-exercise6` pod to identify the root cause. 
 
 ** Go to the project for the assigned user account and then look for the failed pod.
-+
+
+++++
+<a href="_images/exercise6/04-step5-1.png" target="_blank" class="popup">
+++++
 image::exercise6/04-step5-1.png[]
+++++
+</a>
+++++
+
++
+
 +
 
 ** Check the pod logs. The issue occurs because the virtual machine disks are configured as read-only, preventing migration. 
