@@ -3,7 +3,7 @@
 
 == Scenario
 
-The virtual machine is up and running but there is no IP address assigned in to the VM.
+The virtual machine is up and running, but no IP address is assigned to the VM.
 
 ++++
 <a href="_images/exercise10/10-break1.png" target="_blank" class="popup">

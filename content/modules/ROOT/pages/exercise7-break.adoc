@@ -3,8 +3,7 @@
 
 == Scenario
 
-In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot that the user wants to restore. However, the user has noticed that the buttons to restore the snapshot are grayed out, making it impossible to proceed with the restoration.
-
+In this scenario, a Virtual Machine named `exercise7` is currently in the `Running` state and has an existing snapshot the user wants to restore. However, the user has noticed that the snapshot's buttons are grayed out, making it impossible to proceed with the restoration.
 
 - The button on Virtual Machine
 

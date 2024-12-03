@@ -3,7 +3,7 @@
 
 == Scenario
 
-The user is trying to deploy and starting the VM but failed to run.
+The user tried to start the VM, but the process failed to execute successfully.
 
 ++++
 <a href="_images/exercise1/01-step2.png" target="_blank" class="popup">
@@ -13,7 +13,8 @@ image::exercise1/01-step2.png[]
 </a>
 ++++
 
-NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to bring `exercise1` virtual machine `Running` state again.
+NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to get `exercise1` virtual machine back into the `Running` state.
+
 Your task is to identify the root cause and resolve the issue.
 
 == Executing the lab script

@@ -3,7 +3,7 @@
 
 == Scenario
 
-The virtual machine does not stay powered off after the user executes a `shutdown -h now` command within the guest OS. A few seconds after the shutdown process completes, the virtual machine automatically powers back on.
+The virtual machine `exercise9` is not powered off after the user executes a `shutdown -h now` command within the guest OS. A few seconds after the shutdown process, it automatically powers back on.
 
 NOTE: You need to modify the Virtual Machine configuration to ensure it remains in a stopped state after shutdown using guest OS.
 

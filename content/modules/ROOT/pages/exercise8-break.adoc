@@ -3,7 +3,7 @@
 
 == Scenario
 
-In this scenario, a RHEL 9-based Virtual Machine (VM) named `exercise8` is currently in the `Running` state. The team has identified that the SSH key originally used to create this VM has been lost. To regain SSH access, a new SSH key must be added to the VM.  
+In this scenario, an RHEL 9-based Virtual Machine (VM) named `exercise8` is currently in the `Running` state. The team has identified that the SSH key created by this VM has been lost. To regain SSH access, a new SSH key must be added to the VM.  
 
 === Constraints
 - Access to the VM via the console is not possible because the user `lab-user` does not have password defined.

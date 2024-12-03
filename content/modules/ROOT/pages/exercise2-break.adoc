@@ -3,7 +3,7 @@
 
 == Scenario
 
-The user is trying to deploy and running virtual machine in specific workload and is facing an issue.
+The user tried to deploy and run a virtual machine in a specific workload and is facing an issue.
 
 ++++
 <a href="_images/exercise2/01-step2.png" target="_blank" class="popup">
@@ -14,7 +14,7 @@ image::exercise2/01-step2.png[]
 ++++
 
 
-NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to bring `exercise2` virtual machine online again.
+NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to get `exercise2` virtual machine back into the `Running` state.
 
 Your task is to identify the root cause and resolve the issue.
 

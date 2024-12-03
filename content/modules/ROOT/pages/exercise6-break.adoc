@@ -3,7 +3,7 @@
 
 == Scenario
 
-The user is attempting to migrate a virtual machine from one node to another using live migration.
+Using `live migration`, the user is attempting to migrate a virtual machine from one node to another.
 
 ++++
 <a href="_images/exercise6/04-step5-1.png" target="_blank" class="popup">
