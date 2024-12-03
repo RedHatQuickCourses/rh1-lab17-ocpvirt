@@ -3,4 +3,7 @@
 
 This section is designed to provide a comprehensive, step-by-step walkthrough of the solutions to the exercises in this lab.
 
-The exercise resolution will be approached in two ways: through the OpenShift Web Console and the oc client. The GUI allows users to interact with resources and perform tasks more visually and is ideal for those who prefer point-and-click actions. The oc client provides a command line interface, giving users more flexibility and control to execute commands and automate tasks. Both methods will ensure that the problem has been solved.
+* The exercise resolution will be approached through the OpenShift Web Console and the `oc` client. 
+** The GUI allows users to interact with resources and perform tasks more visually and is ideal for those who prefer point-and-click actions. 
+** The oc client provides a command line interface, giving users more flexibility and control to execute commands and automate tasks. 
+* Both methods will ensure that the problem has been solved.
