@@ -30,7 +30,7 @@
 * xref:exercise10-break.adoc#break[10. The VM is running but no IP assigned inside the guest OS]
 ** xref:exercise10-check.adoc#check[10.1. Check your work]
 
-* xref:exercise11-break.adoc#break[11. Two virtual machines need to be able to communicate with each other.]
+* xref:exercise11-break.adoc#break[11. Enabling communication between two virtual machines]
 ** xref:exercise11-check.adoc#check[11.1. Check your work]
 
 * xref:guidedsolution.adoc[Guided Solution]

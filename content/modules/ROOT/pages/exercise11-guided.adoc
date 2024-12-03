@@ -1,5 +1,5 @@
 [#fix]
-= Two virtual machines need to be able to communicate with each other.
+= Enabling communication between two virtual machines
 
 == Scenario
 
