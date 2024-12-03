@@ -45,7 +45,13 @@ image::exercise6/02-step3.png[]
 [start=4]
 4. Try to migrate the virtual machine using Live Migration. Migration is going to fail.
 
+++++
+<a href="_images/exercise6/03-step4.png" target="_blank" class="popup">
+++++
 image::exercise6/03-step4.png[]
+++++
+</a>
+++++
 
 [start=5]
 5. Examine the logs of the `virt-launcher-exercise6` pod to identify the root cause. 
@@ -59,10 +65,6 @@ image::exercise6/04-step5-1.png[]
 ++++
 </a>
 ++++
-
-+
-
-+
 
 ** Check the pod logs. The issue occurs because the virtual machine disks are configured as read-only, preventing migration. 
 
