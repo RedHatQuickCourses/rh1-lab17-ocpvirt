@@ -17,22 +17,112 @@ NOTE: The primary goal in this scenario is to investigate the cause of the issue
 
 The steps to fix exercise3 are:
 
-== Console
+=== Console
+
+
+1. Login to OpenShift console using the assigned user account.
+
+2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise3`.
+
+++++
+<a href="_image::exercise3/01-step2.png" target="_blank" class="popup">
+++++
+image::exercise3/01-step2.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Go to Networking in the left menu and look for the route associated to this virtual machine. Route name is `exercise3`. 
+
+++++
+<a href="_images/exercise3/02-step3.png" target="_blank" class="popup">
+++++
+image::exercise3/02-step3.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. Access the route in a new browser tab and check if the application is available. The application is currently not serving requests at this endpoint. It may not have been started or is still starting
+
+++++
+<a href="_images/exercise3/03-step2.png" target="_blank" class="popup">
+++++
+image::exercise3/03-step2.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. Go to the Services menu to get the `exercise3` service details. Look for the IP address and target port and check it is set to 80.
+
+++++
+<a href="_images/exercise3/04-step5.png" target="_blank" class="popup">
+++++
+image::exercise3/04-step5.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. Go to Workloads and then look for the pods. Select the pod called `curlimage` and access to its terminal.
+
+++++
+<a href="_images/exercise3/05-step6.png" target="_blank" class="popup">
+++++
+image::exercise3/05-step6.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. Try to do `curl` from the pod to the service IP address and port (80)
+
+[source,sh,role=execute,subs="attributes"]
 ----
-1. Login to Openshift console using the assigned user account
-2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
-3. Go to Networking - look for the name exercise3 and location - click the location (https route)
-4. In the new browser tab - check the error status (The application is currently not serving requests at this endpoint. It may not have been started or is still starting.)
-5. Go to Network - Services - Check exercise3 services - Look for target port (80) and IP
-6. Go to Workloads - Pod - Select curlimage pod - Terminal
-7. Try to do curl from the pod to service IP and port (80)
-8. The service should be accessible with message: Hello from exercise3, you are doing a great job!
-9. Go to Network - Routes - Check exercise3 routes - Look for target port (8080)
-10. Edit route for exercise3 in yaml and update the target port into 80 - Save
-11. Access the route URL and application should be accessible
+curl 172.31.247.113:80
 ----
 
-== Command Line (CLI)
+[start=8]
+8. The service should be accessible with message: `Hello from exercise3`, you are doing a great job!
+
+++++
+<a href="_images/exercise3/06-step7.png" target="_blank" class="popup">
+++++
+image::exercise3/06-step7.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. Now, check the target port for the route. Go to Network and then Routes and check `exercise3` route port is set to 8080.
+
+++++
+<a href="_images/exercise3/07-step9.png" target="_blank" class="popup">
+++++
+image::exercise3/07-step9.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. Edit the route in the `yaml` and update the target port into 80. 
+
+[source, yaml]
+----
+  to:
+    kind: Service
+    name: exercise3
+    weight: 100
+  port:
+    targetPort: 80
+----
+
+[start=11]
+11. Access the route URL again and now the application should be accessible.
+
+=== Command Line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
