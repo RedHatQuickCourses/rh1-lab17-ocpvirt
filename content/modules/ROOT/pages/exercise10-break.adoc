@@ -22,8 +22,9 @@ image::exercise10/10-break01.png[]
 
 == Executing the lab script
 
-In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_port}`
+In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_port}` and OpenShift cluster as user `{user}`.
 
+.SSH command to Bastion
 [source,sh,role=execute,subs="attributes"]
 ----
 ifeval::["{cloud_provider}" == "gcp"]
@@ -35,13 +36,13 @@ ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 endif::[]
 ----
 
+.Bastion Password
 [source,sh,role=execute,subs="attributes"]
 ----
 {bastion_ssh_password}
 ----
 
-and OCP cluster as `{user}`
-
+.OpenShift login command
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}
@@ -49,34 +50,25 @@ and OCP cluster as `{user}`
 
 Once connected to the bastion host and OCP cluster run the command to break the lab.
 
+.Breaking the exercise
 [source,sh,role=execute,subs="attributes"]
 ----
 lab break exercise10
 ----
 
-== Console
-
-After completing the break, you can access the OpenShift web console using the username `{user}` and password `{password}`.
+=== Console
+After completing the break, you can access the OpenShift web console using the username and password.
 
 link:{openshift_console_url}[{openshift_console_url}^]
 
-++++
-</br>
-<div>
-  <code id="user">Username: {user}</code>
-  <button onclick="copyToClipboard('user')">Copy Username</button>
-</div>
-</br>
-<div>
-  <code id="password">Password: {password}</code>
-  <button onclick="copyToClipboard('password')">Copy Password</button>
-</div>
-<script>
-  function copyToClipboard(id) {
-    const textToCopy = document.getElementById(id).textContent.replace(/^.*:\s/, '');
-    navigator.clipboard.writeText(textToCopy).catch(err => {
-      console.error('Failed to copy: ', err);
-    });
-  }
-</script>
-++++
+.Username
+[source,sh,role=execute,subs="attributes"]
+----
+{user}
+----
+
+.Password
+[source,sh,role=execute,subs="attributes"]
+----
+{password}
+----

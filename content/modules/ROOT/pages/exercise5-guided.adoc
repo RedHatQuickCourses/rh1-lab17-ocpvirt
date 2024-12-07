@@ -11,8 +11,13 @@ NOTE: Virtual machine credentials - lab-user/redhat1
 
 TIP: Steps to fix the issue in exercise5
 
-== Console
+.Breaking the exercise
+[source,sh,role=execute,subs="attributes"]
 ----
+lab break exercise
+----
+
+=== Console----
 1. Login to Openshift console using the assigned user account
 2. Go to Virtualization - VirtualMachines - select project for the assigned user account - look for VM exercise5 status (Running)
 3. From the VM menu connect to console of exercise5 and login with lab-user credential
@@ -30,6 +35,7 @@ TIP: Steps to fix the issue in exercise5
 == Command line (CLI)
 - Login to Openshift server API using the assigned user account with `oc` command if not logged in
 
+.OpenShift login command
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}

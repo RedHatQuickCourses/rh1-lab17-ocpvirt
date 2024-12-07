@@ -126,6 +126,7 @@ image::exercise3/07-step9.png[]
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
+.OpenShift login command
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}

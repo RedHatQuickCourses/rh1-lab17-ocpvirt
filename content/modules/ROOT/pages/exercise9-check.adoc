@@ -3,6 +3,7 @@
 
 To check you work execute the `lab grade`.
 
+.Grading the exercise
 [source,sh,role=execute,subs="attributes"]
 ----
 lab grade exercise9
@@ -10,12 +11,15 @@ lab grade exercise9
 
 If you encounter an issue with this exercise and would like assistance, simply run the `lab fix` command to resolve it.
 
+.Resolving the exercise
 [source,sh,role=execute,subs="attributes"]
 ----
 lab fix exercise9
 ----
 
 Please run the `lab clean script` before proceeding to the next exercise.
+
+.Cleaning the exercise
 [source,sh,role=execute,subs="attributes"]
 ----
 lab clean exercise9

@@ -18,14 +18,20 @@ TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 
 The steps to fix exercise8 are:
 
-== Console
+.Breaking the exercise
+[source,sh,role=execute,subs="attributes"]
+----
+lab break exercise
+----
 
+=== Console
 NOTE: To solve this exercise you must use Command Line (CLI)
 
 == Command Line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
+.OpenShift login command
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}

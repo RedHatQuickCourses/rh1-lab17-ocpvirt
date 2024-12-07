@@ -9,8 +9,13 @@ NOTE: You need to modify the Virtual Machine configuration to ensure it remains 
 
 The steps to fix exercise9 are:
 
-== Console
+.Breaking the exercise
+[source,sh,role=execute,subs="attributes"]
 ----
+lab break exercise
+----
+
+=== Console----
 1. Login to Openshift console using the assigned user account
 2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
 
@@ -22,6 +27,7 @@ The steps to fix exercise9 are:
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
+.OpenShift login command
 [source,sh,role=execute,subs="attributes"]
 ----
 {login_command}
