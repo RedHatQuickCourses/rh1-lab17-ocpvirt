@@ -3,27 +3,21 @@
 
 == Scenario
 
-The virtual machine `exercise10` is up and running, but no IP address is assigned to the VM.
+The virtual machines `exercise10-a` and `exercise10-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
 
 ++++
-<a href="_images/exercise10/10-break1.png" target="_blank" class="popup">
+<a href="_images/exercise10/10-break01.png" target="_blank" class="popup">
 ++++
-image::exercise10/10-break1.png[]
+image::exercise10/10-break01.png[]
 ++++
 </a>
 ++++
 
-++++
-<a href="_images/exercise10/10-break2.png" target="_blank" class="popup">
-++++
-image::exercise10/10-break2.png[]
-++++
-</a>
-++++
-
-Your task is to troubleshoot why is the VM did not assigned the IP automatically when VM running and resolve it.
-
-NOTE: The VM only need to use 1 network interface and from the requirement no need to assign static IP address. 
+[NOTE]
+====
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
+* A `network-attachment-definition` `br-ex-network` is created on `namespace-{user}`
+====
 
 == Executing the lab script
 
