@@ -1,5 +1,5 @@
 name: modules
-title: OpenShift Virtualization Troubleshooting
+title: "OpenShift Virtualization: Troubleshooting virtual machine common issues"
 version: master
 nav:
   - modules/ROOT/nav.adoc
