@@ -64,4 +64,4 @@ clean <exercise>
 ** The oc client provides a command line interface, giving users more flexibility and control to execute commands and automate tasks. 
 * Both methods will ensure that the problem has been solved.
 
-TIP: In this lab, there's no direct way to open a second terminal. However, you can use `tmux`, which comes pre-installed with some user-friendly customizations to enhance your experience. To start `tmux`, simply type `tmux` in the bastion terminal.
+TIP: In this lab, there's no direct way to open a second terminal. However, when connected on bastion you can use `tmux`, which comes pre-installed with some user-friendly customizations to enhance your experience. To start `tmux`, simply type `tmux` in the bastion terminal.
