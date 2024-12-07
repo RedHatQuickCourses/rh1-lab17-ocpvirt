@@ -35,3 +35,30 @@ Once connected to the bastion host and OCP cluster run the command to break the 
 ----
 lab break exercise4
 ----
+
+== Console
+
+After completing the break, you can access the OpenShift web console using the username `{user}` and password `{password}`.
+
+link:https://console-openshift-console.apps.cluster-{guid}.dynamic.redhatworkshops.io[https://console-openshift-console.apps.cluster-{guid}.dynamic.redhatworkshops.io^]
+
+++++
+</br>
+<div>
+  <code id="user">Username: {user}</code>
+  <button onclick="copyToClipboard('user')">Copy Username</button>
+</div>
+</br>
+<div>
+  <code id="password">Password: {password}</code>
+  <button onclick="copyToClipboard('password')">Copy Password</button>
+</div>
+<script>
+  function copyToClipboard(id) {
+    const textToCopy = document.getElementById(id).textContent.replace(/^.*:\s/, '');
+    navigator.clipboard.writeText(textToCopy).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+</script>
+++++
