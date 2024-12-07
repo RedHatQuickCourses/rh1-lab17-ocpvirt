@@ -3,7 +3,8 @@
 
 == Scenario
 
-The virtual machines `exercise12-a` and `exercise12-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
+The virtual machines `exercise12-a` and `exercise12-b` are up and running with their IP addresses configured properly. 
+However, `exercise12-a` virtual machine does not have access to the application that is running on port 80 on virtual machine `exercise12-b`
 
 ++++
 <a href="_images/exercise12/12-break01.png" target="_blank" class="popup">
@@ -15,7 +16,8 @@ image::exercise12/12-break01.png[]
 
 [NOTE]
 ====
-* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. 
+* Resolve it to restore connectivity on port 80.
 ====
 
 == Executing the lab script
