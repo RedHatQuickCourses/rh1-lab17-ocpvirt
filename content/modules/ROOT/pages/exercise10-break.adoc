@@ -15,7 +15,8 @@ image::exercise10/10-break01.png[]
 
 [NOTE]
 ====
-* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. 
+* Resolve it to restore connectivity.
 * A `network-attachment-definition` `br-ex-network` is created on `namespace-{user}`
 ====
 

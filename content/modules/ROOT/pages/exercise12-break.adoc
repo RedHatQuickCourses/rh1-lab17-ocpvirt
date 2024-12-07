@@ -18,6 +18,7 @@ image::exercise12/12-break01.png[]
 ====
 * Your task is to identify and troubleshoot the issue preventing communication between the VMs. 
 * Resolve it to restore connectivity on port 80.
+*  The `subnet` is defined on `NetworkAttachmentDefinitions`, and you must check the virtual machines IP addresses
 ====
 
 == Executing the lab script

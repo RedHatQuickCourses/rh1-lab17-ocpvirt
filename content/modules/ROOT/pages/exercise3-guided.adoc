@@ -1,5 +1,5 @@
 [#fix]
-= Fix Application is not being accessed externally
+= Fix Application is inaccessible externally
 
 == Scenario
 

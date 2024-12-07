@@ -6,7 +6,7 @@
 * xref:exercise2-break.adoc#break[2. Virtual Machine is not starting - part 2]
 ** xref:exercise2-check.adoc#check[2.1. Check your work]
 
-* xref:exercise3-break.adoc#break[3. The application is not accessible externally]
+* xref:exercise3-break.adoc#break[3. Application is inaccessible externally]
 ** xref:exercise3-check.adoc#check[3.1. Check your work]
 
 * xref:exercise4-break.adoc#break[4. Virtual Machine with performance degraded]
@@ -36,7 +36,7 @@ ifeval::["{cloud_provider}" == "gcp"]
 ** xref:exercise11-check.adoc#check[11.1. Check your work]
 
 * xref:exercise12-break.adoc#break[12. Enabling VM communication - Part 3]
-** xref:exercise12-check.adoc#check[11.2. Check your work]
+** xref:exercise12-check.adoc#check[12.2. Check your work]
 
 endif::[]
 
