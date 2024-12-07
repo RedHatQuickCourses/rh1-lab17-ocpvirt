@@ -11,11 +11,31 @@ NOTE: The goal is to identify bottlenecks or misconfigurations and implement opt
 
 The steps to fix exercise4 are:
 
-.Console
-----
-1. Login to Openshift console using the assigned user account
-2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status (ErrorUnschedulable)
-3. Go to Networking - look for the name exercise3 and location - click the location (https route)
+=== Console
+
+1. Login to OpenShift console using the assigned user account.
+
+2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise4`.
+
+++++
+<a href="_images/exercise4/01-step2.png" target="_blank" class="popup">
+++++
+image::exercise4/01-step2.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Go to Virtual Machine details and check the resources being consumed.
+
+++++
+<a href="_images/exercise4/02-step3.png" target="_blank" class="popup">
+++++
+image::exercise4/02-step3.png[]
+++++
+</a>
+++++
+
 4. In the new browser tab - check the error status (The application is currently not serving requests at this endpoint. It may not have been started or is still starting.)
 5. Go to Network - Services - Check exercise3 services - Look for target port (80) and IP
 6. Go to Workloads - Pod - Select curlimage pod - Terminal
@@ -26,7 +46,7 @@ The steps to fix exercise4 are:
 11. Access the route URL and application should be accessible
 ----
 
-.CLI
+=== CLI
 ----
 1. Login to Openshift server api using the assigned user account with oc command
 2. Go to assigned namespace-{user}
