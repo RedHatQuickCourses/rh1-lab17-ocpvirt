@@ -23,7 +23,7 @@ image::exercise12/12-break01.png[]
 
 == Executing the lab script
 
-In this exercise setup, ensure you are logged in to the bastion and OCP cluster as {user}
+In this exercise setup, ensure you are logged in to the bastion with password {bastion_ssh_port}
 
 [source,sh,role=execute,subs="attributes"]
 ----
@@ -35,6 +35,13 @@ ifeval::["{cloud_provider}" == "openshift_cnv"]
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 endif::[]
 ----
+
+[source,sh,role=execute,subs="attributes"]
+----
+{bastion_ssh_password}
+----
+
+and OCP cluster as {user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
