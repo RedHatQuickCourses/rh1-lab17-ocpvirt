@@ -9,9 +9,9 @@ NOTE: Your task is to troubleshoot and resolve the issue so that the `exercise5-
 
 == Executing the lab script
 
-In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_port}` and OpenShift cluster as user `{user}`.
+In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_password}` and OpenShift cluster as user `{user}`.
 
-.SSH command to Bastion
+.SSH command to bastion
 [source,sh,role=execute,subs="attributes"]
 ----
 ifeval::["{cloud_provider}" == "gcp"]
@@ -44,7 +44,7 @@ lab break exercise5
 ----
 
 === Console
-After completing the break, you can access the OpenShift web console using the username and password.
+After the break, you can log in to the OpenShift web console using your username and password or continue using the `oc` command line at bastion to begin the troubleshooting process.
 
 link:{openshift_console_url}[{openshift_console_url}^]
 

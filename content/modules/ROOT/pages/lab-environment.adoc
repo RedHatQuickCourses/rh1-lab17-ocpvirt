@@ -5,7 +5,7 @@
 
 This lab is designed to simulate real problems in OpenShift Virtualization, providing hands-on experience with troubleshooting and resolving common issues.
 
-== Bastion
+== bastion
 
 All scripts and commands in this lab environment must be executed exclusively via SSH through the bastion host. Check if you are connected to the bastion before executing any `lab` script.
 
@@ -63,3 +63,5 @@ clean <exercise>
 ** The GUI allows users to interact with resources and perform tasks more visually and is ideal for those who prefer point-and-click actions. 
 ** The oc client provides a command line interface, giving users more flexibility and control to execute commands and automate tasks. 
 * Both methods will ensure that the problem has been solved.
+
+TIP: In this lab, there's no direct way to open a second terminal. However, you can use `tmux`, which comes pre-installed with some user-friendly customizations to enhance your experience. To start `tmux`, simply type `tmux` in the bastion terminal.
