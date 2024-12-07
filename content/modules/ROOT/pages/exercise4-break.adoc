@@ -11,7 +11,7 @@ NOTE: The goal is to identify bottlenecks or misconfigurations and implement opt
 
 == Executing the lab script
 
-In this exercise setup, ensure you are logged in to the bastion with password {bastion_ssh_port}
+In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_port}`
 
 [source,sh,role=execute,subs="attributes"]
 ----
@@ -29,7 +29,7 @@ endif::[]
 {bastion_ssh_password}
 ----
 
-and OCP cluster as {user}
+and OCP cluster as `{user}`
 
 [source,sh,role=execute,subs="attributes"]
 ----
@@ -47,7 +47,7 @@ lab break exercise4
 
 After completing the break, you can access the OpenShift web console using the username `{user}` and password `{password}`.
 
-link:https://console-openshift-console.apps.cluster-{guid}.dynamic.redhatworkshops.io[https://console-openshift-console.apps.cluster-{guid}.dynamic.redhatworkshops.io^]
+link:{openshift_console_url}[{openshift_console_url}^]
 
 ++++
 </br>
