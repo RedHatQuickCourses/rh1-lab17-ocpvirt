@@ -1,5 +1,5 @@
 [#scenario]
-= The VM is running but no IP assigned inside the guest OS
+= Enabling VM communication - Part 1
 
 == Scenario
 

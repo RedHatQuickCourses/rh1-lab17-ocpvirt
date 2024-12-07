@@ -1,0 +1,40 @@
+[#scenario]
+= Enabling VM communication - Part 3
+
+== Scenario
+
+The virtual machines `exercise12-a` and `exercise12-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
+
+++++
+<a href="_images/exercise12/12-break01.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break01.png[]
+++++
+</a>
+++++
+
+[NOTE]
+====
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
+====
+
+== Executing the lab script
+
+In this exercise setup, ensure you are logged in to the bastion and OCP cluster as {user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+Once connected to the bastion host and OCP cluster run the command to break the lab.
+
+[source,sh,role=execute,subs="attributes"]
+----
+lab break exercise12
+----

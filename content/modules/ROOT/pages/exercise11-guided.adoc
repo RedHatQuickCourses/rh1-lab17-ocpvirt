@@ -1,5 +1,5 @@
 [#fix]
-= Enabling communication between two virtual machines
+= Enabling VM communication - Part 2
 
 == Scenario
 

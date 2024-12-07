@@ -1,0 +1,32 @@
+[#fix]
+= Enabling VM communication - Part 3
+
+== Scenario
+
+The virtual machines `exercise12-a` and `exercise12-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
+
+++++
+<a href="_images/exercise12/12-break01.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break01.png[]
+++++
+</a>
+++++
+
+[NOTE]
+====
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. Resolve it to restore connectivity.
+====
+
+
+The steps to fix exercise11 are:
+
+.Console
+----
+TODO
+----
+
+.CLI
+----
+TODO
+----
