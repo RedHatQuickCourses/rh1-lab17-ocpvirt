@@ -24,7 +24,13 @@ In this exercise setup, you first need to access the bastion trough `{bastion_pu
 
 [source,sh,role=execute,subs="attributes"]
 ----
+ifeval::["{cloud_provider}" == "gcp"]
+ssh {user}@{bastion_public_hostname}
+endif::[]
+
+ifeval::["{cloud_provider}" == "openshift_cnv"]
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
+endif::[]
 ----
 
 Once connected to the bastion host log in OCP cluster
