@@ -12,4 +12,4 @@ Through practical exercises, you will learn to identify and resolve virtual mach
   - Analyzing logs from OpenShift virtualization components to diagnose and resolve issues.
   - Troubleshooting connectivity and performance issues affecting virtual machine.
 
-This lab provides real-world scenarios to equip you with essential diagnostic techniques and configuration strategies for managing virtual machines in OpenShift.
+This lab provides real-world scenarios to equip you with essential diagnostic techniques and configuration strategies for troubleshooting virtual machines problems in OpenShift.
