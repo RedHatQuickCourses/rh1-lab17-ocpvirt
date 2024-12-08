@@ -15,7 +15,18 @@ image::exercise4/04-break01.png[]
 </a>
 ++++
 
-NOTE: The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
+NOTE: 
+====
+* The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
+* Do not kill any process running inside the virtual machine
+* Do not reboot the virtual machine
+====
+
+.Command to check the CPU usage on Virtual Machine
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise4 --command "top -b -n 1 | grep 'Cpu(s)' | awk '{print \$2 \"% Used\"}'"
+----
 
 == Executing the lab script
 
