@@ -3,27 +3,22 @@
 
 == Scenario
 
-The virtual machine `exercise10` is up and running, but no IP address is assigned to the VM.
+The virtual machines `exercise10-a` and `exercise10-b` are up and running with their IP addresses configured properly. However, communication between them is not functioning as expected.
 
 ++++
-<a href="_images/exercise10/10-break1.png" target="_blank" class="popup">
+<a href="_images/exercise10/10-break01.png" target="_blank" class="popup">
 ++++
-image::exercise10/10-break1.png[]
+image::exercise10/10-break01.png[]
 ++++
 </a>
 ++++
 
-++++
-<a href="_images/exercise10/10-break2.png" target="_blank" class="popup">
-++++
-image::exercise10/10-break2.png[]
-++++
-</a>
-++++
-
-Your task is to troubleshoot why is the VM did not assigned the IP automatically when VM running and resolve it.
-
-NOTE: The VM only need to use 1 network interface and from the requirement no need to assign static IP address. 
+[NOTE]
+====
+* Your task is to identify and troubleshoot the issue preventing communication between the VMs. 
+* Resolve it to restore connectivity.
+* A `network-attachment-definition` `exercise10-nad-layer2` is created on `namespace-{user}`
+====
 
 The steps to fix exercise10 are:
 
@@ -32,79 +27,7 @@ The steps to fix exercise10 are:
 
 2. Go to Virtualization - VirtualMachines and check the VM status - Running
 
-++++
-<a href="_images/exercise10/10-step2.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step2.png[]
-++++
-</a>
-++++
-
-[start=3]
-3. Go to Virtualization - VirtualMachines and check the network window - No IP address
-
-++++
-<a href="_images/exercise10/10-step3.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step3.png[]
-++++
-</a>
-++++
-
-[start=4]
-4. Go to Networking - NetworkAttachmentDefinitions - exercise10-nad
-
-++++
-<a href="_images/exercise10/10-step4.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step4.png[]
-++++
-</a>
-++++
-
-[start=5]
-5. Click actions from exercise10-nad and delete it
-
-++++
-<a href="_images/exercise10/01-step5.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step5.png[]
-++++
-</a>
-++++
-
-[start=6]
-6. Go to Virtualization - VirtualMachines - VirtualMachine details - Configuration - Network - Edit the default network interfaces - Update network to Pod Networking (Binding) - Save
-
-++++
-<a href="_images/exercise10/10-step6.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step6.png[]
-++++
-</a>
-++++
-
-[start=7]
-7. Go to Virtualization - VirtualMachines - VirtualMachine details - YAML - Add masquerade: {} under spec.template.spec.interfaces
-
-++++
-<a href="_images/exercise10/10-step7.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step7.png[]
-++++
-</a>
-++++
-
-[start=8]
-8. Restart the VM - Go to Virtualization - VirtualMachines - Actions - Restart and Wait till the VM status is running and IP address get assign
-
-++++
-<a href="_images/exercise10/10-step8.png" target="_blank" class="popup">
-++++
-image::exercise10/10-step8.png[]
-++++
-</a>
-++++
+TODO
 
 == Command Line (CLI)
 
@@ -124,103 +47,4 @@ image::exercise10/10-step8.png[]
 oc project namespace-{user}
 ----
 
-[start=3]
-3. Check the VM status
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc get vm,vmi
-----
-
-----
-NAME                                    AGE     STATUS    READY
-virtualmachine.kubevirt.io/exercise10   7m14s   Running   True
-
-NAME                                            AGE     PHASE     IP    NODENAME                 READY
-virtualmachineinstance.kubevirt.io/exercise10   7m14s   Running         worker-cluster-fphfn-2   True
-----
-
-[start=4]
-4. Check the VM IP
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc describe vmi exercise10 | grep -i "Ip Address"
-----
-
-----
-    Ip Address:      fe80::63:7ff:fe00:4
-    Ip Addresses:
-----
-
-[start=5]
-5. Check the NetworkAttachmentDefinitions
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc get network-attachment-definitions.k8s.cni.cncf.io
-----
-
-----
-NAME             AGE
-exercise10-nad   3m39s
-----
-
-[start=6]
-6. Delete the NetworkAttachmentDefinitions
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc delete network-attachment-definitions.k8s.cni.cncf.io exercise10-nad
-----
-
-----
-oc delete network-attachment-definitions.k8s.cni.cncf.io exercise10-nad
-----
-
-[start=7]
-7. Edit the VM
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc edit vm exercise10
-----
-
-----
-Remove bridge: {} in spec.template.spec.interfaces
-Add masquerade: {} in spec.template.spec.interfaces
-----
-
-----
-Remove multus and networkName: exercise10-mad in spec.template.spec.networks
-Add pod: {} under name: default in spec.template.spec.networks
-----
-
-[start=8]
-8. Restart the VM and wait till the VM running
-
-[source,sh,role=execute,subs="attributes"]
-----
-virtctl restart exercise10
-----
-
-----
-NAME                                    AGE   STATUS    READY
-virtualmachine.kubevirt.io/exercise10   14m   Running   True
-
-NAME                                            AGE   PHASE     IP            NODENAME                 READY
-virtualmachineinstance.kubevirt.io/exercise10   52s   Running   10.134.0.22   worker-cluster-fphfn-2   True
-----
-
-[start=9]
-8. Check the VM IP Address
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc describe vmi exercise10 | grep -i "Ip Address"
-----
-
-----
-    Ip Address:      10.134.0.22
-    Ip Addresses:
-----
+TODO
