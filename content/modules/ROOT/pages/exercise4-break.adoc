@@ -7,7 +7,7 @@ In this scenario, a Virtual Machine named `exercise4` is currently Running. The 
 
 Your task is to investigate the problem, starting with analyzing the VM’s resource usage, including CPU, memory, disk I/O, etc. Adjusting Virtual Machine compute resources is allowed in this lab; however, `no reboot` is mandatory.
 
-=== Checking the CPU usage inside the virtual machine
+=== Analyzing CPU utilization within the virtual machine
 ++++
 <a href="_images/exercise4/04-break01.png" target="_blank" class="popup">
 ++++
@@ -16,7 +16,7 @@ image::exercise4/04-break01.png[]
 </a>
 ++++
 
-=== Checking the CPU usage with oc client
+=== Analyzing CPU utilization with oc client
 ++++
 <a href="_images/exercise4/04-break02.png" target="_blank" class="popup">
 ++++
