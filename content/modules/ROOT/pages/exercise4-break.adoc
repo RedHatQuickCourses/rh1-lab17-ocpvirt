@@ -7,14 +7,7 @@ In this scenario, a Virtual Machine named `exercise4` is currently Running. The 
 
 Your task is to investigate the problem, starting with analyzing the VM’s resource usage, including CPU, memory, disk I/O, etc. Adjusting Virtual Machine compute resources is allowed in this lab; however, `no reboot` is mandatory.
 
-++++
-<a href="_images/exercise4/04-break02.png" target="_blank" class="popup">
-++++
-image::exercise4/04-break02.png[]
-++++
-</a>
-++++
-
+=== Checking the CPU usage inside the virtual machine
 ++++
 <a href="_images/exercise4/04-break01.png" target="_blank" class="popup">
 ++++
@@ -23,7 +16,16 @@ image::exercise4/04-break01.png[]
 </a>
 ++++
 
-NOTE: 
+=== Checking the CPU usage with oc client
+++++
+<a href="_images/exercise4/04-break02.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break02.png[]
+++++
+</a>
+++++
+
+[NOTE]
 ====
 * The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
 * Do not kill any process running inside the virtual machine
