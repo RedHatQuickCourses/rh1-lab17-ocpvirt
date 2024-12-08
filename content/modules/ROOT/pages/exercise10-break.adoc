@@ -36,7 +36,7 @@ ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 endif::[]
 ----
 
-.Bastion Password
+.bastion Password
 [source,sh,role=execute,subs="attributes"]
 ----
 {bastion_ssh_password}
