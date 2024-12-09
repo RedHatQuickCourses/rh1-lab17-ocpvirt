@@ -92,7 +92,7 @@ image::exercise1/04-step8.png[]
 </a>
 ++++
 
-=== CLI
+=== Command Line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
