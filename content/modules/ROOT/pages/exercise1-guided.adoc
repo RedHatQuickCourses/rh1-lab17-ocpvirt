@@ -1,6 +1,8 @@
 [#fix]
 = Fix Virtual Machine is not starting
 
+== Scenario
+
 The user tried to start the VM, but the process failed to execute successfully.
 
 ++++
