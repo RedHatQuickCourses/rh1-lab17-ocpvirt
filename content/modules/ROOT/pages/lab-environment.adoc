@@ -59,7 +59,9 @@ clean <exercise>
 
 == Virtual machine access
 
-All virtual machines in this lab are configured with the user account `lab-user` and the password `redhat1`.
+All virtual machines in this lab are configured with the user account `lab-user` and the password `redhat1` *.
+
+_* Except exercise8_
 
 == Guided solutions
 
