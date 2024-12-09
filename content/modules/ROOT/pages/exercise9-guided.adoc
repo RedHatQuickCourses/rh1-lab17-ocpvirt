@@ -16,7 +16,7 @@ lab break exercise
 ----
 
 === Console
-----
+
 1. Login to OpenShift console using the assigned user account.
 
 link:{openshift_console_url}[{openshift_console_url}^]
