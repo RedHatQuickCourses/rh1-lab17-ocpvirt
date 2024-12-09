@@ -15,7 +15,8 @@ The steps to fix exercise9 are:
 lab break exercise
 ----
 
-=== Console----
+=== Console
+----
 1. Login to Openshift console using the assigned user account
 2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
 
@@ -23,7 +24,7 @@ lab break exercise
 
 ----
 
-== Command Line (CLI)
+=== Command Line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 

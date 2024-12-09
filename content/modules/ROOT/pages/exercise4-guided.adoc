@@ -11,7 +11,7 @@ NOTE: The goal is to identify bottlenecks or misconfigurations and implement opt
 
 The steps to fix exercise4 are:
 
-== Console
+=== Console
 
 1. Login to OpenShift console using the assigned user account.
 
@@ -45,7 +45,7 @@ image::exercise4/02-step3.png[]
 10. Edit route for exercise3 in yaml and update the target port into 80 - Save
 11. Access the route URL and application should be accessible
 
-== Command line (CLI)
+=== Command line (CLI)
 - Login to Openshift server API using the assigned user account with `oc` command if not logged in
 
 .OpenShift login command

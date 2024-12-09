@@ -11,7 +11,8 @@ NOTE: Virtual machine credentials - lab-user/redhat1
 
 The steps to fix exercise5 are:
 
-=== Console----
+=== Console
+----
 1. Login to Openshift console using the assigned user account
 2. Go to Virtualization - VirtualMachines - select project for the assigned user account - look for VM exercise5 status (Running)
 3. From the VM menu connect to console of exercise5 and login with lab-user credential
@@ -26,7 +27,7 @@ The steps to fix exercise5 are:
 12. From the RHEL 9 run command fdsisk -l or lbslk. The assigned additional 30GiB disk should be there now and readu to format and mount as filesystem by the user.
 ----
 
-== Command line (CLI)
+=== Command line (CLI)
 - Login to Openshift server API using the assigned user account with `oc` command if not logged in
 
 .OpenShift login command
