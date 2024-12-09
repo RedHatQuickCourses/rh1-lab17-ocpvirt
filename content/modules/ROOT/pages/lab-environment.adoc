@@ -57,7 +57,11 @@ clean <exercise>
 . If needed, use `lab fix <exercise>` to restore functionality or `lab clean <exercise>` to start over on step 1
 . At the end of each exercise you have to clean the lab
 
-=== Guided solutions
+== Virtual machine access
+
+All virtual machines in this lab are configured with the user account `lab-user` and the password `redhat1`.
+
+== Guided solutions
 
 * The exercise resolution will be approached through the OpenShift Web Console and the `oc` client. 
 ** The GUI allows users to interact with resources and perform tasks more visually and is ideal for those who prefer point-and-click actions. 
