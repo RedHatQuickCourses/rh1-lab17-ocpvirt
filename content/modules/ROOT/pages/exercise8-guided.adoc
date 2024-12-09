@@ -18,12 +18,6 @@ TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 
 The steps to fix exercise8 are:
 
-.Breaking the exercise
-[source,sh,role=execute,subs="attributes"]
-----
-lab break exercise
-----
-
 === Console
 NOTE: To solve this exercise you must use Command Line (CLI)
 

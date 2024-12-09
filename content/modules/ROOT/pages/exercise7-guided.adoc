@@ -32,12 +32,6 @@ NOTE: The objective is to successfully restore the snapshot of the Virtual Machi
 
 The steps to fix exercise7 are:
 
-.Breaking the exercise
-[source,sh,role=execute,subs="attributes"]
-----
-lab break exercise
-----
-
 === Console----
 1. Login to Openshift console using the assigned user account
 2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
