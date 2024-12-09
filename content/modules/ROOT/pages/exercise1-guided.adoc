@@ -21,6 +21,21 @@ The steps to fix the exercise1 are:
 
 1. Login to OpenShift console using the assigned user account.
 
+link:{openshift_console_url}[{openshift_console_url}^]
+
+.Username
+[source,sh,role=execute,subs="attributes"]
+----
+{user}
+----
+
+.Password
+[source,sh,role=execute,subs="attributes"]
+----
+{password}
+----
+
+[start=2]
 2. Go to Virtualization - Virtual Machines and check the VM status.
 
 ++++

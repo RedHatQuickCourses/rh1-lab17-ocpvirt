@@ -21,6 +21,21 @@ The steps to fix exercise6 are:
 
 1. Login to OpenShift console using the assigned user account.
 
+link:{openshift_console_url}[{openshift_console_url}^]
+
+.Username
+[source,sh,role=execute,subs="attributes"]
+----
+{user}
+----
+
+.Password
+[source,sh,role=execute,subs="attributes"]
+----
+{password}
+----
+
+[start=2]
 2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise6`.
 
 ++++
