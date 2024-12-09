@@ -11,7 +11,7 @@ NOTE: The goal is to identify bottlenecks or misconfigurations and implement opt
 
 The steps to fix exercise4 are:
 
-=== Console
+== Console
 
 1. Login to OpenShift console using the assigned user account.
 
@@ -44,12 +44,23 @@ image::exercise4/02-step3.png[]
 9. Go to Network - Routes - Check exercise3 routes - Look for target port (8080)
 10. Edit route for exercise3 in yaml and update the target port into 80 - Save
 11. Access the route URL and application should be accessible
+
+== Command line (CLI)
+- Login to Openshift server API using the assigned user account with `oc` command if not logged in
+
+.OpenShift login command
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
 ----
 
-=== CLI
+- Go to assigned namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
 ----
-1. Login to Openshift server api using the assigned user account with oc command
-2. Go to assigned namespace-{user}
+oc project namespace-{user}
+----
+
 3. Check the service details of exercise3 and get details for IP and Port (80) - oc describe svc exercise3
 4. Go to the curlimage pod (oc rsh pod curlimage)
 5. Curl the IP and port from service in the curlimage pod - The curl should be working (Hello from exercise3, you are doing a great job!) 
