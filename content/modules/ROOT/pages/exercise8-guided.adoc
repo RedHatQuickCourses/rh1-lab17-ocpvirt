@@ -19,7 +19,7 @@ TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 The steps to fix exercise8 are:
 
 === Console
-NOTE: To solve this exercise theCommand line (CLI) is recommended
+NOTE: To solve this exercise the command line (CLI) is recommended
 
 === Command line (CLI)
 
