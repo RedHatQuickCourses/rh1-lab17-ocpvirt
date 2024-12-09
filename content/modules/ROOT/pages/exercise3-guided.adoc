@@ -122,7 +122,7 @@ image::exercise3/07-step9.png[]
 [start=11]
 11. Access the route URL again and now the application should be accessible.
 
-=== Command Line (CLI)
+=== Command line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 

@@ -104,7 +104,7 @@ podman image list
 
 Now the software has been installed and a new container image created.  It is
 time to spawn a runtime of the container image and validate the software.  The
-software we are using is a command line command.  
+software we are using is a Command line command.  
 
 . When you `run` the container,
 it will be in interactive (`-it`) mode, based on the `moon-buggy` container

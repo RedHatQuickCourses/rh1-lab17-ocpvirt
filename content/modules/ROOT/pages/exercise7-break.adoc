@@ -66,7 +66,7 @@ lab break exercise7
 ----
 
 === Console
-After the break, you can log in to the OpenShift web console using your username and password or continue using the `oc` command line at bastion to begin the troubleshooting process.
+After the break, you can log in to the OpenShift web console using your username and password or continue using the `oc` Command line at bastion to begin the troubleshooting process.
 
 link:{openshift_console_url}[{openshift_console_url}^]
 

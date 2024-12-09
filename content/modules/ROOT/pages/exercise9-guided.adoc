@@ -24,7 +24,7 @@ lab break exercise
 
 ----
 
-=== Command Line (CLI)
+=== Command line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
