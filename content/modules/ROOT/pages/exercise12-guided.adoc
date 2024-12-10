@@ -3,7 +3,7 @@
 
 == Scenario
 
-The virtual machines `exercise12-a` and `exercise12-b` are up and running with their IP addresses configured. However, communication between them is not functioning as expected.
+The virtual machines `exercise12-a` and `exercise12-b` are operational with their IP addresses properly configured. However, the virtual machine `exercise12-a` is unable to access the application running on port 80 on `exercise12-b`.
 
 ++++
 <a href="_images/exercise12/12-break01.png" target="_blank" class="popup">

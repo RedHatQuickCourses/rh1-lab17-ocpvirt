@@ -3,8 +3,7 @@
 
 == Scenario
 
-The virtual machines `exercise12-a` and `exercise12-b` are up and running with their IP addresses configured properly. 
-However, `exercise12-a` virtual machine does not have access to the application that is running on port 80 on virtual machine `exercise12-b`
+The virtual machines `exercise12-a` and `exercise12-b` are operational with their IP addresses properly configured. However, the virtual machine `exercise12-a` is unable to access the application running on port 80 on `exercise12-b`.
 
 ++++
 <a href="_images/exercise12/12-break01.png" target="_blank" class="popup">

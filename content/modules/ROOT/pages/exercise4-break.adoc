@@ -3,9 +3,11 @@
 
 == Scenario
 
-In this scenario, a Virtual Machine named `exercise4` is currently Running. The development team has reported a performance issue with an application hosted inside this VM.
+In this scenario, a Virtual Machine named `exercise4` is currently in a Running state. The development team has reported performance issues with an application hosted on this VM.
 
-Your task is to investigate the problem, starting with analyzing the VM’s resource usage, including CPU, memory, disk I/O, etc. Adjusting Virtual Machine compute resources is allowed in this lab; however, `no reboot` is mandatory.
+Your task is to investigate the problem by analyzing the VM’s resource usage, including CPU, memory, and other relevant metrics. You are permitted to adjust the VM's compute resources as needed to resolve the issue; however, a reboot is not permitted.
+
+NOTE: The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
 
 === Analyzing CPU utilization within the virtual machine
 ++++

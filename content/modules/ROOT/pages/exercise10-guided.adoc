@@ -3,7 +3,7 @@
 
 == Scenario
 
-The virtual machines `exercise10-a` and `exercise10-b` are up and running with their IP addresses configured properly. However, communication between them is not functioning as expected.
+The virtual machines `exercise10-a` and `exercise10-b` are operational and with their IP addresses correctly configured. However, they are not communicating with each other as expected.
 
 ++++
 <a href="_images/exercise10/10-break01.png" target="_blank" class="popup">
