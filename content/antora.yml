@@ -1,12 +1,12 @@
 name: modules
-title: "OpenShift Virtualization: Troubleshooting virtual machine common issues"
+title: "OpenShift Virtualization: Troubleshooting virtual machines common issues"
 version: master
 nav:
   - modules/ROOT/nav.adoc
 
 asciidoc:
   attributes:
-    lab_name: "OpenShift Virtualization: Troubleshooting virtual machine common issues"
+    lab_name: "OpenShift Virtualization: Troubleshooting virtual machines common issues"
     release-version: master
     cloud_provider: gcp
     page-pagination: true
