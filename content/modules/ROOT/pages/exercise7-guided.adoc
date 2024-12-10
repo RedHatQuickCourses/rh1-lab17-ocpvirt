@@ -33,7 +33,7 @@ NOTE: The objective is to successfully restore the snapshot of the Virtual Machi
 The steps to fix exercise7 are:
 
 === Console
-----
+
 1. Login to OpenShift console using the assigned user account.
 
 link:{openshift_console_url}[{openshift_console_url}^]
@@ -54,8 +54,6 @@ link:{openshift_console_url}[{openshift_console_url}^]
 2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
 
 #TODO
-
-----
 
 === Command line (CLI)
 
