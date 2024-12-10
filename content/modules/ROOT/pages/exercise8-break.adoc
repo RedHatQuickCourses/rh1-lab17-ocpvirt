@@ -26,7 +26,7 @@ TIP: Use `virtctl ssh lab-user@exercise8` command to test the access.
 
 == Executing the lab script
 
-In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_password}` and OpenShift cluster as user `{user}`.
+In this exercise setup, ensure you are logged in to the bastion and OpenShift cluster as user `{user}`.
 
 .SSH command to bastion
 [source,sh,role=execute,subs="attributes"]

@@ -40,7 +40,7 @@ virtctl ssh lab-user@exercise4 --command "top -b -n 1 | grep 'Cpu(s)' | awk '{pr
 
 == Executing the lab script
 
-In this exercise setup, ensure you are logged in to the bastion with password `{bastion_ssh_password}` and OpenShift cluster as user `{user}`.
+In this exercise setup, ensure you are logged in to the bastion and OpenShift cluster as user `{user}`.
 
 .SSH command to bastion
 [source,sh,role=execute,subs="attributes"]
