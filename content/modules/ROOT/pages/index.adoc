@@ -2,7 +2,7 @@
 
 This hands-on troubleshooting lab addresses common challenges when running virtual machines within OpenShift Virtualization. You will deploy and manage virtual machines, navigate the OpenShift web console, and address frequent issues such as deploying virtual machine issues, external access failures, storage limitations, network misconfigurations, etc.
 
-Through practical exercises, you will learn to identify and resolve virtual machine deployment failures, storage provisioning errors, migration failures and virtual machine with networking issues.
+Through practical exercises, you will learn to identify and resolve virtual machine deployment failures, storage provisioning errors, migration failures and virtual machines with networking issues.
 
 .Key skills covered
 * Includes:
