@@ -221,8 +221,8 @@ oc describe route exercise3
 oc edit route exercise3
 ----
 
-[start=10]10. 
-or just use this patch
+[start=10]
+10. or just use this patch
 
 [source,sh,role=execute,subs="attributes"]
 ----
