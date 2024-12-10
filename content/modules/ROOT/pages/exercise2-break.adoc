@@ -3,7 +3,7 @@
 
 == Scenario
 
-The user tried to deploy and run a virtual machine in a specific workload and is facing an issue.
+The user tried to deploy and run a virtual machine and is facing an issue.
 
 ++++
 <a href="_images/exercise2/01-step2.png" target="_blank" class="popup">
