@@ -76,7 +76,7 @@ message: '0/6 nodes are available: 3 Insufficient memory, 3 node(s) had untolera
 ----
 
 [start=6]
-6.  Edit the `yaml` file to change the assigned value to one lower than 128Gi.
+6.  Edit the `yaml` file to change the assigned value to one lower than 16Gi.
 
 [source, yaml]
 ----
@@ -194,7 +194,7 @@ oc get vm exercise1 -oyaml
 
 
 [start=6]
-6. Edit the virtual machine to assign a value lower than 128Gi.
+6. Edit the virtual machine to assign a value lower than 16Gi.
 
 [source,sh,role=execute,subs="attributes"]
 ----
