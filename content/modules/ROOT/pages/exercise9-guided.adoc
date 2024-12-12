@@ -7,6 +7,14 @@ The virtual machine `exercise9` does not remain powered off after the user execu
 
 NOTE: You need to modify the Virtual Machine configuration to ensure it remains in a stopped state after shutdown using guest OS.
 
+++++
+<a href="_images/exercise9/09-break01.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break01.png[]
+++++
+</a>
+++++
+
 The steps to fix exercise9 are:
 
 .Breaking the exercise
@@ -38,8 +46,6 @@ link:{openshift_console_url}[{openshift_console_url}^]
 
 #TODO
 
-----
-
 === Command line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
@@ -58,4 +64,51 @@ link:{openshift_console_url}[{openshift_console_url}^]
 oc project namespace-{user}
 ----
 
-#TODO
+[start=3]
+3. List the virtual machines
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm
+----
+
+
+[start=4]
+4. Shutdown the virtual machine using OS command
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise9 --command 'sudo shutdown -h now'
+----
+
+[start=5]
+5. Check the virtual machine stopped and started again after a few seconds
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm
+----
+
+[start=6]
+6. Edit the virtual machine and change runStrategy from `always` to `manual`
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit vm exercise9
+----
+
+[start=7]
+7. Shutdown the virtual machine using OS command again
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise9 --command 'sudo shutdown -h now'
+----
+
+[start=8]
+8. Check the virtual machine still stopped
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm
+----
