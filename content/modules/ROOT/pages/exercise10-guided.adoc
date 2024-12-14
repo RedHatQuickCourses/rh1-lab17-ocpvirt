@@ -72,13 +72,15 @@ oc get virtualmachine
 
 [start=4]
 4. Check the virtual machines are running on different nodes
+
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get virtualmachine -o wide
+oc get pods -o wide
 ----
 
 [start=5]
 5. Check communication is not working
+
 [source,sh,role=execute,subs="attributes"]
 ----
 virtctl ssh lab-user@exercise10-a -c 'ping -c 5 192.168.0.11'
@@ -89,12 +91,12 @@ virtctl ssh lab-user@exercise10-a -c 'ping -c 5 192.168.0.11'
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vmi exercise10-a -n namespace-user3 -o jsonpath='{.spec.networks[?(@.multus)].multus.networkName}'
+oc get vmi exercise10-a -n namespace-{user} -o jsonpath='{.spec.networks[?(@.multus)].multus.networkName}'
 ----
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vmi exercise10-b -n namespace-user3 -o jsonpath='{.spec.networks[?(@.multus)].multus.networkName}'
+oc get vmi exercise10-b -n namespace-{user} -o jsonpath='{.spec.networks[?(@.multus)].multus.networkName}'
 ----
 
 [start=7]
@@ -106,9 +108,14 @@ oc get network-attachment-definitions.k8s.cni.cncf.io exercise10-nad -o yaml
 ----
 
 [start=8]
-8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br10` interface. Verify that this `Linux bridge` is not attached to any physical port, 
+8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br10` interface. Verify that this `Linux bridge` is not attached to any physical port (a veth* port is used), 
   meaning virtual machines will only be able to communicate if they are running on the same node. 
   Therefore, you must recreate the NaD to use `layer2` networking instead of `Linux bridge`. Create `layer2-nad.yaml` and apply it.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get nns -o yaml | grep -A 2 -B 73 br10 | grep -A4 port
+----
 
 [source,sh,role=execute,subs="attributes"]
 ----
