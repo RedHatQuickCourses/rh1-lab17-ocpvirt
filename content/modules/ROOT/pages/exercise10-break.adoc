@@ -17,7 +17,6 @@ image::exercise10/10-break01.png[]
 ====
 * Your task is to identify and troubleshoot the issue preventing communication between the VMs. 
 * Resolve it to restore connectivity.
-* A `network-attachment-definition` *_exercise10-nad-layer2_* is created on `namespace-{user}`
 ====
 
 == Executing the lab script
