@@ -62,4 +62,113 @@ TODO
 oc project namespace-{user}
 ----
 
-TODO
+[start=3]
+3. List the virtual machines
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get virtualmachine
+----
+
+[start=4]
+4. Check the virtual machines are running on different nodes
+[source,sh,role=execute,subs="attributes"]
+----
+oc get virtualmachine -o wide
+----
+
+[start=5]
+5. Check communication is not working
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise10-a -c 'ping -c 5 192.168.0.11'
+----
+
+[start=6]
+6. Get the secondary network used on vms a and b
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi exercise10-a -n namespace-user3 -o jsonpath='{.spec.networks[?(@.multus)].multus.networkName}'
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi exercise10-b -n namespace-user3 -o jsonpath='{.spec.networks[?(@.multus)].multus.networkName}'
+----
+
+[start=7]
+7. Get the secondary network yaml
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get network-attachment-definitions.k8s.cni.cncf.io exercise10-nad -o yaml
+----
+
+[start=8]
+8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br10` interface. Verify that this `Linux bridge` is not attached to any physical port, 
+  meaning virtual machines will only be able to communicate if they are running on the same node. 
+  Therefore, you must recreate the NaD to use `layer2` networking instead of `Linux bridge`. Create `layer2-nad.yaml` and apply it.
+
+[source,sh,role=execute,subs="attributes"]
+----
+vim layer2-nad.yaml
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: exercise10-nad-layer2
+  namespace: namespace-{{ user }}
+spec:
+  config: '{"name":"exercise10-nad-layer2","type":"ovn-k8s-cni-overlay","cniVersion":"0.3.1","topology":"layer2","netAttachDefName":"namespace-{{ user }}/exercise10-nad-layer2"}'
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc apply -f layer2-nad.yaml
+----
+
+NOTE:  To enable communication between virtual machines in this lab, a secondary network as _OVN layer2_ will be used instead of a _Linux bridge_. 
+       Note that _OVN localnet_ and _Linux bridge_ will not function as no _NodeNetworkConfigurationPolicy_ has been defined.
+
+[start=9]
+9. shutdown the virtual machines exercise10-a and exercise10-b
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl stop exercise10-a
+virtctl stop exercise10-b
+----
+
+[start=10]
+10. change the virtual machines secondary network
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc patch vm exercise10-a -n namespace-user5 --type='json' -p='[{"op": "replace", "path": "/spec/networks/1/multus/networkName", "value": "exercise10-nad-layer2"}]'
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc patch vm exercise10-b -n namespace-user5 --type='json' -p='[{"op": "replace", "path": "/spec/networks/1/multus/networkName", "value": "exercise10-nad-layer2"}]'
+----
+
+[start=11]
+11.Start the virtual machines
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl start exercise10-a 
+virtctl start exercise10-b
+----
+
+[start=12]
+12. After virtual machines starts wait some time and check the communication again
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise10-a -c 'ping 192.168.0.11'
+----
