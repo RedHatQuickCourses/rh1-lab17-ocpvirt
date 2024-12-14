@@ -42,14 +42,104 @@ image::exercise11/11-break3.png[]
 * Do not edit nothing inside the guest OS
 ====
 
-The steps to fix exercise11 are:
+The steps to fix exercise10 are:
 
-.Console
+=== Console
+1. Login to Openshift console using the assigned user account
+
+link:{openshift_console_url}[{openshift_console_url}^]
+
+.Username
+[source,sh,role=execute,subs="attributes"]
 ----
-TODO
+{user}
 ----
 
-.CLI
+.Password
+[source,sh,role=execute,subs="attributes"]
 ----
+{password}
+----
+
+[start=2]
+2. Go to Virtualization - VirtualMachines and check the VM status - Running
+
 TODO
+
+=== Command line (CLI)
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
+
+.OpenShift login command
+[source,sh,role=execute,subs="attributes"]
+----
+{login_command}
+----
+
+[start=2]
+2. Go to the assigned namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. List the virtual machines
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get virtualmachine
+----
+
+[start=4]
+4. Verify the communication is not working
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise11-a -c 'ping -c 3 192.168.0.11'
+----
+
+[start=5]
+5. Check the virtual machine exercise11-a and exercise11-b are with IP configured
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise11-a -c 'ip -4 addr show dev eth1'
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise11-b -c 'ip -4 addr show dev eth1'
+----
+
+[start=6]
+6. Check the virtual machines are configured with static IP on CRD VirtualMachine with cloud-init 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi exercise11-a -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloudInitNoCloud)].cloudInitNoCloud.networkData}'
+----
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi exercise11-b -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloudInitNoCloud)].cloudInitNoCloud.networkData}'
+----
+
+[start=7]
+7. The issue is with the `exercise11-b` virtual machine, which is incorrectly configured with a /32 subnet mask but should be using a /24 subnet mask. 
+   Since the IP address is set using cloud-init, the virtual machine must be recreated to correct the configuration.
+   Before recreating the virtual machine, use the command to save `exercise11-b`, removing any unnecessary fields.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get virtualmachine exercise11-b -o yaml | sed -e '/managedFields:/,/^[^ ]/d' -e '/creationTimestamp:/d' -e '/resourceVersion:/d' -e '/uid:/d' -e '/status:/,/^[^ ]/d' > exercise11-b.yaml
+----
+
+[start=8]
+8. Check the communication is working again
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise11-a -c 'ping -c 3 192.168.0.11'
 ----
