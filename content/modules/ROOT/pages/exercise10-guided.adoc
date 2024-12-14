@@ -155,12 +155,12 @@ virtctl stop exercise10-b
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc patch vm exercise10-a -n namespace-user5 --type='json' -p='[{"op": "replace", "path": "/spec/networks/1/multus/networkName", "value": "exercise10-nad-layer2"}]'
+oc patch vm exercise10-a -n namespace-user5 --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/networks/1/multus/networkName", "value": "exercise10-nad-layer2"}]'
 ----
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc patch vm exercise10-b -n namespace-user5 --type='json' -p='[{"op": "replace", "path": "/spec/networks/1/multus/networkName", "value": "exercise10-nad-layer2"}]'
+oc patch vm exercise10-b -n namespace-user5 --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/networks/1/multus/networkName", "value": "exercise10-nad-layer2"}]'
 ----
 
 [start=11]
@@ -177,5 +177,5 @@ virtctl start exercise10-b
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise10-a -c 'ping 192.168.0.11'
+virtctl ssh lab-user@exercise10-a -c 'ping -c 3 192.168.0.11'
 ----
