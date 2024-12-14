@@ -42,7 +42,7 @@ image::exercise11/11-break3.png[]
 * Do not edit nothing inside the guest OS
 ====
 
-The steps to fix exercise10 are:
+The steps to fix exercise11 are:
 
 === Console
 1. Login to Openshift console using the assigned user account
@@ -129,7 +129,7 @@ oc get vmi exercise11-b -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloud
 [start=7]
 7. The issue is with the `exercise11-b` virtual machine, which is incorrectly configured with a /32 subnet mask but should be using a /24 subnet mask. 
    Since the IP address is set using cloud-init, the virtual machine must be recreated to correct the configuration.
-   Before recreating the virtual machine, use the command to save `exercise11-b`, removing any unnecessary fields.
+   Before recreating the virtual machine, use the command to save `exercise11-b`, removing some unnecessary fields.
 
 [source,sh,role=execute,subs="attributes"]
 ----
