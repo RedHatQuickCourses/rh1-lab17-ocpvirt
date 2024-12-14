@@ -136,8 +136,32 @@ oc get vmi exercise11-b -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloud
 oc get virtualmachine exercise11-b -o yaml | sed -e '/managedFields:/,/^[^ ]/d' -e '/creationTimestamp:/d' -e '/resourceVersion:/d' -e '/uid:/d' -e '/status:/,/^[^ ]/d' > exercise11-b.yaml
 ----
 
-[start=8]
-8. Check the communication is working again
+[start=9]
+9. Edit the IP on YAML file and change from /32 to /24.
+
+[source,sh,role=execute,subs="attributes"]
+----
+vim exercise11-b.yaml
+----
+
+[start=10]
+10. Delete exercise11-b virtual machine
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc delete virtualmachine exercise11-b
+----
+
+[start=11]
+11. Apply the edited YAML file
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc apply -f exercise11-b.yaml
+----
+
+[start=12]
+12. Check the communication is working again
 
 [source,sh,role=execute,subs="attributes"]
 ----
