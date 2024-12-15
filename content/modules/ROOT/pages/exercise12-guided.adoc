@@ -95,7 +95,7 @@ oc get multi-networkpolicies.k8s.cni.cncf.io
 ----
 
 [start=8]
-8. Verify that multi-networkpolicy `dey-by-default` is blocking all connections on namespace-{user}
+8. Verify that multi-networkpolicy `deny-by-default` is blocking all connections on namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
@@ -117,7 +117,7 @@ spec:
 ----
 
 [start=9]
-9. Verify that multi-networkpolicy `dey-by-default` is blocking all connections on namespace-{user}
+9. Verify that multi-networkpolicy `deny-by-default` is blocking all connections on namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
