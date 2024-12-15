@@ -98,7 +98,20 @@ oc get multi-networkpolicies.k8s.cni.cncf.io
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get multi-networkpolicies.k8s.cni.cncf.io deny-by-default
+oc get multi-networkpolicies.k8s.cni.cncf.io deny-by-default -o yaml
+----
+
+----
+apiVersion: k8s.cni.cncf.io/v1beta1
+kind: MultiNetworkPolicy
+metadata:
+  name: deny-by-default
+  namespace: namespace-{user}}
+spec:
+  ingress: []
+  podSelector: {}
+  policyTypes:
+  - Ingress
 ----
 
 [start=9]
@@ -108,6 +121,35 @@ oc get multi-networkpolicies.k8s.cni.cncf.io deny-by-default
 ----
 oc get multi-networkpolicies.k8s.cni.cncf.io allow-80-on-exercise12 -o yaml
 ----
+
+----
+apiVersion: k8s.cni.cncf.io/v1beta1
+kind: MultiNetworkPolicy
+metadata:
+  annotations:
+    k8s.v1.cni.cncf.io/policy-for: namespace-user5/exercise12-nad
+  creationTimestamp: "2024-12-15T01:30:33Z"
+  generation: 1
+  name: allow-80-on-exercise12
+  namespace: namespace-user5
+  resourceVersion: "545792"
+  uid: 61ac0573-7afc-4937-b3db-17b549335022
+spec:
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          vm.kubevirt.io/name: exercise12-b
+    ports:
+    - port: 80
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: exercise12
+  policyTypes:
+  - Ingress
+----
+
 
 [start=10]
 10. In this network-policy there's an error on label used on `podSelector`. The correct label is `vm.kubevirt.io/name: exercise12-a`
