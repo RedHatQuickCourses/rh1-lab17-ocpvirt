@@ -66,7 +66,7 @@ oc get vmi exercise12-a -n namespace-{user} -o jsonpath='{.status.interfaces[1].
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vmi exercise12b -n namespace-{user} -o jsonpath='{.status.interfaces[1].ipAddress}'
+oc get vmi exercise12-b -n namespace-{user} -o jsonpath='{.status.interfaces[1].ipAddress}'
 ----
 
 [start=6]
