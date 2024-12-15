@@ -19,7 +19,7 @@ image::exercise12/12-break01.png[]
 ====
 
 
-The steps to fix exercise11 are:
+The steps to fix exercise12 are:
 
 .Console
 ----
