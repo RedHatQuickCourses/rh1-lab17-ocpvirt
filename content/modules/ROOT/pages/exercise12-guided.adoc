@@ -26,7 +26,127 @@ The steps to fix exercise11 are:
 TODO
 ----
 
-.CLI
+=== Command line (CLI)
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
+
+.OpenShift login command
+[source,sh,role=execute,subs="attributes"]
 ----
-TODO
+{login_command}
 ----
+
+[start=2]
+2. Go to the assigned namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc project namespace-{user}
+----
+
+[start=3]
+3. List the virtual machines
+
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get virtualmachine
+----
+
+[start=4]
+4. Getting the exercise12-a IP address 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi exercise12-a -n namespace-{user} -o jsonpath='{.status.interfaces[1].ipAddress}'
+----
+
+[start=5]
+5. Getting the exercise12-b IP address 
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vmi exercise12b -n namespace-{user} -o jsonpath='{.status.interfaces[1].ipAddress}'
+----
+
+[start=6]
+6. Try to access the application running on virtual machine exercise12-b using IP and verify that it's not working.
+
+NOTE:  Do not forget to change the IP to value defined on step 5.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise12-a -c 'curl --connection-timeout 3 http://IP'
+----
+
+[start=7]
+7. Check that there's two multi-networkpolicies configured on project namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get multi-networkpolicies.k8s.cni.cncf.io
+----
+
+[start=8]
+8. Verify that multi-networkpolicy `dey-by-default` is blocking all connections on namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get multi-networkpolicies.k8s.cni.cncf.io deny-by-default
+----
+
+[start=9]
+9. Verify that multi-networkpolicy `dey-by-default` is blocking all connections on namespace-{user}
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get multi-networkpolicies.k8s.cni.cncf.io allow-80-on-exercise12 -o yaml
+----
+
+[start=10]
+10. In this network-policy there's an error on label used on `podSelector`. The correct label is `vm.kubevirt.io/name: exercise12-a`
+
+----
+apiVersion: k8s.cni.cncf.io/v1beta1
+kind: MultiNetworkPolicy
+metadata:
+  name: allow-80-on-exercise12
+  namespace: namespace-{user}
+spec:
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          vm.kubevirt.io/name: exercise12-b   <--
+    ports:
+    - port: 80
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: exercise12
+  policyTypes:
+  - Ingress
+----
+
+[start=11]
+11. Edit the multi-networkpolicy and change the label content to `exercise12-a` once the virtual machine exercise-a is the connection origin.
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc edit multi-networkpolicies.k8s.cni.cncf.io allow-80-on-exercise12
+----
+
+[start=12]
+12. Try to access the application running on virtual machine exercise12-b using IP and verify that it's working now. 
+
+NOTE:  Do not forget to change the IP to value defined on step 5.
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise12-a -c 'curl --connection-timeout 3 http://IP'
+----
+
+
+
+
+
