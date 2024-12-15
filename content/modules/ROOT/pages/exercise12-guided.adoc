@@ -87,7 +87,7 @@ exit status 28
 
 
 [start=7]
-7. Check that there's two multi-networkpolicies configured on project namespace-{user}
+7. Check that there are two multi-networkpolicies configured on project namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
