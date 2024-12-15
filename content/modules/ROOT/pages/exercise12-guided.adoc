@@ -175,7 +175,7 @@ spec:
 ----
 
 [start=11]
-11. Edit the multi-networkpolicy and change the label content to `exercise12-a` once the virtual machine exercise-a is the connection origin.
+11. Edit the multi-networkpolicy and change the label content to `exercise12-a` once the virtual machine exercise12-a is the connection origin.
 
 [source,sh,role=execute,subs="attributes"]
 ----
