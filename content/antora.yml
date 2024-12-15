@@ -12,6 +12,7 @@ asciidoc:
     page-pagination: true
     my_var: "foo"
     guid: my-guid
+    user: userx
     page-links:
     - url: https://redhat.com
       text: Red Hat

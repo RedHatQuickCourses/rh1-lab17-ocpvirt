@@ -79,8 +79,9 @@ NOTE:  Do not forget to change the IP to value defined on step 5.
 virtctl ssh lab-user@exercise12-a -c 'curl --silent --connect-timeout 3 http://IP'
 ----
 
+[source,subs="attributes"]
 ----
-Warning: Permanently added 'vmi/exercise12-a.namespace-user5' (ED25519) to the list of known hosts.
+Warning: Permanently added 'vmi/exercise12-a.namespace-{user}' (ED25519) to the list of known hosts.
 exit status 28
 ----
 
@@ -101,6 +102,7 @@ oc get multi-networkpolicies.k8s.cni.cncf.io
 oc get multi-networkpolicies.k8s.cni.cncf.io deny-by-default -o yaml
 ----
 
+[source,subs="attributes"]
 ----
 apiVersion: k8s.cni.cncf.io/v1beta1
 kind: MultiNetworkPolicy
@@ -149,6 +151,7 @@ spec:
 [start=10]
 10. In this network-policy there's an error on label used on `podSelector`. The correct label is `vm.kubevirt.io/name: exercise12-a`
 
+[source,subs="attributes"]
 ----
 apiVersion: k8s.cni.cncf.io/v1beta1
 kind: MultiNetworkPolicy
@@ -188,6 +191,8 @@ NOTE:  Do not forget to change the IP to value defined on step 5.
 ----
 virtctl ssh lab-user@exercise12-a -c 'curl --silent --connect-timeout 3 http://IP'
 ----
+
+
 
 
 
