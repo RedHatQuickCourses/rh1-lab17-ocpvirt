@@ -127,7 +127,7 @@ Warning: Permanently added 'vmi/exercise4.namespace-{user}' (ED25519) to the lis
 ----
 
 [start=7]
-7. Check the virtual machine CPU usage
+7. Check the virtual machine is using almost 100% CPU
 
 [source,sh,role=execute,subs="attributes"]
 ----
