@@ -166,7 +166,7 @@ oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise4 -c 'cat /proc/cpuinfo | grep processor' | wc -l
+virtctl ssh lab-user@exercise4 -c virtctl ssh lab-user@exercise4 -c 'lscpu | grep Socket'
 ----
 
 [source,subs="attributes"]
