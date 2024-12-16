@@ -61,7 +61,8 @@ image::exercise4/02-step3.png[]
 11. Access the route URL and application should be accessible
 
 === Command line (CLI)
-- Login to Openshift server API using the assigned user account with `oc` command if not logged in
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
 .OpenShift login command
 [source,sh,role=execute,subs="attributes"]
@@ -69,17 +70,113 @@ image::exercise4/02-step3.png[]
 {login_command}
 ----
 
-- Go to assigned namespace-{user}
+[start=2]
+2. Go to the assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc project namespace-{user}
 ----
 
-3. Check the service details of exercise3 and get details for IP and Port (80) - oc describe svc exercise3
-4. Go to the curlimage pod (oc rsh pod curlimage)
-5. Curl the IP and port from service in the curlimage pod - The curl should be working (Hello from exercise3, you are doing a great job!) 
-6. Check the route target port (oc describe route exercise3) - Wrong target port (8080)
-7. Edit the route exercise3 target port to 80 (oc edit route exercise3 and change target port to 80)
-8. Curl the route location for exercise3 (Hello from exercise3, you are doing a great job!)
+[start=3]
+3. List the virtual machines
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get virtualmachine
+----
+
+[source,subs="attributes"]
+----
+NAME        AGE     STATUS    READY
+exercise4   3m29s   Running   True
+----
+
+[start=4]
+4. List the pods
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get pods
+----
+
+[source,subs="attributes"]
+----
+NAME                            READY   STATUS    RESTARTS   AGE
+virt-launcher-exercise4-lb66m   1/1     Running   0          3m41
+----
+
+[start=5]
+5. Check the number of CPU's
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}
+----
+
+[source,subs="attributes"]
+----
+{"cores":1,"sockets":2,"threads":1}
+----
+
+[start=6]
+6. Validate this information within OS virtual machine
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise4 -c 'cat /proc/cpuinfo | grep processor' | wc -l
+----
+
+[source,subs="attributes"]
+----
+Warning: Permanently added 'vmi/exercise4.namespace-{user}' (ED25519) to the list of known hosts.
+2
+----
+
+[start=7]
+7. Check the virtual machine CPU usage
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc adm top pods
+----
+
+[source,subs="attributes"]
+----
+NAME                            CPU(cores)   MEMORY(bytes)   
+virt-launcher-exercise4-lb66m   1993m        1224Mi
+----
+
+[start=8]
+8. change the virtual machine sockets from 2 to 4
+
+----
+oc patch vm exercise4 -n namespace-{user} --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/domain/cpu/sockets", "value": 4}]
+----
+
+[start=9]
+9. check the virtual machine is now running with 4 sockets
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}
+----
+
+[source,subs="attributes"]
+----
+{"cores":1,"sockets":4,"threads":1}
+----
+
+[start=10]
+10. Validate this information within OS virtual machine
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise4 -c 'cat /proc/cpuinfo | grep processor' | wc -l
+----
+
+[source,subs="attributes"]
+----
+Warning: Permanently added 'vmi/exercise4.namespace-{user}' (ED25519) to the list of known hosts.
+4
 ----
