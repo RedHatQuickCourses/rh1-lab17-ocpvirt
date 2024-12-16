@@ -51,14 +51,7 @@ image::exercise4/02-step3.png[]
 </a>
 ++++
 
-4. In the new browser tab - check the error status (The application is currently not serving requests at this endpoint. It may not have been started or is still starting.)
-5. Go to Network - Services - Check exercise3 services - Look for target port (80) and IP
-6. Go to Workloads - Pod - Select curlimage pod - Terminal
-7. Try to do curl from the pod to service IP and port (80)
-8. The service should be accessible with message: Hello from exercise3, you are doing a great job!
-9. Go to Network - Routes - Check exercise3 routes - Look for target port (8080)
-10. Edit route for exercise3 in yaml and update the target port into 80 - Save
-11. Access the route URL and application should be accessible
+TODO
 
 === Command line (CLI)
 
@@ -111,7 +104,7 @@ virt-launcher-exercise4-lb66m   1/1     Running   0          3m41
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}
+oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}'
 ----
 
 [source,subs="attributes"]
@@ -150,8 +143,9 @@ virt-launcher-exercise4-lb66m   1993m        1224Mi
 [start=8]
 8. change the virtual machine sockets from 2 to 4
 
+[source,sh,role=execute,subs="attributes"]
 ----
-oc patch vm exercise4 -n namespace-{user} --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/domain/cpu/sockets", "value": 4}]
+oc patch vm exercise4 -n namespace-{user} --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/domain/cpu/sockets", "value": 4}]'
 ----
 
 [start=9]
@@ -159,7 +153,7 @@ oc patch vm exercise4 -n namespace-{user} --type='json' -p='[{"op": "replace", "
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}
+oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}'
 ----
 
 [source,subs="attributes"]
