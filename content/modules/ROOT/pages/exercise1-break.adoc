@@ -22,13 +22,13 @@ Your task is to identify the root cause and resolve the issue.
 In this exercise setup, ensure you are logged in to the bastion and OpenShift cluster as user `{user}`.
 
 .SSH command to bastion
-[source,sh,role=execute,subs="attributes"]
+[source,sh,role=execute]
 ----
-ifeval::["{cloud_provider}" == "gcp"]
+ifeval::[{cloud_provider} == gcp]
 ssh {user}@{bastion_public_hostname}
 endif::[]
 
-ifeval::["{cloud_provider}" == "openshift_cnv"]
+ifeval::[{cloud_provider} == openshift_cnv]
 ssh {user}@{bastion_public_hostname} -p {bastion_ssh_port}
 endif::[]
 ----
