@@ -107,7 +107,7 @@ oc get network-attachment-definitions.k8s.cni.cncf.io exercise10-nad -o yaml
 ----
 
 [start=8]
-8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br10` interface. Verify that this `Linux bridge` is not attached to any physical port (a veth* port is used), 
+8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br10` interface. Verify that this `Linux bridge` is not attached to any physical port (one or more veth* port are used), 
   meaning virtual machines will only be able to communicate if they are running on the same node. 
   Therefore, you must recreate the NaD to use `layer2` networking instead of `Linux bridge`. Create `layer2-nad.yaml` and apply it.
 
