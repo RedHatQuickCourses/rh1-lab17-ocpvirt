@@ -121,3 +121,4 @@ NAME                         TARGETKIND       TARGETNAME   COMPLETE   RESTORETIM
 restore-exercise7-snapshot   VirtualMachine   exercise7    true       38s
 ----
 
+=== What you learned

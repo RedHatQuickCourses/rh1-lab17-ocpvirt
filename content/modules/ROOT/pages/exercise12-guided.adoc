@@ -198,7 +198,4 @@ Warning: Permanently added 'vmi/exercise12-a.namespace-{user}' (ED25519) to the 
 Hey Hey Hey, it's working!!
 ----
 
-
-
-
-
+=== What you learned

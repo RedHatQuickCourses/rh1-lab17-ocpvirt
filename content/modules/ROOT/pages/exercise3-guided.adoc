@@ -240,3 +240,9 @@ or
 ----
 oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 ----
+
+=== What you learned
+
+In this exercise, you learned how to troubleshoot issues preventing external access to an application by examining all related network components in OpenShift. 
+You tested the application within the virtual machine, verified the service, and checked the route.
+These steps help you to determine whether the issue is within OpenShift or an external system.

@@ -7,7 +7,12 @@ In this scenario, a Virtual Machine named `exercise4` is currently in a Running 
 
 Your task is to investigate the problem by analyzing the VM’s resource usage, including CPU, memory, and other relevant metrics. You are permitted to adjust the VM's compute resources as needed to resolve the issue; however, a reboot is not permitted.
 
-NOTE: The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
+[NOTE]
+====
+* The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
+* Do not kill any process running inside the virtual machine
+* Do not reboot the virtual machine
+====
 
 The steps to fix exercise4 are:
 
@@ -174,3 +179,5 @@ virtctl ssh lab-user@exercise4 -c 'lscpu | grep Socket'
 Warning: Permanently added 'vmi/exercise4.namespace-{user}' (ED25519) to the list of known hosts.
 4
 ----
+
+=== What you learned

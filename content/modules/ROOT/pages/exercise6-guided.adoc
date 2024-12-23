@@ -261,3 +261,5 @@ oc get vmi
 NAME        AGE     PHASE     IP             NODENAME                 READY
 exercise6   3m50s   Running   10.135.1.196   worker-cluster-vmnjk-3   True
 ----
+
+=== What you learned

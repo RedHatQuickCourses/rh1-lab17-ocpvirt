@@ -112,3 +112,5 @@ virtctl ssh lab-user@exercise9 --command 'sudo shutdown -h now'
 ----
 oc get vm
 ----
+
+=== What you learned

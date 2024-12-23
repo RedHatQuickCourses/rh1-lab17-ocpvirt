@@ -7,8 +7,6 @@ In this scenario, a Virtual Machine named `exercise4` is currently in a Running 
 
 Your task is to investigate the problem by analyzing the VM’s resource usage, including CPU, memory, and other relevant metrics. You are permitted to adjust the VM's compute resources as needed to resolve the issue; however, a reboot is not permitted.
 
-NOTE: The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
-
 === Analyzing CPU utilization within the virtual machine
 ++++
 <a href="_images/exercise4/04-break01.png" target="_blank" class="popup">

@@ -128,3 +128,5 @@ virtctl console exercise5
 ----
 
 - Check the disk availability using lsblk or fdisk -l command. The new additional disk from exercise5-vol-data1 should be there and ready to be format and mount by the user.
+
+=== What you learned

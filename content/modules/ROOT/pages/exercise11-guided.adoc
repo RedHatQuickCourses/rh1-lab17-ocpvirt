@@ -167,3 +167,5 @@ oc apply -f exercise11-b.yaml
 ----
 virtctl ssh lab-user@exercise11-a -c 'ping -c 3 192.168.0.11'
 ----
+
+=== What you learned

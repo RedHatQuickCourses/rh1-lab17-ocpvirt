@@ -75,3 +75,7 @@ At the end of this lab, there's a xref:guidedsolution.adoc[Guided Solution] for 
 TIP: In this lab, there's no direct way to open a second terminal. However, on bastion you can use `tmux`, which comes pre-installed with some user-friendly customizations to enhance your experience. To start `tmux`, simply type `tmux` in the bastion terminal.
 
 TIP: To copy and paste within `tmux`, use the mouse to select the text for copying, and press `Ctrl + V` to paste.
+
+=== What you learned section
+
+At the end of each `Guided Solution` exercise, you'll find a detailed explanation of the solution along with a review of the key concepts and skills you learned during the activity.

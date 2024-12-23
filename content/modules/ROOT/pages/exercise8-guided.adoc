@@ -99,3 +99,5 @@ oc logs $PODNAME -n namespace-{user} -f --tail 10
 ----
 virtctl ssh lab-user@exercise8
 ----
+
+=== What you learned

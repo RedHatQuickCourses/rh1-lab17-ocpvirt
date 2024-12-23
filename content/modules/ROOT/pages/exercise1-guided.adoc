@@ -231,3 +231,7 @@ NAME                                   AGE   STATUS    READY
 virtualmachine.kubevirt.io/exercise1   96m   Running   True
 ----
 
+=== What you learned
+
+In this exercise, you learned that virtual machines running on OpenShift Virtualization operate similarly to pods. 
+Specifically, when configuring resource `requests` for CPU or memory, you cannot allocate more resources to a virtual machine than are available on a single node.
