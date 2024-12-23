@@ -183,6 +183,15 @@ Warning: Permanently added 'vmi/exercise4.namespace-{user}' (ED25519) to the lis
 4
 ----
 
+[start=11]
+11. Command to check the CPU usage on Virtual Machine
+
+[source,sh,role=execute,subs="attributes"]
+----
+virtctl ssh lab-user@exercise4 \
+--command "top -b -n 1 | grep 'Cpu(s)' | awk '{print \$2 \"% Used\"}'"
+----
+
 === What you learned
 
 In this exercise, you learned that when working with a RHEL 9 virtual machine, there is no need to shut down or reboot the VM to modify the CPU configuration.
