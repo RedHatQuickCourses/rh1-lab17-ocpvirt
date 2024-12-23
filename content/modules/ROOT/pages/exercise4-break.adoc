@@ -35,7 +35,8 @@ image::exercise4/04-break02.png[]
 .Command to check the CPU usage on Virtual Machine
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise4 --command "top -b -n 1 | grep 'Cpu(s)' | awk '{print \$2 \"% Used\"}'"
+virtctl ssh lab-user@exercise4 \
+--command "top -b -n 1 | grep 'Cpu(s)' | awk '{print \$2 \"% Used\"}'"
 ----
 
 == Executing the lab script
@@ -48,7 +49,7 @@ In this exercise setup, ensure you are logged in to OpenShift cluster as user `{
 {login_command}
 ----
 
-Once connected to the bastion host and OCP cluster run the command to break the lab.
+Once connected to the OCP cluster, run the command to break the lab.
 
 .Breaking the exercise
 [source,sh,role=execute,subs="attributes"]
