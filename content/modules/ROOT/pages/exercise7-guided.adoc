@@ -122,3 +122,5 @@ restore-exercise7-snapshot   VirtualMachine   exercise7    true       38s
 ----
 
 === What you learned
+
+In this exercise, you learned that restoring a snapshot of a virtual machine requires shutting it down, as KubeVirt does not support memory snapshots.
