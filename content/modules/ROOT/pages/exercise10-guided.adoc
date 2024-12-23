@@ -185,4 +185,4 @@ virtctl ssh lab-user@exercise10-a \
 === What you learned
 
 In this exercise, you learned that to enable communication between virtual machines, a secondary network using OVN `layer2` must be configured instead of a `Linux Bridge`. 
-The OVN `localnet` and `Linux Bridge` options will not work because no `NodeNetworkConfigurationPolicy` has been defined.
+The OVN `localnet` and `Linux Bridge` options are not viable because no `NodeNetworkConfigurationPolicy` has been defined, which means the bridge does not have a physical port attached.
