@@ -206,3 +206,5 @@ Hey Hey Hey, it's working!!
 ----
 
 === What you learned
+
+In this exercise, you learned that a `MultiNetworkPolicy` custom resource definition is used to restrict communication between two virtual machines connected with a secondary network attached.

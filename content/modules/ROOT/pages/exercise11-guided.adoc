@@ -178,3 +178,6 @@ virtctl ssh lab-user@exercise11-a \
 ----
 
 === What you learned
+
+In this exercise, you learned that to modify any cloud-init configuration defined in a VirtualMachine manifest, you must recreate the virtual machine.
+This is because cloud-init only executes during the first boot of the virtual machine.
