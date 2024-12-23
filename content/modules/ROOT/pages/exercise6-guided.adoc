@@ -263,3 +263,7 @@ exercise6   3m50s   Running   10.135.1.196   worker-cluster-vmnjk-3   True
 ----
 
 === What you learned
+
+In this exercise, you learned that virtual machines with RWO (Read-Write-Once) disks attached cannot be live migrated between nodes in OpenShift Virtualization. 
+This limitation occurs because live migration involves creating a new instance of the virtual machine on the target node, 
+which fails due to the RWO disk's single-node access restriction.

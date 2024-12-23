@@ -181,3 +181,6 @@ Warning: Permanently added 'vmi/exercise4.namespace-{user}' (ED25519) to the lis
 ----
 
 === What you learned
+
+In this exercise, you learned that when working with a RHEL 9 virtual machine, there is no need to shut down or reboot the VM to modify the CPU configuration.
+Instead, you can perform a CPU hotplug operation while the VM is running.

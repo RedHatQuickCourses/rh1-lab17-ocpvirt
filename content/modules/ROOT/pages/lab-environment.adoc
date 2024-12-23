@@ -76,6 +76,14 @@ TIP: In this lab, there's no direct way to open a second terminal. However, on b
 
 TIP: To copy and paste within `tmux`, use the mouse to select the text for copying, and press `Ctrl + V` to paste.
 
+++++
+<a href="_images/lab-environment/tmux.png" target="_blank" class="popup">
+++++
+image::lab-environment/tmux.png[]
+++++
+</a>
+++++
+
 === What you learned section
 
 At the end of each `Guided Solution` exercise, you'll find a detailed explanation of the solution along with a review of the key concepts and skills you learned during the activity.
