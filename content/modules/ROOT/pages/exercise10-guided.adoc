@@ -140,9 +140,6 @@ spec:
 oc apply -f layer2-nad.yaml
 ----
 
-NOTE:  To enable communication between virtual machines in this lab, a secondary network as _OVN layer2_ will be used instead of a _Linux bridge_. 
-       Note that _OVN localnet_ and _Linux bridge_ will not function as no _NodeNetworkConfigurationPolicy_ has been defined.
-
 [start=9]
 9. shutdown the virtual machines exercise10-a and exercise10-b
 
@@ -186,3 +183,6 @@ virtctl ssh lab-user@exercise10-a \
 ----
 
 === What you learned
+
+In this exercise, you learned that to enable communication between virtual machines, a secondary network using OVN `layer2` must be configured instead of a `Linux Bridge`. 
+The OVN `localnet` and `Linux Bridge` options will not work because no `NodeNetworkConfigurationPolicy` has been defined.

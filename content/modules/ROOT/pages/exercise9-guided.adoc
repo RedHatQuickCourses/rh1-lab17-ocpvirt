@@ -116,3 +116,5 @@ oc get vm
 ----
 
 === What you learned
+
+In this exercise, you learned that when the `runStrategy` is set to `Always`, a virtual machine cannot be powered off directly from the operating system. To power it off, you need to either remove the `runStrategy` configuration or set it to `Manual`.
