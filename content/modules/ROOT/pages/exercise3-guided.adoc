@@ -3,7 +3,7 @@
 
 == Scenario
 
-The application runs on a virtual machine `exercise3` and is intended to be accessible externally through link:https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io[https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io^], but it’s currently facing connectivity issues.
+The application runs on a virtual machine `exercise3` and is intended to be accessible externally through link:https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}[https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}^], but it’s currently facing connectivity issues.
 
 ++++
 <a href="_images/exercise3/03-step2.png" target="_blank" class="popup">
@@ -205,7 +205,7 @@ Hello from exercise3, you are doing a great job!
 [source,sh,role=execute,subs="attributes"]
 ----
 oc exec curlimage -- \
-curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+curl -s https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}
 ----
 
 [start=8]
@@ -235,14 +235,14 @@ oc patch route exercise3 -p '{"spec":{"port":{"targetPort":80}}}'
 [start=11]
 11. Test the application
 
-NOTE: The application is available on link:https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io[https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io^]
+NOTE: The application is available on link:https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}[https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}^]
 
 or 
 
 [source,role=execute,subs="attributes"]
 ----
 oc exec curlimage -- curl -s \
-https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}
 ----
 
 === What you learned
