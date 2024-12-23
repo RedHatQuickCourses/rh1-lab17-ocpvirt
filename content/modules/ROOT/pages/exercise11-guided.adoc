@@ -118,12 +118,14 @@ virtctl ssh lab-user@exercise11-b -c 'ip -4 addr show dev eth1'
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vmi exercise11-a -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloudInitNoCloud)].cloudInitNoCloud.networkData}'
+oc get vmi exercise11-a -n namespace-{user} \
+-o jsonpath='{.spec.volumes[?(@.cloudInitNoCloud)].cloudInitNoCloud.networkData}'
 ----
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vmi exercise11-b -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloudInitNoCloud)].cloudInitNoCloud.networkData}'
+oc get vmi exercise11-b -n namespace-{user} \
+-o jsonpath='{.spec.volumes[?(@.cloudInitNoCloud)].cloudInitNoCloud.networkData}'
 ----
 
 [start=7]
@@ -133,7 +135,10 @@ oc get vmi exercise11-b -n namespace-user5 -o jsonpath='{.spec.volumes[?(@.cloud
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get virtualmachine exercise11-b -o yaml | sed -e '/managedFields:/,/^[^ ]/d' -e '/creationTimestamp:/d' -e '/resourceVersion:/d' -e '/uid:/d' -e '/status:/,/^[^ ]/d' > exercise11-b.yaml
+oc get virtualmachine exercise11-b -o yaml |\ 
+sed -e '/managedFields:/,/^[^ ]/d' \
+-e '/creationTimestamp:/d' -e '/resourceVersion:/d' \
+-e '/uid:/d' -e '/status:/,/^[^ ]/d' > exercise11-b.yaml
 ----
 
 [start=9]

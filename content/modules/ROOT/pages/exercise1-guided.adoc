@@ -60,7 +60,7 @@ image::exercise1/02-step3.png[]
 [start=4]
 4. Go to tab `YAML` and check the status of the Virtual Machine. It is failing with error message: 
 
-[source, wrap]
+[source]
 ----
 message: '0/6 nodes are available: 3 Insufficient memory, 3 node(s) had untolerated taint {node-role.kubernetes.io/master: }. preemption: 0/6 nodes are available: 3 No preemption victims found for incoming pod, 3 Preemption is not helpful for scheduling.'
 ----

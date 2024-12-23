@@ -160,7 +160,8 @@ oc project namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
-PODIP=$(oc get pods -l kubevirt.io/domain=exercise3 -o jsonpath="{.items[*].status.podIP}" -n namespace-user5)
+PODIP=$(oc get pods -l kubevirt.io/domain=exercise3 \
+-o jsonpath="{.items[*].status.podIP}" -n namespace-{user})
 ----
 
 [start=4]
@@ -181,7 +182,8 @@ Hello from exercise3, you are doing a great job!
 
 [source,sh,role=execute,subs="attributes"]
 ----
-SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" -n namespace-user5)
+SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" \
+-n namespace-{user})
 ----
 
 [start=6]
@@ -202,7 +204,8 @@ Hello from exercise3, you are doing a great job!
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+oc exec curlimage -- \
+curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 ----
 
 [start=8]
@@ -236,9 +239,10 @@ NOTE: The application is available on link:https://exercise3-namespace-{user}.ap
 
 or 
 
-[source,sh,role=execute,subs="attributes"]
+[source,role=execute,subs="attributes"]
 ----
-oc exec curlimage -- curl -s https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
+oc exec curlimage -- curl -s \
+https://exercise3-namespace-{user}.apps.cluster-{guid}.dynamic.redhatworkshops.io
 ----
 
 === What you learned

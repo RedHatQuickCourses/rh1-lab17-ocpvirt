@@ -109,7 +109,8 @@ virt-launcher-exercise4-lb66m   1/1     Running   0          3m41
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}'
+oc get vm exercise4 -n namespace-{user} \
+-o jsonpath='{.spec.template.spec.domain.cpu}'
 ----
 
 [source,subs="attributes"]
@@ -150,7 +151,8 @@ virt-launcher-exercise4-lb66m   1993m        1224Mi
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc patch vm exercise4 -n namespace-{user} --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/domain/cpu/sockets", "value": 4}]'
+oc patch vm exercise4 -n namespace-{user} --type='json' \
+-p='[{"op": "replace", "path": "/spec/template/spec/domain/cpu/sockets", "value": 4}]'
 ----
 
 [start=9]
@@ -158,7 +160,8 @@ oc patch vm exercise4 -n namespace-{user} --type='json' -p='[{"op": "replace", "
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vm exercise4 -n namespace-{user} -o jsonpath='{.spec.template.spec.domain.cpu}'
+oc get vm exercise4 -n namespace-{user} \
+-o jsonpath='{.spec.template.spec.domain.cpu}'
 ----
 
 [source,subs="attributes"]

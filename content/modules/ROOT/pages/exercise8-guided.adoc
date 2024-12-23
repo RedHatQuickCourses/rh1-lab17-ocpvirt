@@ -59,7 +59,8 @@ exit status 255
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub --user lab-user --force exercise8
+virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub \
+--user lab-user --force exercise8
 ----
 
 [start=5]
@@ -74,7 +75,8 @@ virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub --user lab-user 
 6. Get the pod name
 
 [source,sh,role=execute,subs="attributes"]
-PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 -o NAME -n namespace-{user})
+PODNAME=$(oc get pods -l kubevirt.io/domain=exercise8 \
+-o NAME -n namespace-{user})
 
 [start=7]
 7. Check the logs 
@@ -89,7 +91,7 @@ oc logs $PODNAME -n namespace-{user} -f --tail 10
 
 [source]
 ----
-{"component":"virt-launcher","kind":"","level":"info","msg":"Reloading access credentials because secret changed","name":"exercise8","namespace":"namespace-user5","pos":"access_credentials.go:448","timestamp":"2024-11-25T18:47:52.185346Z","uid":"728e56da-dff5-400d-8967-fe406e4ca72f"}
+{"component":"virt-launcher","kind":"","level":"info","msg":"Reloading access credentials because secret changed","name":"exercise8","namespace":"namespace-{user}","pos":"access_credentials.go:448","timestamp":"2024-11-25T18:47:52.185346Z","uid":"728e56da-dff5-400d-8967-fe406e4ca72f"}
 ----
 
 [start=9]
