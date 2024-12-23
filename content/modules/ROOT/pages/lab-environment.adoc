@@ -86,4 +86,4 @@ image::lab-environment/tmux.png[]
 
 === What you learned section
 
-At the end of each `Guided Solution` exercise, you'll find a detailed explanation of the solution along with a review of the key concepts and skills you learned during the activity.
+At the end of each `Guided Solution` exercise, you'll find a detailed explanation of the solution along with a review of the key concepts you learned during the activity.
