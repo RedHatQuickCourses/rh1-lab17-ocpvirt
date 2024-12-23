@@ -182,8 +182,8 @@ Hello from exercise3, you are doing a great job!
 
 [source,sh,role=execute,subs="attributes"]
 ----
-SVCIP=$(oc get svc exercise3 -o jsonpath="{.spec.clusterIP}" \
--n namespace-{user})
+SVCIP=$(oc get svc exercise3 \
+-o jsonpath="{.spec.clusterIP}" -n namespace-{user})
 ----
 
 [start=6]
