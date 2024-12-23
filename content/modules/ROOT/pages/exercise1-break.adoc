@@ -13,7 +13,7 @@ image::exercise1/01-step2.png[]
 </a>
 ++++
 
-NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to get `exercise1` virtual machine back into the `Running` state.
+NOTE: The primary goal in this scenario is to investigate the cause of the failure and take corrective action to get `exercise1` virtual machine back into the `Running` state. The amount of memory available for the virtual machine in this lab is 8GB.
 
 Your task is to identify the root cause and resolve the issue.
 
