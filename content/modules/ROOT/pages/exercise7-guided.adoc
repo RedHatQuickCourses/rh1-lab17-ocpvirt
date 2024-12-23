@@ -112,7 +112,8 @@ virtualmachinerestore.snapshot.kubevirt.io/restore-exercise7-snapshot created
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get VirtualMachineRestore restore-exercise7-snapshot -n namespace-{user}
+oc get VirtualMachineRestore restore-exercise7-snapshot \
+-n namespace-{user}
 ----
 
 [source]

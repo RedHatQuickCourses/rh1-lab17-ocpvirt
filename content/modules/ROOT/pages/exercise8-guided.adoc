@@ -59,7 +59,8 @@ exit status 255
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl credentials add-ssh-key -f /home/{user}/.ssh/id_rsa.pub \
+virtctl credentials add-ssh-key \
+-f /home/{user}/.ssh/id_rsa.pub \
 --user lab-user --force exercise8
 ----
 

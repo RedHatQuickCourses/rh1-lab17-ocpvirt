@@ -78,7 +78,8 @@ oc get vm
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise9 --command 'sudo shutdown -h now'
+virtctl ssh lab-user@exercise9 \
+--command 'sudo shutdown -h now'
 ----
 
 [start=5]
@@ -102,7 +103,8 @@ oc edit vm exercise9
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise9 --command 'sudo shutdown -h now'
+virtctl ssh lab-user@exercise9 \
+--command 'sudo shutdown -h now'
 ----
 
 [start=8]

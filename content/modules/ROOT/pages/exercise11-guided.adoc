@@ -97,7 +97,8 @@ oc get virtualmachine
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise11-a -c 'ping -c 3 192.168.0.11'
+virtctl ssh lab-user@exercise11-a \
+-c 'ping -c 3 192.168.0.11'
 ----
 
 [start=5]
@@ -105,12 +106,14 @@ virtctl ssh lab-user@exercise11-a -c 'ping -c 3 192.168.0.11'
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise11-a -c 'ip -4 addr show dev eth1'
+virtctl ssh lab-user@exercise11-a \
+-c 'ip -4 addr show dev eth1'
 ----
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise11-b -c 'ip -4 addr show dev eth1'
+virtctl ssh lab-user@exercise11-b \
+-c 'ip -4 addr show dev eth1'
 ----
 
 [start=6]
@@ -170,7 +173,8 @@ oc apply -f exercise11-b.yaml
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise11-a -c 'ping -c 3 192.168.0.11'
+virtctl ssh lab-user@exercise11-a \
+-c 'ping -c 3 192.168.0.11'
 ----
 
 === What you learned

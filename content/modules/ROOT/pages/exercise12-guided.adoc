@@ -78,7 +78,8 @@ NOTE:  Do not forget to change the IP to value defined on step 5.
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise12-a -c 'curl --silent --connect-timeout 3 http://IP'
+virtctl ssh lab-user@exercise12-a \
+-c 'curl --silent --connect-timeout 3 http://IP'
 ----
 
 [source,subs="attributes"]
@@ -101,7 +102,8 @@ oc get multi-networkpolicies.k8s.cni.cncf.io
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get multi-networkpolicies.k8s.cni.cncf.io deny-by-default -o yaml
+oc get multi-networkpolicies.k8s.cni.cncf.io \
+deny-by-default -o yaml
 ----
 
 [source,subs="attributes"]
@@ -123,7 +125,8 @@ spec:
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get multi-networkpolicies.k8s.cni.cncf.io allow-80-on-exercise12 -o yaml
+oc get multi-networkpolicies.k8s.cni.cncf.io \
+allow-80-on-exercise12 -o yaml
 ----
 
 [source,subs="attributes"]
@@ -181,7 +184,8 @@ spec:
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc edit multi-networkpolicies.k8s.cni.cncf.io allow-80-on-exercise12
+oc edit multi-networkpolicies.k8s.cni.cncf.io \
+allow-80-on-exercise12
 ----
 
 [start=12]
@@ -191,7 +195,8 @@ NOTE:  Do not forget to change the IP to value defined on step 5.
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl ssh lab-user@exercise12-a -c 'curl --silent --connect-timeout 3 http://IP'
+virtctl ssh lab-user@exercise12-a \
+-c 'curl --silent --connect-timeout 3 http://IP'
 ----
 
 [source,subs="attributes"]
