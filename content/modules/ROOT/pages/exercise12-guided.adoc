@@ -107,7 +107,7 @@ image::exercise12/12-break07.png[]
 
 [start=8]
 8. On left side menu, click on `Networking` -> `MultiNetworkPolicies` and click on `allow-80-on-exercise12`
-and check it's YAML. Verify that the label on `from` is configured as exercise12-b virtual machine
+and check it's YAML. Verify that the label on `from` is configured as `exercise12-b` virtual machine
 
 ++++
 <a href="_images/exercise12/12-break08.png" target="_blank" class="popup">
