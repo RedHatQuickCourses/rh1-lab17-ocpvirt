@@ -21,10 +21,125 @@ image::exercise12/12-break01.png[]
 
 The steps to fix exercise12 are:
 
-.Console
+=== Console
+1. Login to Openshift console using the assigned user account
+
+link:{openshift_console_url}[{openshift_console_url}^]
+
+.Username
+[source,sh,role=execute,subs="attributes"]
 ----
-TODO
+{user}
 ----
+
+.Password
+[source,sh,role=execute,subs="attributes"]
+----
+{password}
+----
+
+[start=2]
+2. Go to virtualization -> Virtual Machines - select project for the assigned user account
+
+++++
+<a href="_images/exercise12/12-break02.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break02.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Verify the `exercise-12-a` virtual machine IP address
+
+++++
+<a href="_images/exercise12/12-break03.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break03.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. Verify the `exercise-12-b` virtual machine IP address
+
+++++
+<a href="_images/exercise12/12-break04.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break04.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. On `Virtualization` -> `Virtual Machines` menu, click on `exercise12-a` virtual machine and open it's `Console`
+Test the communication is not working on `exercise12-b` IP on port 80
+
+++++
+<a href="_images/exercise12/12-break05.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break05.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. On left side menu, click on `Networking` -> `MultiNetworkPolicies`
+
+++++
+<a href="_images/exercise12/12-break06.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break06.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. Click on `deny-by-default` MultiNetworkPolicy and check it's YAML.
+
+++++
+<a href="_images/exercise12/12-break07.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break07.png[]
+++++
+</a>
+++++
+
+[start=8]
+8. On left side menu, click on `Networking` -> `MultiNetworkPolicies` and click on `allow-80-on-exercise12`
+and check it's YAML. Verify that the label on `from` is configured as exercise12-b virtual machine
+
+++++
+<a href="_images/exercise12/12-break08.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break08.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. Change it to `exercise12-a` label and click `Save`.
+
+++++
+<a href="_images/exercise12/12-break09.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break09.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. Test the connection from `exercise12-a` virtual machine `Console` and it's working now.
+
+++++
+<a href="_images/exercise12/12-break10.png" target="_blank" class="popup">
+++++
+image::exercise12/12-break10.png[]
+++++
+</a>
+++++
+
+
 
 === Command line (CLI)
 
