@@ -51,9 +51,70 @@ link:{openshift_console_url}[{openshift_console_url}^]
 ----
 
 [start=2]
-2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
+2. Go to virtualization -> Virtual Machines - select project for the assigned user account
 
-#TODO
+++++
+<a href="_images/exercise7/07-break03.png" target="_blank" class="popup">
+++++
+image::exercise7/07-break03.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Stop the `exercise7` virtual machine
+
+++++
+<a href="_images/exercise7/07-break04.png" target="_blank" class="popup">
+++++
+image::exercise7/07-break04.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. Click on `exercise7` virtual machines and `Snapshot` tab.
+
+++++
+<a href="_images/exercise7/07-break05.png" target="_blank" class="popup">
+++++
+image::exercise7/07-break05.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. On snapshot click `Restore VirtualMachine from snapshot`
+
+++++
+<a href="_images/exercise7/07-break06.png" target="_blank" class="popup">
+++++
+image::exercise7/07-break06.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. Click `Restore`
+
+++++
+<a href="_images/exercise7/07-break07.png" target="_blank" class="popup">
+++++
+image::exercise7/07-break07.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. Check the virtual machine snapshot has been restored.
+
+++++
+<a href="_images/exercise7/07-break08.png" target="_blank" class="popup">
+++++
+image::exercise7/07-break08.png[]
+++++
+</a>
+++++
 
 === Command line (CLI)
 
