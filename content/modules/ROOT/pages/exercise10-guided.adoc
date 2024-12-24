@@ -39,9 +39,195 @@ link:{openshift_console_url}[{openshift_console_url}^]
 ----
 
 [start=2]
-2. Go to Virtualization - VirtualMachines and check the VM status - Running
+2. Go to virtualization -> Virtual Machines - select project for the assigned user account
 
-TODO
+++++
+<a href="_images/exercise10/10-break02.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break02.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Click on `exercise10-a` virtual machine, `Configuration` and `Network`, verify it's using `exercise10-nad` as secondary network
+
+++++
+<a href="_images/exercise10/10-break03.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break03.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. Click on `exercise10-b` virtual machine, `Configuration` and `Network`, verify it's using `exercise10-nad` as secondary network
+
+++++
+<a href="_images/exercise10/10-break04.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break04.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. On left side menu click `Networking` -> `NetworkAttachmentDefinition`
+
+++++
+<a href="_images/exercise10/10-break05.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break05.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. Click `exercise10-nad` and check it's using `Linux Bridge`
+
+++++
+<a href="_images/exercise10/10-break06.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break06.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. O left side menu click `Networking` -> `NodeNetworkConfigurationPolicy` and verify that it is empty
+
+++++
+<a href="_images/exercise10/10-break07.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break07.png[]
+++++
+</a>
+++++
+
+[start=8]
+8. O left side menu click `Networking` -> `NodeNetworkState` and check there's a `linux bridge` interface on nodes
+
+++++
+<a href="_images/exercise10/10-break08.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break08.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. Click `linux bridge` -> `br10`
+
+++++
+<a href="_images/exercise10/10-break09.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break09.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. Verify that there are only `veth` interfaces. 
+It means that there is no physical network attached on this `linux bridge`
+
+++++
+<a href="_images/exercise10/10-break10.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break10.png[]
+++++
+</a>
+++++
+
+[start=11]
+11. On left side menu click `Networking` -> `NetworkAttachmentDefinitions` and `Create Network Attachment Definition` button.
+
+++++
+<a href="_images/exercise10/10-break11.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break11.png[]
+++++
+</a>
+++++
+
+[start=12]
+12. Type `exercise10-nad-layer2` as name and select `OVN Kubernetes L2 overlay network` on `Network Type`
+and click on `Create` button
+
+++++
+<a href="_images/exercise10/10-break12.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break12.png[]
+++++
+</a>
+++++
+
+[start=13]
+13. On left side menu click `Virtualization` -> `VirtualMachines` and stop virtual machine `exercise10-a`
+
+++++
+<a href="_images/exercise10/10-break13.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break13.png[]
+++++
+</a>
+++++
+
+[start=14]
+14. On left side menu click `Virtualization` -> `VirtualMachines` and stop virtual machine `exercise10-b`
+
+++++
+<a href="_images/exercise10/10-break14.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break14.png[]
+++++
+</a>
+++++
+
+[start=15]
+15. Click on `exercise10-a` virtual machine, `Configuration` and `Network`, 
+
+++++
+<a href="_images/exercise10/10-break15.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break15.png[]
+++++
+</a>
+++++
+
+[start=16]
+16. Edit the virtual machine network
+
+++++
+<a href="_images/exercise10/10-break16.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break16.png[]
+++++
+</a>
+++++
+
+[start=17]
+17. Change from `exercise10-nad` to `exercise10-nad-layer2`
+
+++++
+<a href="_images/exercise10/10-break17.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break17.png[]
+++++
+</a>
+++++
+
+[start=18]
+18. Start the virtual machine `exercise10-a`
+
+++++
+<a href="_images/exercise10/10-break18.png" target="_blank" class="popup">
+++++
+image::exercise10/10-break18.png[]
+++++
+</a>
+++++
+
+Repeat steps 15, 16, 17, and 18 for the `exercise10-b` virtual machine
 
 === Command line (CLI)
 

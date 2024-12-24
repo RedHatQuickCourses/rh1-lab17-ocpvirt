@@ -42,7 +42,7 @@ link:{openshift_console_url}[{openshift_console_url}^]
 ----
 
 [start=2]
-2. Go to virtualization - virtual machine - select project for the assigned user account
+2. Go to virtualization -> Virtual Machines - select project for the assigned user account
 
 ++++
 <a href="_images/exercise9/09-break02.png" target="_blank" class="popup">
