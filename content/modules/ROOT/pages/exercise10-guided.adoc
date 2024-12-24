@@ -206,7 +206,7 @@ image::exercise10/10-break16.png[]
 ++++
 
 [start=17]
-17. Change from `exercise10-nad` to `exercise10-nad-layer2`
+17. Change `Network` from `exercise10-nad` to `exercise10-nad-layer2`
 
 ++++
 <a href="_images/exercise10/10-break17.png" target="_blank" class="popup">
