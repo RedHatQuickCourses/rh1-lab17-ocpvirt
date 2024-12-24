@@ -42,9 +42,103 @@ link:{openshift_console_url}[{openshift_console_url}^]
 ----
 
 [start=2]
-2. Go to virtualization - virtual machine - select project for the assigned user account - look for VM status
+2. Go to virtualization - virtual machine - select project for the assigned user account
 
-#TODO
+++++
+<a href="_images/exercise9/09-break02.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break02.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Select the `exercise9` virtual machine
+
+++++
+<a href="_images/exercise9/09-break03.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break03.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. Open the virtual machine `Console` tab
+
+++++
+<a href="_images/exercise9/09-break04.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break04.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. Log in with user `lab-user` and password `redhat1`. After that execute the `sudo shutdown -h now` command
+
+++++
+<a href="_images/exercise9/09-break05.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break05.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. Verify the virtual machine stopped
+
+++++
+<a href="_images/exercise9/09-break06.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break06.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. After some seconds the virtual machine will be `Running` again.
+
+++++
+<a href="_images/exercise9/09-break07.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break07.png[]
+++++
+</a>
+++++
+
+[start=8]
+8. Open the YAML tab
+
+++++
+<a href="_images/exercise9/09-break08.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break08.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. Verify that `runStrategy` is configured as `Always`
+ 
+++++
+<a href="_images/exercise9/09-break09.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break09.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. Change it to `Manual`
+
+++++
+<a href="_images/exercise9/09-break10.png" target="_blank" class="popup">
+++++
+image::exercise9/09-break10.png[]
+++++
+</a>
+++++
 
 === Command line (CLI)
 
