@@ -5,6 +5,7 @@
 
 The virtual machines `exercise11-a` and `exercise11-b` are operational and with their IP addresses correctly configured. However, they are not communicating with each other as expected.
 
+
 - Virtual Machine `exercise11-a` IP's addresses
 
 ++++
@@ -61,10 +62,174 @@ link:{openshift_console_url}[{openshift_console_url}^]
 {password}
 ----
 
-[start=2]
-2. Go to Virtualization - VirtualMachines and check the VM status - Running
+[start=1]
+1. Go to Virtualization - VirtualMachines and check the virtual machines IP addresses
 
-TODO
+++++
+<a href="_images/exercise11/11-break0.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break0.png[]
+++++
+</a>
+++++
+
+[start=2]
+2. Verify `exercise11-a` IP address
+
+++++
+<a href="_images/exercise11/11-break1.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break1.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. Verify `exercise11-b` IP address
+
+++++
+<a href="_images/exercise11/11-break2.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break2.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. Click on `exercise11-a` Virtual machine, open `Console`, login with user `lab-user`
+and password `redhat1`. Try to ping and verify it's not working.  
+
+++++
+<a href="_images/exercise11/11-break4.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break4.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. On `exercise11-a` virtual machine, click on `Configuration` -> `Init Run`
+
+++++
+<a href="_images/exercise11/11-break5.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break5.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. Click `edit`
+
+++++
+<a href="_images/exercise11/11-break6.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break6.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. Verify the IP address is configured as cloud-init.
+
+++++
+<a href="_images/exercise11/11-break7.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break7.png[]
+++++
+</a>
+++++
+
+[start=8]
+8. Perform the same steps to `exercise11-b` virtual machine and verify that
+this IP address misconfigured using a `/32` netmask and it must be fixed.
+
+++++
+<a href="_images/exercise11/11-break8.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break8.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. Click on YAML tab and Download the yaml file. It will be used to recreate the virtual machine
+with the correct netmask.
+
+++++
+<a href="_images/exercise11/11-break9.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break9.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. Click `Actions` -> `Delete` to delete the `exercise11-b` virtual machines
+
+++++
+<a href="_images/exercise11/11-break10.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break10.png[]
+++++
+</a>
+++++
+
+[start=11]
+11. Click `Delete`
+
+++++
+<a href="_images/exercise11/11-break11.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break11.png[]
+++++
+</a>
+++++
+
+[start=12]
+12. Wait for `exercise11-b` to be deleted.
+
+++++
+<a href="_images/exercise11/11-break12.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break12.png[]
+++++
+</a>
+++++
+
+[start=13]
+13. Click `+` button to create a new virtual machine using the YAML downloaded on step 9.
+
+++++
+<a href="_images/exercise11/11-break13.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break13.png[]
+++++
+</a>
+++++
+
+[start=14]
+14. Paste the YAML content and edit the IP configured to this VM from `192.168.0.11/32` to `192.168.0.11/24` 
+
+++++
+<a href="_images/exercise11/11-break14.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break14.png[]
+++++
+</a>
+++++
+
+[start=15]
+15. Wait for `exercise11-b` Virtual Machine be recreated and verify that communication os working.
+
+++++
+<a href="_images/exercise11/11-break15.png" target="_blank" class="popup">
+++++
+image::exercise11/11-break15.png[]
+++++
+</a>
+++++
+
 
 === Command line (CLI)
 
