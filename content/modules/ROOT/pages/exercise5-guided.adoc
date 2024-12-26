@@ -55,19 +55,19 @@ oc get virtualmachine
 ----
 
 [start=4]
-4. Check the additional data disk `exercise5-vol-data1` PVC is empty
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc get pvc
-----
-
-[start=5]
 5. Check the additional data disk `exercise5-vol-data1` Datavolume is empty
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc get datavolume
+----
+
+[start=5]
+4. Check the additional data disk `exercise5-vol-data1 does not have no `PersistentVolumeClaims` associated`
+
+[source,sh,role=execute,subs="attributes"]
+----
+oc get pvc
 ----
 
 [start=6]
