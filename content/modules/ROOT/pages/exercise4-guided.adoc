@@ -35,51 +35,7 @@ link:{openshift_console_url}[{openshift_console_url}^]
 ----
 
 [start=2]
-2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise4`.
-
-++++
-<a href="_images/exercise4/01-step2.png" target="_blank" class="popup">
-++++
-image::exercise4/01-step2.png[]
-++++
-</a>
-++++
-
-[start=3]
-3. Go to Virtual Machine details and check the resources being consumed.
-
-++++
-<a href="_images/exercise4/02-step3.png" target="_blank" class="popup">
-++++
-image::exercise4/02-step3.png[]
-++++
-</a>
-++++
-
-[start=4]
-4. XXXXX
-
-++++
-<a href="_images/exercise4/04-break01.png" target="_blank" class="popup">
-++++
-image::exercise4/04-break01.png[]
-++++
-</a>
-++++
-
-[start=5]
-5. XXXXX
-
-++++
-<a href="_images/exercise4/04-break02.png" target="_blank" class="popup">
-++++
-image::exercise4/04-break02.png[]
-++++
-</a>
-++++
-
-[start=6]
-6. XXXXX
+2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account
 
 ++++
 <a href="_images/exercise4/04-break03.png" target="_blank" class="popup">
@@ -89,8 +45,8 @@ image::exercise4/04-break03.png[]
 </a>
 ++++
 
-[start=7]
-7. XXXXX
+[start=3]
+3. Go to Virtual Machine details and check the resources being consumed and the Virtual Machine number of CPU's
 
 ++++
 <a href="_images/exercise4/04-break04.png" target="_blank" class="popup">
@@ -100,8 +56,8 @@ image::exercise4/04-break04.png[]
 </a>
 ++++
 
-[start=8]
-8. XXXXX
+[start=4]
+4. Click `Configuration` tab and change the `CPU | Memory` 
 
 ++++
 <a href="_images/exercise4/04-break05.png" target="_blank" class="popup">
@@ -111,8 +67,8 @@ image::exercise4/04-break05.png[]
 </a>
 ++++
 
-[start=9]
-9. XXXXX
+[start=5]
+5. Change the number of CPU's from 2 to 4 and click `Save`
 
 ++++
 <a href="_images/exercise4/04-break06.png" target="_blank" class="popup">
@@ -122,8 +78,8 @@ image::exercise4/04-break06.png[]
 </a>
 ++++
 
-[start=10]
-10. XXXXX
+[start=7]
+7. Verify the number of CPU's has been changed from 2 to 4.
 
 ++++
 <a href="_images/exercise4/04-break07.png" target="_blank" class="popup">
