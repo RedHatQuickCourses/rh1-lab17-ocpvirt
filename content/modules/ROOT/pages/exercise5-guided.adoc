@@ -12,20 +12,155 @@ NOTE: Virtual machine credentials - lab-user/redhat1
 The steps to fix exercise5 are:
 
 === Console
+
+1. Login to OpenShift console using the assigned user account.
+
+link:{openshift_console_url}[{openshift_console_url}^]
+
+.Username
+[source,sh,role=execute,subs="attributes"]
 ----
-1. Login to Openshift console using the assigned user account
-2. Go to Virtualization - VirtualMachines - select project for the assigned user account - look for VM exercise5 status (Running)
-3. From the VM menu connect to console of exercise5 and login with lab-user credential
-4. From the RHEL 9 run command fdsisk -l or lbslk. The assigned additional disk not exist.
-5. From the Openshift Menu - Storage - PersistentVolumeClaims (PVC) - Check the additional disk PVC (exercise5-vol-data1) status is Pending - Not bound
-6. Go to Virtualization - VirtualMachines - VirtualMachine details - Click Configuration - Select Storage - Look for additional disk (exercise5-vol-data1)
-7. From the additional disk (exercise5-vol-data1) - Select the source - Look in the yaml - Search for storageClassName (pending status from the disk should be ocs-external-storagecluster-cephfs)
-8. Back to VirtualMachine details - Click Configuration - Select Storage - Detach exercise5-vol-data1 disk from the three dots menu
-9 Recreate exercise5-vol-data1 disk by clicking Add disk - Put the name exercise5-vol-data1 - Make sure the StorageClass is ocs-external-storagecluster-ceph-rbd and let default for other value - Save
-10. From the Openshift Menu - Storage - PersistentVolumeClaims (PVC) - Check the additional disk PVC (exercise5-vol-data1) status is Bound
-11. From the VM menu connect to console of exercise5 and login with lab-user credential.
-12. From the RHEL 9 run command fdsisk -l or lbslk. The assigned additional 30GiB disk should be there now and readu to format and mount as filesystem by the user.
+{user}
 ----
+
+.Password
+[source,sh,role=execute,subs="attributes"]
+----
+{password}
+----
+
+[start=2]
+2. Go to Virtualization - VirtualMachines - Select the project for the assigned user account - look for VM called `exercise5`.
+
+++++
+<a href="_images/exercise5/05-break01.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break01.png[]
+++++
+</a>
+++++
+
+[start=3]
+3. On `exercise5` virtual machine click in `Configuration` -> `Storage` and 
+check there's an extra disk.
+
+++++
+<a href="_images/exercise5/05-break02.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break02.png[]
+++++
+</a>
+++++
+
+[start=4]
+4. On left side menu, click `Home` -> `Search` and on `Resources` type `DataVolume`.
+Click on `exercise5-vol-data1` DataVolume
+
+++++
+<a href="_images/exercise5/05-break03.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break03.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. Verify there's an error message on Data Volume.
+
+++++
+<a href="_images/exercise5/05-break04.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break04.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. The storageClassName is misconfigured.
+
+++++
+<a href="_images/exercise5/05-break05.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break05.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. Click `Actions` and `Delete DataVolume`
+
+++++
+<a href="_images/exercise5/05-break06.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break06.png[]
+++++
+</a>
+++++
+
+[start=8]
+8. Click `Delete`
+
+++++
+<a href="_images/exercise5/05-break07.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break07.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. Click on `Create DataVolume` button and paste the content to create a new Data Volume 
+with the correct `storageClassName`
+
+++++
+<a href="_images/exercise5/05-break08.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break08.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. Paste the content of the new DataVolume with storageClassName fixed and click `Create`
+
+[source,sh,role=execute]
+----
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: exercise5-vol-data1
+spec:
+  preallocation: false
+  source:
+    blank: {}
+  storage:
+    resources:
+      requests:
+        storage: 30Gi
+    storageClassName: ocs-storagecluster-ceph-rbd
+----
+
+++++
+<a href="_images/exercise5/05-break09.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break09.png[]
+++++
+</a>
+++++
+
+[start=11]
+11. Wait for Data Volume status change to `Succeeded`
+
+++++
+<a href="_images/exercise5/05-break10.png" target="_blank" class="popup">
+++++
+image::exercise5/05-break10.png[]
+++++
+</a>
+++++
+
+[start=12]
+12. You can run the `lab grade exercise5` command to validate the exercise.
 
 === Command line (CLI)
 
