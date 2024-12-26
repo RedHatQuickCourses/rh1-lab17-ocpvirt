@@ -56,7 +56,82 @@ image::exercise4/02-step3.png[]
 </a>
 ++++
 
-TODO
+[start=4]
+4. XXXXX
+
+++++
+<a href="_images/exercise4/04-break01.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break01.png[]
+++++
+</a>
+++++
+
+[start=5]
+5. XXXXX
+
+++++
+<a href="_images/exercise4/04-break02.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break02.png[]
+++++
+</a>
+++++
+
+[start=6]
+6. XXXXX
+
+++++
+<a href="_images/exercise4/04-break03.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break03.png[]
+++++
+</a>
+++++
+
+[start=7]
+7. XXXXX
+
+++++
+<a href="_images/exercise4/04-break04.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break04.png[]
+++++
+</a>
+++++
+
+[start=8]
+8. XXXXX
+
+++++
+<a href="_images/exercise4/04-break05.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break05.png[]
+++++
+</a>
+++++
+
+[start=9]
+9. XXXXX
+
+++++
+<a href="_images/exercise4/04-break06.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break06.png[]
+++++
+</a>
+++++
+
+[start=10]
+10. XXXXX
+
+++++
+<a href="_images/exercise4/04-break07.png" target="_blank" class="popup">
+++++
+image::exercise4/04-break07.png[]
+++++
+</a>
+++++
 
 === Command line (CLI)
 
