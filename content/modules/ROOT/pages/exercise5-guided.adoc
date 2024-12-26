@@ -266,4 +266,4 @@ virtctl console exercise5
 === What you learned
 
 In this exercise, you learned that disks are not presented to virtual machines until Persistent Volume Claims (PVCs) are created. 
-To change the `defaultStorageClass` of a data volume in OpenShift Virtualization, you need to delete the existing data volume and create a new one with the desired storage class.
+To change the `storageClassName` of a data volume in OpenShift Virtualization, you need to delete the existing data volume and create a new one with the desired storage class.
