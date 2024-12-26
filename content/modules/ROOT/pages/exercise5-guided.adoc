@@ -90,14 +90,13 @@ oc delete datavolume exercise5-vol-data1
 [start=8]
 8. Create again the DataVolume by using the `storageClassName` of `ocs-storagecluster-ceph-rbd` with the name `exercise5-vol-data1` and using 30GiB size.
 
-[source,sh,role=execute,subs="attributes"]
+[source,sh,role=execute]
 ----
 oc create -f - <<EOF
 apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: exercise5-vol-data1
-  namespace: namespace-{user}
 spec:
   preallocation: false
   source:
