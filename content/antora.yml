@@ -8,7 +8,7 @@ asciidoc:
   attributes:
     lab_name: "OpenShift Virtualization: Troubleshooting virtual machines common issues"
     release-version: master
-    cloud_provider: gcp
+    # cloud_provider: gcp
     #cloud_provider: my-cloud_provider
     page-pagination: true
     my_var: "foo"
