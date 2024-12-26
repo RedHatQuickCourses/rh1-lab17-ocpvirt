@@ -108,7 +108,7 @@ image::exercise11/11-break4.png[]
 ++++
 
 [start=5]
-5. On `exercise11-a` virtual machine, click on `Configuration` -> `Init Run`
+5. On `exercise11-a` virtual machine, click on `Configuration` -> `Initial run`
 
 ++++
 <a href="_images/exercise11/11-break5.png" target="_blank" class="popup">
@@ -141,8 +141,7 @@ image::exercise11/11-break7.png[]
 ++++
 
 [start=8]
-8. Perform the same steps to `exercise11-b` virtual machine and verify that
-this IP address misconfigured using a `/32` netmask and it must be fixed.
+8. Perform the same steps to `exercise11-b` virtual machine and verify that this IP address was misconfigured using a /32 netmask, which must be fixed.
 
 ++++
 <a href="_images/exercise11/11-break8.png" target="_blank" class="popup">

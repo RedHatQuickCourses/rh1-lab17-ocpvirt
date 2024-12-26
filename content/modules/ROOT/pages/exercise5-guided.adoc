@@ -28,7 +28,8 @@ The steps to fix exercise5 are:
 ----
 
 === Command line (CLI)
-- Login to Openshift server API using the assigned user account with `oc` command if not logged in
+
+1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
 
 .OpenShift login command
 [source,sh,role=execute,subs="attributes"]
@@ -36,56 +37,58 @@ The steps to fix exercise5 are:
 {login_command}
 ----
 
-- Go to assigned namespace-{user}
+[start=2]
+2. Go to the assigned namespace-{user}
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc project namespace-{user}
 ----
 
-- Check the virtual machine status and make sure it's running
+[start=3]
+3. List the virtual machines
+
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get vm
+oc get virtualmachine
 ----
 
-- Check the additional data disk (exercise5-vol-data1) status is Pending - Not bound
-
-[source,sh,role=execute,subs="attributes"]
-----
-oc get datavolume,pvc
-----
-
-- Check the configuration of exercise5-vol-data1 disk. 
-- From the yaml editor check for the storageClassName and it should be `ocs-external-storagecluster-cephrbd`
+[start=4]
+4. Check the additional data disk `exercise5-vol-data1` PVC is empty
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get pvc exercise5-vol-data1 -n namespace-{user} -o yaml
+oc get pvc
 ----
 
-- Delete the DataVolume and PersistentVolumeClaims of exercise5-vol-data1
+[start=5]
+5. Check the additional data disk `exercise5-vol-data1` Datavolume is empty
 
 [source,sh,role=execute,subs="attributes"]
 ----
-virtctl removevolume exercise5 --volume-name=exercise5-vol-data1 --persist
+oc get datavolume
 ----
 
-- expected output
+[start=6]
+6. Check the configuration of `exercise5-vol-data1` Datavolume and verify that 
+there is a misconfigured defaultStorageClass 
 
+[source,sh,role=execute,subs="attributes"]
 ----
-Successfully submitted remove volume request to VM exercise5 for volume exercise5-vol-data1
+oc get datavolume exercise5-vol-data1 -n namespace-{user} -o yaml
 ----
 
-- Delete the the pvc
+[start=7]
+7. Delete the the datavolume exercise5-vol-data1
 
 [source,sh,role=execute,subs="attributes"]
 ----
 oc delete datavolume exercise5-vol-data1
 ----
 
-- Create again the pvc by using the storageClassName of ocs-external-storagecluster-ceph-rbd with the name exercise5-vol-data1 and using 30GiB size.
+[start=8]
+8. Create again the DataVolume by using the `storageClassName` of `ocs-storagecluster-ceph-rbd` with the name `exercise5-vol-data1` and using 30GiB size.
 
 [source,sh,role=execute]
 ----
@@ -94,6 +97,7 @@ apiVersion: cdi.kubevirt.io/v1beta1
 kind: DataVolume
 metadata:
   name: exercise5-vol-data1
+  namespace: namespace-{user}
 spec:
   preallocation: false
   source:
@@ -102,31 +106,30 @@ spec:
     resources:
       requests:
         storage: 30Gi
-    storageClassName: ocs-external-storagecluster-ceph-rbd
+    storageClassName: ocs-storagecluster-ceph-rbd
 EOF
 ----
 
-- Create DataVolume of exercise5-vol-data1
-
-[source,sh,role=execute,subs="attributes"]
-----
-virtctl addvolume exercise5 --volume-name=exercise5-vol-data1 --persist
-----
-
-- Check the status of exercise5-vol-data1 and wait for the additional disk to pre provisioned
+[start=9]
+9. Check the status of exercise5-vol-data1 and wait for the additional disk to be provisioned
 
 [source,sh,role=execute,subs="attributes"]
 ----
 watch oc get pvc
 ----
 
-- Go to virtual machine console of exercise5 and login using lab-user credential
+[start=10]
+10. Go to virtual machine console of exercise5 and login using lab-user credential
 
 [source,sh,role=execute,subs="attributes"]
 ----
 virtctl console exercise5
 ----
 
-- Check the disk availability using lsblk or fdisk -l command. The new additional disk from exercise5-vol-data1 should be there and ready to be format and mount by the user.
+[start=11]
+11. Check the disk availability using `lsblk` or `fdisk -l` command. The new additional disk from `exercise5-vol-data1` should be there and ready to be format and mount by the user.
 
 === What you learned
+
+In this exercise, you learned that disks are not presented to virtual machines until Persistent Volume Claims (PVCs) are created. 
+To change the `defaultStorageClass` of a data volume in OpenShift Virtualization, you need to delete the existing data volume and create a new one with the desired storage class.
