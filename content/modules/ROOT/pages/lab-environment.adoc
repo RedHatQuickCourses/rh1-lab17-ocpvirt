@@ -84,6 +84,8 @@ image::lab-environment/tmux.png[]
 </a>
 ++++
 
+NOTE: Do not edit nothing within virtual machine OS.
+
 === What you learned section
 
 At the end of each `Guided Solution` exercise, you'll find a detailed explanation of the solution along with a review of the key concepts you learned during the activity.
