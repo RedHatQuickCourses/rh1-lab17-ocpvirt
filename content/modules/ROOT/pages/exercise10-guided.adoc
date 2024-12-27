@@ -229,6 +229,12 @@ image::exercise10/10-break18.png[]
 
 Repeat steps 15, 16, 17, and 18 for the `exercise10-b` virtual machine
 
+.Run grade to validate the exercise
+[source,sh,role=execute,subs="attributes"]
+----
+lab grade exercise10
+----
+
 === Command line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.

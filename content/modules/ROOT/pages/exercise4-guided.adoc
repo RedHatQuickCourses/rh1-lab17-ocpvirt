@@ -89,6 +89,12 @@ image::exercise4/04-break07.png[]
 </a>
 ++++
 
+.Run grade to validate the exercise
+[source,sh,role=execute,subs="attributes"]
+----
+lab grade exercise4
+----
+
 === Command line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.

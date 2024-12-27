@@ -162,6 +162,12 @@ image::exercise5/05-break10.png[]
 [start=12]
 12. You can run the `lab grade exercise5` command to validate the exercise.
 
+.Run grade to validate the exercise
+[source,sh,role=execute,subs="attributes"]
+----
+lab grade exercise5
+----
+
 === Command line (CLI)
 
 1. Login to Openshift server API using the assigned user account with `oc` command if not logged in.
