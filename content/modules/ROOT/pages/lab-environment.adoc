@@ -63,7 +63,7 @@ All virtual machines in this lab are configured with the user account `lab-user`
 
 _* Except exercise8_
 
-NOTE: Do not make any changes to the operating system within the virtual machine.
+NOTE: Do not make any changes within the virtual machine operating system.
 
 == Guided solutions
 
