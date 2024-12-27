@@ -222,7 +222,7 @@ virtctl restart exercise1
 ----
 
 [start=8]
-8. Wait until the virtual machine is started and make sure it is in running state
+8. Wait until the virtual machine is started and make sure it is in `running` state
 
 [source,sh,role=execute,subs="attributes"]
 ----

@@ -3,7 +3,7 @@
 
 == Scenario
 
-In this scenario, a Virtual Machine named `exercise4` is currently in a Running state. The development team has reported performance issues with an application hosted on this VM.
+In this scenario, a Virtual Machine named `exercise4` is currently in a `running` state. The development team has reported performance issues with an application hosted on this VM.
 
 Your task is to investigate the problem by analyzing the VM’s resource usage, including CPU, memory, and other relevant metrics. You are permitted to adjust the VM's compute resources as needed to resolve the issue; however, a reboot is not permitted.
 
