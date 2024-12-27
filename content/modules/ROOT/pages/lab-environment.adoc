@@ -63,6 +63,8 @@ All virtual machines in this lab are configured with the user account `lab-user`
 
 _* Except exercise8_
 
+NOTE: Do not make any changes to the operating system within the virtual machine.
+
 == Guided solutions
 
 At the end of this lab, there's a xref:guidedsolution.adoc[Guided Solution] for all exercises that you can use to learn how to solve the problem step by step.
@@ -83,8 +85,6 @@ image::lab-environment/tmux.png[]
 ++++
 </a>
 ++++
-
-NOTE: Do not make any changes to the operating system within the virtual machine.
 
 === What you learned section
 
