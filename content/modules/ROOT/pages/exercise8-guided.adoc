@@ -104,3 +104,5 @@ virtctl ssh lab-user@exercise8
 ----
 
 === What you learned
+
+In this exercise, you learned that you can use `virtcl` to add SSH keys to RHEL-9 virtual machines if dynamic credential support is enabled on the VM.
