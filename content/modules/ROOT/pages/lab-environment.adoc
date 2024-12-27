@@ -84,7 +84,7 @@ image::lab-environment/tmux.png[]
 </a>
 ++++
 
-NOTE: Do not edit nothing within virtual machine OS.
+NOTE: Do not make any changes to the operating system within the virtual machine.
 
 === What you learned section
 
