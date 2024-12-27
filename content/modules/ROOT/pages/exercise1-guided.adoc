@@ -194,7 +194,7 @@ oc get vm exercise1 -oyaml
 
 
 [start=6]
-6. Edit the virtual machine to assign a value lower than 16Gi.
+6. Edit the virtual machine to assign 8Gi memory.
 
 [source,sh,role=execute,subs="attributes"]
 ----
