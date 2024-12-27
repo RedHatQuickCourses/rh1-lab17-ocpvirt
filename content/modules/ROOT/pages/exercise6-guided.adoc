@@ -100,7 +100,6 @@ image::exercise6/04-step5-1.png[]
           disks:
             - disk:
                 bus: virtio
-                readonly: false
               name: rootdisk
             - disk:
                 bus: virtio
@@ -198,7 +197,6 @@ oc edit vm exercise6
           disks:
             - disk:
                 bus: virtio
-                readonly: false
               name: rootdisk
             - disk:
                 bus: virtio
