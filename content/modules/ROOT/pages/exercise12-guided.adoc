@@ -242,7 +242,7 @@ spec:
 ----
 
 [start=9]
-9. Verify that multi-networkpolicy `deny-by-default` is blocking all connections on namespace-{user}
+9. Verify that multi-networkpolicy `allow-80-on-exercise12 is allowing only all connections from `exercise12-b` Virtual Machines
 
 [source,sh,role=execute,subs="attributes"]
 ----
