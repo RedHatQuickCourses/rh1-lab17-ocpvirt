@@ -30,6 +30,7 @@ image::exercise4/04-break02.png[]
 * The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
 * Do not kill any process running inside the virtual machine
 * Do not reboot the virtual machine
+* The amount of CPU available for the virtual machine in this lab is 4.
 ====
 
 .Command to check the CPU usage on Virtual Machine

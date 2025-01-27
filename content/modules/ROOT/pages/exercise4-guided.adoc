@@ -12,6 +12,7 @@ Your task is to investigate the problem by analyzing the VM’s resource usage, 
 * The goal is to identify bottlenecks or misconfigurations and implement optimizations to enhance the application's efficiency within the virtualized infrastructure.
 * Do not kill any process running inside the virtual machine
 * Do not reboot the virtual machine
+* The amount of CPU available for the virtual machine in this lab is 4.
 ====
 
 The steps to fix exercise4 are:
