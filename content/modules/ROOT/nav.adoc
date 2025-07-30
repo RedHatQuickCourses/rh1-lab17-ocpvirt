@@ -27,8 +27,6 @@
 * xref:exercise9-break.adoc#break[9. The VM doesn't stop when shutdown is run inside the guest OS]
 ** xref:exercise9-check.adoc#check[9.1. Check your work]
 
-ifeval::["{cloud_provider}" == "gcp"]
-
 * xref:exercise10-break.adoc#break[10. Enabling VM communication - Part 1]
 ** xref:exercise10-check.adoc#check[10.1. Check your work]
 
@@ -38,7 +36,7 @@ ifeval::["{cloud_provider}" == "gcp"]
 * xref:exercise12-break.adoc#break[12. Enabling VM communication - Part 3]
 ** xref:exercise12-check.adoc#check[12.2. Check your work]
 
-endif::[]
+
 
 
 
@@ -52,9 +50,6 @@ endif::[]
 ** xref:exercise7-guided.adoc[Exercise 7]
 ** xref:exercise8-guided.adoc[Exercise 8]
 ** xref:exercise9-guided.adoc[Exercise 9]
-
-ifeval::["{cloud_provider}" == "gcp"]
 ** xref:exercise10-guided.adoc[Exercise 10]
 ** xref:exercise11-guided.adoc[Exercise 11]
 ** xref:exercise12-guided.adoc[Exercise 12]
-endif::[]
