@@ -8,7 +8,7 @@ The application runs on a virtual machine `exercise3` and is intended to be acce
 ++++
 <a href="_images/exercise3/03-step2.png" target="_blank" class="popup">
 ++++
-image::exercise3/03-step2.png[]
+images::exercise3/03-step2.png[]
 ++++
 </a>
 ++++
