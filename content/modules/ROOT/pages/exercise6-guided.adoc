@@ -111,7 +111,13 @@ image::exercise6/04-step5-1.png[]
 [start=8]
 8. Start again the virtual machine. Check the node where the virtual machine is placed.
 
+++++
+<a href="_images/exercise6/05-step8.png" target="_blank" class="popup">
+++++
 image::exercise6/05-step8.png[]
+++++
+</a>
+++++
 
 [start=9]
 9. Migrate virtual machine.
@@ -119,7 +125,13 @@ image::exercise6/05-step8.png[]
 [start=10]
 10. The virtual machine should be migrated to another node successfully.
 
+++++
+<a href="_images/exercise6/06-step10.png" target="_blank" class="popup">
+++++
 image::exercise6/06-step10.png[]
+++++
+</a>
+++++
 
 
 .Run grade to validate the exercise
