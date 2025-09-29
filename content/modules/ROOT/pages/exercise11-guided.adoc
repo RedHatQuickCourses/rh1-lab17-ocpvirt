@@ -164,7 +164,7 @@ image::exercise11/11-break9.png[]
 ++++
 
 [start=10]
-10. Click `Actions` -> `Delete` to delete the `exercise11-b` virtual machines
+10. Click `Actions` -> `Stop` -> `Actions` -> `Delete` to delete the `exercise11-b` virtual machines
 
 ++++
 <a href="_images/exercise11/11-break10.png" target="_blank" class="popup">
@@ -197,7 +197,7 @@ image::exercise11/11-break12.png[]
 ++++
 
 [start=13]
-13. Click `+` button to create a new virtual machine using the YAML downloaded on step 9.
+13. Click `+` --> `Import YAML` button to create a new virtual machine using the YAML downloaded on step 9.
 
 ++++
 <a href="_images/exercise11/11-break13.png" target="_blank" class="popup">

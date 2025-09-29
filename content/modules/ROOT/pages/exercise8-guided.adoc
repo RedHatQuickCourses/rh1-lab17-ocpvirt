@@ -49,8 +49,9 @@ virtctl ssh lab-user@exercise8
 
 [source,subs="attributes"]
 ----
-Warning: Permanently added 'vmi/exercise8.namespace-{user}' (ED25519) to the list of known hosts.
-lab-user@vmi/exercise8.namespace-{user}: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+{"component":"portforward","level":"warning","msg":"Defaulting to type 'vmi'.\nOmitting the type in the target is deprecated.\nSpecifying the type will become mandatory with the next release.","pos":"portforward.go:243","timestamp":"202X-XX-XXTXX:XX:XX.XXXXXXZ"}
+Warning: Permanently added 'vmi/exercise8.namespace-user5' (ED25519) to the list of known hosts.
+lab-user@vmi/exercise8.namespace-user5: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
 exit status 255
 ----
 
