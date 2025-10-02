@@ -168,7 +168,7 @@ oc get vmi
 
 ----
 NAME        AGE   PHASE     IP            NODENAME                 READY
-exercise6   11m   Running   10.132.2.46   worker-cluster-1   True
+exercise6   11m   Running   10.132.2.11   worker-cluster-1   True
 ----
 
 [start=4]
@@ -241,7 +241,7 @@ oc get vmi
 
 ----
 NAME        AGE   PHASE     IP            NODENAME                 READY
-exercise6   98s   Running   10.132.2.48   worker-cluster-vmnjk-1   True
+exercise6   98s   Running   10.132.2.11   worker-cluster-vmnjk-1   True
 ----
 
 [start=10]

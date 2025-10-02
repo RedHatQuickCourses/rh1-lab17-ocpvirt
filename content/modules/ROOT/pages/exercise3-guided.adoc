@@ -96,7 +96,7 @@ image::exercise3/05-step6.png[]
 
 [source,sh,role=execute,subs="attributes"]
 ----
-curl 172.31.247.113:80
+curl 172.31.155.175:80
 ----
 
 [start=8]

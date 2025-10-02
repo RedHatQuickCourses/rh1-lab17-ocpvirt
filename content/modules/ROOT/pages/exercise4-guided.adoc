@@ -232,5 +232,6 @@ virtctl ssh lab-user@exercise4 \
 
 === What you learned
 
-In this exercise, you learned that when working with a RHEL 9 virtual machine, there is no need to shut down or reboot the VM to modify the CPU configuration.
+In this exercise, you learned that when working with a RHEL 9 virtual machine, there is no need to shut down or reboot the VM to modify the CPU configuration. 
 Instead, you can perform a CPU hotplug operation while the VM is running.
+Even without using it in this exercise, it's possible to perform memory hotplug without rebooting the virtual machine as well.
