@@ -20,7 +20,7 @@ The steps to fix exercise9 are:
 .Breaking the exercise
 [source,sh,role=execute,subs="attributes"]
 ----
-lab break exercise
+lab break exercise9
 ----
 
 === Console

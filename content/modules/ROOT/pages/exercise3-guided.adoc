@@ -6,7 +6,7 @@
 The application runs on a virtual machine `exercise3` and is intended to be accessible externally through link:https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}[https://exercise3-namespace-{user}.{openshift_cluster_ingress_domain}^], but it’s currently facing connectivity issues.
 
 ++++
-<a href="_images/exercise3/03-step2.png" target="_blank" class="popup">
+<a href="_image::exercise3/03-step2.png" target="_blank" class="popup">
 ++++
 image::exercise3/03-step2.png[]
 ++++
@@ -96,7 +96,7 @@ image::exercise3/05-step6.png[]
 
 [source,sh,role=execute,subs="attributes"]
 ----
-curl 172.31.247.113:80
+curl 172.31.155.175:80
 ----
 
 [start=8]

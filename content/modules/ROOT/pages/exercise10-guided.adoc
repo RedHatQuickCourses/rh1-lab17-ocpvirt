@@ -105,7 +105,7 @@ image::exercise10/10-break07.png[]
 ++++
 
 [start=8]
-8. O left side menu click `Networking` -> `NodeNetworkState` and check there's a `linux bridge` interface on nodes
+8. O left side menu click `Networking` -> `NodeNetworkConfiguration` --> click on the `list` button on the top right, and check there's a `linux bridge` interface on nodes
 
 ++++
 <a href="_images/exercise10/10-break08.png" target="_blank" class="popup">
@@ -116,7 +116,7 @@ image::exercise10/10-break08.png[]
 ++++
 
 [start=9]
-9. Click `linux bridge` -> `br10`
+9. Click `linux bridge` -> `br-{user}`
 
 ++++
 <a href="_images/exercise10/10-break09.png" target="_blank" class="popup">
@@ -302,13 +302,13 @@ oc get network-attachment-definitions.k8s.cni.cncf.io exercise10-nad -o yaml
 ----
 
 [start=8]
-8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br10` interface. Verify that this `Linux bridge` is not attached to any physical port (one or more veth* port are used), 
+8. Ensure that the NaD (NetworkAttachmentDefinition) is configured to use a `br-{user}` interface. Verify that this `Linux bridge` is not attached to any physical port (one or more veth* port are used), 
   meaning virtual machines will only be able to communicate if they are running on the same node. 
   Therefore, you must recreate the NaD to use `layer2` networking instead of `Linux bridge`. Create `layer2-nad.yaml` and apply it.
 
 [source,sh,role=execute,subs="attributes"]
 ----
-oc get nns -o yaml | grep -A 2 -B 73 br10 | grep -A4 port
+oc get nns -o yaml | grep -A 2 -B 73 br-{user} | grep -A4 port
 ----
 
 [source,sh,role=execute,subs="attributes"]
